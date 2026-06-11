@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#0a4a2a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Islamic Insights">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/icons/icon-192.png">
+<script>if("serviceWorker"in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("/sw.js",{scope:"/"}).then(function(r){console.log("SW",r.scope);}).catch(function(e){console.log("SW err",e);});});}</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VZJ1ETL0JQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-VZJ1ETL0JQ");
+</script>
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<title>Islamic Books & Downloads — Islamic Insights</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.books-hero{background:linear-gradient(135deg,#0a4a2a,#041f10);padding:60px 24px;text-align:center;}
+.books-hero h1{font-family:'Playfair Display',serif;font-size:42px;color:white;margin-bottom:12px;}
+.books-hero p{color:rgba(255,255,255,.7);font-size:16px;max-width:500px;margin:0 auto;}
+.books-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;padding:40px 24px;max-width:1100px;margin:0 auto;}
+.book-card{background:white;border-radius:16px;border:1px solid #e5e7eb;overflow:hidden;transition:transform .2s,box-shadow .2s;}
+.book-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(10,74,42,.12);}
+.book-cover{height:180px;display:flex;align-items:center;justify-content:center;font-size:72px;}
+.book-info{padding:20px;}
+.book-tag{display:inline-block;background:#e8f5ef;color:#0a4a2a;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:10px;text-transform:uppercase;letter-spacing:1px;}
+.book-title{font-family:'Playfair Display',serif;font-size:18px;color:#1a1a1a;margin-bottom:6px;line-height:1.3;}
+.book-desc{font-size:13px;color:#666;line-height:1.6;margin-bottom:16px;}
+.book-price{font-size:20px;font-weight:700;color:#0a4a2a;margin-bottom:14px;}
+.book-price span{font-size:13px;font-weight:400;color:#999;text-decoration:line-through;margin-left:6px;}
+.btn-free{display:block;text-align:center;background:linear-gradient(135deg,#0a4a2a,#0e6b3a);color:white;padding:11px;border-radius:50px;font-size:13px;font-weight:700;text-decoration:none;border:none;cursor:pointer;font-family:'Outfit',sans-serif;width:100%;}
+.btn-paid{display:block;text-align:center;background:linear-gradient(135deg,#c8941c,#e8b84b);color:#1a1612;padding:11px;border-radius:50px;font-size:13px;font-weight:700;text-decoration:none;border:none;cursor:pointer;font-family:'Outfit',sans-serif;width:100%;margin-top:8px;}
+.btn-free:hover,.btn-paid:hover{opacity:.9;}
+.ep-box{background:linear-gradient(135deg,#e8f5ef,#d0ead9);border:1px solid #a8d5bc;border-radius:12px;padding:16px;margin-top:12px;text-align:center;font-size:12px;color:#0a4a2a;}
+.ep-num{font-size:20px;font-weight:700;letter-spacing:2px;color:#0a4a2a;margin:6px 0;}
+.pwa-banner{background:linear-gradient(135deg,#c8941c,#e8b84b);padding:24px;text-align:center;margin:0 24px 32px;border-radius:16px;max-width:1100px;margin:0 auto 32px;}
+.pwa-banner h3{font-family:'Playfair Display',serif;font-size:22px;color:#1a1612;margin-bottom:8px;}
+.pwa-banner p{font-size:13px;color:rgba(0,0,0,.6);margin-bottom:16px;}
+.pwa-steps{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:16px;}
+.pwa-step{background:rgba(255,255,255,.6);padding:10px 16px;border-radius:50px;font-size:12px;font-weight:600;color:#1a1612;}
+.btn-install{background:#0a4a2a;color:white;padding:12px 32px;border-radius:50px;border:none;font-size:14px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;}
+</style>
+</head>
+<body>
+
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" onclick="document.getElementById('mobileNav').classList.remove('open')">✕</button>
+  <nav class="mobile-nav-links">
+    <a href="index.html">Home</a>
+    <a href="religion.html">Religion</a>
+    <a href="history.html">History</a>
+    <a href="muharram.html">Muharram</a>
+    <a href="series.html">Series</a>
+    <a href="news.html">News</a>
+    <a href="poetry.html">Poetry</a>
+    <a href="raising-faith.html">Raising Faith</a>
+    <a href="islamic-app.html">Islamic App</a>
+    <a href="books.html" style="color:var(--gold-light);">📚 Books</a>
+    <a href="about.html">About</a>
+  </nav>
+</div>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-emblem"><svg viewBox="0 0 52 52"><rect width="52" height="52" rx="13" fill="#0a4a2a"/><text x="26" y="36" font-family="Scheherazade New,serif" font-size="28" fill="#c8941c" text-anchor="middle">☪</text><rect x="6" y="6" width="40" height="40" rx="9" fill="none" stroke="rgba(200,148,28,0.3)" stroke-width="1"/></svg></div>
+      <div class="logo-text"><h1>Islamic Insights</h1><p>Quran & AhlulBayt</p></div>
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="series.html">Series</a>
+      <a href="islamic-app.html">App</a>
+      <a href="books.html" class="active">Books</a>
+      <a href="about.html">About</a>
+    </nav>
+    <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank" class="btn-yt">▶ YouTube</a>
+    <div class="hamburger" onclick="document.getElementById('mobileNav').classList.add('open')"><span></span><span></span><span></span></div>
+  </div>
+</header>
+<!-- App Download Banner -->
+<div style="background:linear-gradient(135deg,#0a4a2a,#041f10);padding:20px 24px;text-align:center;">
+  <p style="color:rgba(255,255,255,.7);font-size:13px;margin:0 0 4px;">📱 Islamic Insights App</p>
+  <h2 style="font-family:'Playfair Display',serif;color:#e8b84b;font-size:22px;margin:0 0 12px;">App Download karein — Bilkul FREE</h2>
+  <a href="https://drive.google.com/file/d/1CNs0Lf5KNiC9zeSvzDX7SQFDlpaSSnQ0/view?usp=sharing" target="_blank" style="display:inline-block;background:linear-gradient(135deg,#c8941c,#e8b84b);color:#1a1612;padding:13px 32px;border-radius:50px;font-size:14px;font-weight:700;text-decoration:none;margin-bottom:8px;">⬇ Download App (Android)</a>
+  <p style="color:rgba(255,255,255,.5);font-size:11px;margin:8px 0 0;">Google Drive khulega → Download button dabain → Install karein</p>
+</div>
+
+<div class="books-hero">
+  <h1>📚 Islamic Books & Downloads</h1>
+  <p>Free & premium Islamic resources — Hadees collections, Dua books, and more</p>
+</div>
+
+<!-- PWA Install Banner -->
+<div style="padding:24px 24px 0;">
+<div class="pwa-banner" id="pwa-section">
+  <h3>⬇ Install Islamic Insights App — FREE</h3>
+  <p>Install our app on your phone — works offline, no app store needed!</p>
+  <div class="pwa-steps">
+    <div class="pwa-step">1️⃣ Open in Chrome/Safari</div>
+    <div class="pwa-step">2️⃣ Tap menu (⋮ or Share)</div>
+    <div class="pwa-step">3️⃣ "Add to Home Screen"</div>
+    <div class="pwa-step">4️⃣ Done! App installed ✅</div>
+  </div>
+  <a href="https://drive.google.com/file/d/1CNs0Lf5KNiC9zeSvzDX7SQFDlpaSSnQ0/view?usp=sharing" target="_blank" class="btn-install" style="display:inline-block;text-decoration:none;padding:12px 32px;">⬇ Download App (Android APK)</a>
+  <p style="font-size:11px;color:rgba(0,0,0,.4);margin-top:8px;">Free forever · Works offline · No app store needed</p>
+</div>
+</div>
+
+<!-- Books Grid -->
+<div class="books-grid">
+
+  <!-- Free Book 1 -->
+  <div class="book-card">
+    <div class="book-cover" style="background:linear-gradient(135deg,#e8f5ef,#c5e3d0);">📖</div>
+    <div class="book-info">
+      <div class="book-tag">FREE</div>
+      <div class="book-title">40 Hadees of Imam Ali (as)</div>
+      <div class="book-desc">A curated collection of 40 profound sayings of Imam Ali ibn Abi Talib (as) with Urdu and English translation.</div>
+      <div class="book-price">FREE <span>PKR 200</span></div>
+      <button class="btn-free" onclick="downloadFree('40-hadees-imam-ali')">⬇ Download Free PDF</button>
+      <div class="ep-box">To support us after downloading:<br><span class="ep-num">03337546622</span><br>EasyPaisa / JazzCash (Optional Sadaqah)</div>
+    </div>
+  </div>
+
+  <!-- Free Book 2 -->
+  <div class="book-card">
+    <div class="book-cover" style="background:linear-gradient(135deg,#faeeda,#f5d4a0);">🌙</div>
+    <div class="book-info">
+      <div class="book-tag">FREE</div>
+      <div class="book-title">Duas for Every Day — Pocket Guide</div>
+      <div class="book-desc">Morning, evening, and daily duas from the Quran and AhlulBayt. Arabic with Urdu transliteration.</div>
+      <div class="book-price">FREE</div>
+      <button class="btn-free" onclick="downloadFree('daily-duas-guide')">⬇ Download Free PDF</button>
+    </div>
+  </div>
+
+  <!-- Paid Book 1 -->
+  <div class="book-card">
+    <div class="book-cover" style="background:linear-gradient(135deg,#e6eefa,#b5d4f4);">📿</div>
+    <div class="book-info">
+      <div class="book-tag" style="background:#faeeda;color:#854f0b;">PREMIUM</div>
+      <div class="book-title">Complete Sahifa al-Sajjadiyya — Urdu Translation</div>
+      <div class="book-desc">Full translation of Imam Zainul Abideen's (as) prayer collection — the Psalms of the AhlulBayt.</div>
+      <div class="book-price">PKR 500</div>
+      <button class="btn-paid" onclick="buyBook('sahifa-sajjadiyya', 500)">💳 Buy — Send PKR 500</button>
+      <div class="ep-box">Send PKR 500 to EasyPaisa:<br><span class="ep-num">03337546622</span><br>Then email proof: <strong>zs673811@gmail.com</strong></div>
+    </div>
+  </div>
+
+  <!-- Paid Book 2 -->
+  <div class="book-card">
+    <div class="book-cover" style="background:linear-gradient(135deg,#fbeaf0,#ed93b1);">⚔️</div>
+    <div class="book-info">
+      <div class="book-tag" style="background:#faeeda;color:#854f0b;">PREMIUM</div>
+      <div class="book-title">Karbala — The Complete Story</div>
+      <div class="book-desc">A detailed, authentic account of the events of Karbala from 60 AH to 61 AH. Urdu & English edition.</div>
+      <div class="book-price">PKR 300</div>
+      <button class="btn-paid" onclick="buyBook('karbala-complete', 300)">💳 Buy — Send PKR 300</button>
+      <div class="ep-box">Send PKR 300 to EasyPaisa:<br><span class="ep-num">03337546622</span><br>Then email: <strong>zs673811@gmail.com</strong></div>
+    </div>
+  </div>
+
+  <!-- Paid Book 3 -->
+  <div class="book-card">
+    <div class="book-cover" style="background:linear-gradient(135deg,#eeedfe,#afa9ec);">🌿</div>
+    <div class="book-info">
+      <div class="book-tag" style="background:#faeeda;color:#854f0b;">PREMIUM</div>
+      <div class="book-title">Raising Muslim Children — Parent's Guide</div>
+      <div class="book-desc">A comprehensive guide for Muslim parents. Backed by Quran, Sunnah, and child psychology research.</div>
+      <div class="book-price">PKR 400</div>
+      <button class="btn-paid" onclick="buyBook('raising-muslim-children', 400)">💳 Buy — Send PKR 400</button>
+      <div class="ep-box">Send PKR 400 to EasyPaisa:<br><span class="ep-num">03337546622</span><br>Then email: <strong>zs673811@gmail.com</strong></div>
+    </div>
+  </div>
+
+  <!-- Paid Book 4 -->
+  <div class="book-card">
+    <div class="book-cover" style="background:linear-gradient(135deg,#e1f5ee,#5dcaa5);">📜</div>
+    <div class="book-info">
+      <div class="book-tag" style="background:#faeeda;color:#854f0b;">PREMIUM</div>
+      <div class="book-title">Nahj al-Balagha — Selected Sermons (Urdu)</div>
+      <div class="book-desc">50 selected sermons of Imam Ali (as) with detailed Urdu commentary and spiritual reflection.</div>
+      <div class="book-price">PKR 350</div>
+      <button class="btn-paid" onclick="buyBook('nahj-selected', 350)">💳 Buy — Send PKR 350</button>
+      <div class="ep-box">Send PKR 350 to EasyPaisa:<br><span class="ep-num">03337546622</span><br>Then email: <strong>zs673811@gmail.com</strong></div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="fl"><svg width="32" height="32" viewBox="0 0 52 52"><rect width="52" height="52" rx="11" fill="rgba(200,148,28,0.2)"/><text x="26" y="36" font-family="Scheherazade New,serif" font-size="26" fill="#e8b84b" text-anchor="middle">☪</text></svg> Islamic Insights</div>
+      <p>Authentic Islamic knowledge for Muslims worldwide.</p>
+    </div>
+    <div class="footer-col"><h4>Downloads</h4><a href="books.html">Free Books</a><a href="books.html">Premium Books</a><a href="islamic-app.html">Install App</a></div>
+    <div class="footer-col"><h4>Contact</h4><a href="mailto:zs673811@gmail.com">zs673811@gmail.com</a><a href="about.html">About Us</a><a href="about.html">Write For Us</a></div>
+  </div>
+  <div class="footer-bottom"><div>© Islamic Insights 2007–2026 · All Rights Reserved</div></div>
+</footer>
+
+<script>
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredPrompt = e;
+  document.getElementById('pwa-install-btn2').style.background = '#0a4a2a';
+});
+
+function installApp() {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(r => { deferredPrompt = null; });
+  } else {
+    window.open('https://drive.google.com/uc?export=download&id=1CNs0Lf5KNiC9zeSvzDX7SQFDlpaSSnQ0', '_blank');
+  }
+}
+
+function downloadFree(book) {
+  alert('📥 Ye book FREE hai!\n\nEmail karein:\nzs673811@gmail.com\nSubject: Free Book — ' + book + '\n\nYa donate karna chahein to:\nEasyPaisa: 03337546622');
+}
+
+function buyBook(book, price) {
+  // Try EasyPaisa app deep link first
+  const epAppLink = 'easypaisa://sendmoney?msisdn=03337546622&amount=' + price;
+  const epWebLink = 'https://easypaisa.com.pk/consumer/send-money';
+  const jcAppLink = 'jazzcash://sendmoney?msisdn=03337546622&amount=' + price;
+
+  // Show a nice overlay instead of alert
+  const overlay = document.createElement('div');
+  overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;';
+  overlay.innerHTML = `
+    <div style="background:white;border-radius:20px;padding:28px;max-width:340px;width:100%;text-align:center;">
+      <div style="font-size:40px;margin-bottom:12px;">💳</div>
+      <h3 style="font-family:'Playfair Display',serif;color:#0a4a2a;margin-bottom:6px;">Payment</h3>
+      <p style="font-size:13px;color:#666;margin-bottom:20px;">EasyPaisa ya JazzCash se send karein</p>
+      
+      <div style="background:#e8f5ef;border-radius:12px;padding:16px;margin-bottom:20px;">
+        <p style="font-size:12px;color:#0a4a2a;margin:0 0 4px;font-weight:600;">Account Number</p>
+        <p style="font-size:26px;font-weight:700;color:#0a4a2a;letter-spacing:3px;margin:0;">0333-7546622</p>
+        <p style="font-size:14px;color:#c8941c;font-weight:700;margin:8px 0 0;">Amount: PKR ${price}</p>
+      </div>
+      
+      <a href="${epAppLink}" style="display:block;background:linear-gradient(135deg,#4caf50,#2e7d32);color:white;padding:13px;border-radius:50px;font-size:14px;font-weight:700;text-decoration:none;margin-bottom:10px;" onclick="setTimeout(()=>window.open('${epWebLink}','_blank'),1500)">
+        📱 EasyPaisa App Se Bhejein
+      </a>
+      <a href="${jcAppLink}" style="display:block;background:linear-gradient(135deg,#e53935,#b71c1c);color:white;padding:13px;border-radius:50px;font-size:14px;font-weight:700;text-decoration:none;margin-bottom:16px;" onclick="setTimeout(()=>window.open('${epWebLink}','_blank'),1500)">
+        📱 JazzCash App Se Bhejein
+      </a>
+      
+      <p style="font-size:11px;color:#999;margin-bottom:16px;">Payment ke baad screenshot email karein:<br><strong style="color:#0a4a2a;">zs673811@gmail.com</strong></p>
+      
+      <button onclick="this.closest('div[style*=fixed]').remove()" style="background:none;border:1px solid #ddd;padding:10px 28px;border-radius:50px;color:#666;font-size:13px;cursor:pointer;">Close</button>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+  overlay.addEventListener('click', e => { if(e.target===overlay) overlay.remove(); });
+}
+</script>
+</body>
+</html>

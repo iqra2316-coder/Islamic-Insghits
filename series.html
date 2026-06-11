@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#0a4a2a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Islamic Insights">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/icons/icon-192.png">
+<script>if("serviceWorker"in navigator){
+  window.addEventListener("load",function(){
+    navigator.serviceWorker.register("/sw.js",{scope:"/"})
+      .then(function(reg){console.log("SW registered",reg.scope);})
+      .catch(function(err){console.log("SW error",err);});
+  });
+}</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VZJ1ETL0JQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-VZJ1ETL0JQ");
+</script>
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<title>Series — Islamic Insights</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" onclick="document.getElementById('mobileNav').classList.remove('open')">✕</button>
+  <a href="index.html">Home</a>
+  <a href="religion.html">Religion</a>
+  <a href="history.html">History</a>
+  <a href="muharram.html">Muharram</a>
+  <a href="series.html">Series</a>
+  <a href="news.html">News</a>
+  <a href="about.html">About</a>
+  <a href="islamic-app.html" style="color:#e8b84b!important;">📱 Islamic App</a>
+</div>
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div style="display:flex;gap:20px;align-items:center;">
+      <div class="topbar-bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ</div>
+      <span style="color:rgba(255,255,255,.4);font-size:11px;border-right:1px solid rgba(255,255,255,.15);padding-right:20px;">Tuesday, June 2, 2026</span>
+    </div>
+    <div class="topbar-social">
+      <span class="lbl">Follow</span>
+      <a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank" style="display:inline-flex;align-items:center;gap:6px;color:white;text-decoration:none;font-size:13px;font-weight:600;"><svg viewBox="0 0 24 24" width="22" height="22" fill="#ff0000"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>YouTube</a>
+      <a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
+    </div>
+  </div>
+</div>
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-emblem"><svg viewBox="0 0 52 52"><rect width="52" height="52" rx="13" fill="#0a4a2a"/><text x="26" y="36" font-family="Scheherazade New,serif" font-size="28" fill="#c8941c" text-anchor="middle">☪</text><rect x="6" y="6" width="40" height="40" rx="9" fill="none" stroke="rgba(200,148,28,0.3)" stroke-width="1"/></svg></div>
+      <div class="logo-text"><h1>Islamic Insights</h1><p>Quran & AhlulBayt</p></div>
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="religion.html">Religion</a>
+      <a href="history.html">History</a>
+      <a href="muharram.html">Muharram</a>
+      <a href="series.html">Series</a>
+      <a href="news.html">News</a>
+      <a href="about.html">About</a>
+      <a href="islamic-app.html" style="background:linear-gradient(135deg,#0a4a2a,#0e6b3a);color:#e8b84b!important;padding:8px 14px;border-radius:8px;font-weight:600;margin-left:6px;">📱 App</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank" class="btn-yt">▶ YouTube</a>
+      <div class="hamburger" onclick="document.getElementById('mobileNav').classList.add('open')"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</header>
+<!-- App Download Banner -->
+<div style="background:linear-gradient(135deg,#0a4a2a,#041f10);padding:20px 24px;text-align:center;">
+  <p style="color:rgba(255,255,255,.7);font-size:13px;margin:0 0 4px;">📱 Islamic Insights App</p>
+  <h2 style="font-family:'Playfair Display',serif;color:#e8b84b;font-size:22px;margin:0 0 12px;">App Download karein — Bilkul FREE</h2>
+  <a href="https://drive.google.com/file/d/1CNs0Lf5KNiC9zeSvzDX7SQFDlpaSSnQ0/view?usp=sharing" target="_blank" style="display:inline-block;background:linear-gradient(135deg,#c8941c,#e8b84b);color:#1a1612;padding:13px 32px;border-radius:50px;font-size:14px;font-weight:700;text-decoration:none;margin-bottom:8px;">⬇ Download App (Android)</a>
+  <p style="color:rgba(255,255,255,.5);font-size:11px;margin:8px 0 0;">Google Drive khulega → Download button dabain → Install karein</p>
+</div>
+<!-- TICKER -->
+<div class="gold-strip">
+  <div class="ticker-wrap">
+    <div class="ticker-label">✦ Trending</div>
+    <div class="ticker-content">
+      <div class="ticker-inner">
+        <span class="ticker-item">Abu Talib — The Believer of Quraysh</span>
+        <span class="ticker-item">Lady Khadija, Esteemed Wife of the Prophet ﷺ</span>
+        <span class="ticker-item">Jannat al-Baqi — From Cemetery to Holy Sanctuary</span>
+        <span class="ticker-item">Dangers of Desensitization to Sin</span>
+        <span class="ticker-item">The Eternal Stand of Imam Hussain (as) at Karbala</span>
+        <span class="ticker-item">Abu Talib — The Believer of Quraysh</span>
+        <span class="ticker-item">Lady Khadija, Esteemed Wife of the Prophet ﷺ</span>
+        <span class="ticker-item">Jannat al-Baqi — From Cemetery to Holy Sanctuary</span>
+        <span class="ticker-item">Dangers of Desensitization to Sin</span>
+        <span class="ticker-item">The Eternal Stand of Imam Hussain (as) at Karbala</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-hero">
+  <div class="page-hero-tag">✦ Series</div>
+  <h1>Islamic Series</h1>
+  <p>In-depth series exploring the AhlulBayt, Islamic ethics, raising faithful families, and the lives of the Prophets</p>
+</div>
+<div class="breadcrumb"><div class="breadcrumb-inner"><a href="index.html">Home</a><span>›</span><span>Series</span></div></div>
+<div class="main">
+  <div>
+    <div class="hadith-box">
+      <div class="hadith-label">✦ Hadith ✦</div>
+      <div class="hadith-ar">«أَنَا مَدِينَةُ الْعِلْمِ وَعَلِيٌّ بَابُهَا»</div>
+      <div class="hadith-en">"I am the city of knowledge and Ali is its gate."</div>
+      <div class="hadith-src">— Prophet Muhammad ﷺ · Al-Hakim, Al-Mustadrak</div>
+    </div>
+
+    <!-- AHLULBAYT SERIES -->
+    <div class="sec-head"><div class="sec-title">AhlulBayt Series</div></div>
+    <div class="story-list" style="margin-bottom:40px;">
+      <a href="javascript:void(0)" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="story-item"><div class="story-icon" style="background:linear-gradient(135deg,#1a3d1a,#2a7a2a)">🌿</div><div><div class="story-cat">AhlulBayt</div><div class="story-title">Imam Ali (as) — The Gate of the City of Knowledge</div><div class="story-excerpt">Imam Ali ibn Abi Talib (as) was the first male to embrace Islam, the cousin and son-in-law of the Prophet ﷺ, and the rightful Imam of the believers. His life embodies the perfect fusion of spiritual depth, intellectual brilliance, military courage, and absolute justice. As the fourth Caliph of Islam and the first Imam of the Shia, his legacy is inseparable from the very foundation of Islamic civilization. His words, preserved in Nahj al-Balagha, continue to guide and inspire millions.</div><div class="story-link">Read Full Article →</div></div></a>
+      <a href="javascript:void(0)" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="story-item"><div class="story-icon" style="background:linear-gradient(135deg,#3d1a3d,#7a2a7a)">🌸</div><div><div class="story-cat">AhlulBayt</div><div class="story-title">Lady Fatima al-Zahra (as) — The Chief of Women of the Worlds</div><div class="story-excerpt">Lady Fatima al-Zahra (as), the beloved daughter of the Prophet ﷺ and wife of Imam Ali (as), is described as the greatest woman who ever lived. Her short life — spanning only 18 years after the Prophet's mission began — was marked by profound piety, extraordinary knowledge, and unmatched devotion. She is the mother of Imams Hassan and Hussain (as) and stands as the supreme model of womanhood in Islam. Her famous sermon (Khutba al-Fadakiyya) remains one of the most powerful speeches in Islamic history.</div><div class="story-link">Read Full Article →</div></div></a>
+      <a href="javascript:void(0)" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="story-item"><div class="story-icon" style="background:linear-gradient(135deg,#1a3d1a,#3a7a3a)">☮️</div><div><div class="story-cat">AhlulBayt</div><div class="story-title">Imam Hassan al-Mujtaba (as) — The Peacemaker of the Ummah</div><div class="story-excerpt">Imam Hassan ibn Ali (as), the elder grandson of the Prophet ﷺ, is celebrated for his extraordinary resemblance to the Prophet in both appearance and character. His peace treaty with Muawiyah — often misunderstood — was a strategic decision that preserved the lives of the Muslim community and exposed the true nature of Muawiyah's ambitions. His generosity was legendary: he gave away his wealth to the poor three times in his lifetime, each time keeping nothing for himself.</div><div class="story-link">Read Full Article →</div></div></a>
+      <a href="javascript:void(0)" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="story-item"><div class="story-icon" style="background:linear-gradient(135deg,#1a1a3d,#3a3a7a)">📿</div><div><div class="story-cat">AhlulBayt</div><div class="story-title">Imam Ali Zainul Abideen (as) — The Ornament of the Worshippers</div><div class="story-excerpt">Imam Ali ibn Hussain (as), known as Zainul Abideen (Ornament of the Worshippers) and al-Sajjad (The One Who Prostrates), was the sole surviving adult male from the tragedy of Karbala. His response to that catastrophe was not despair, but a lifetime of unparalleled devotion to Allah. His Sahifa al-Sajjadiyya — a collection of his supplications — is considered the Psalms of the AhlulBayt and one of the most beautiful spiritual texts in Islamic literature.</div><div class="story-link">Read Full Article →</div></div></a>
+    </div>
+
+    <!-- RAISING FAITH SERIES -->
+    <div class="sec-head"><div class="sec-title">Raising Faith Series</div></div>
+    <div class="story-list" style="margin-bottom:40px;">
+      <a href="javascript:void(0)" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="story-item"><div class="story-icon" style="background:linear-gradient(135deg,#1a2a3d,#2a4a6b)">👨‍👩‍👧</div><div><div class="story-cat">Raising Faith</div><div class="story-title">Lady Fatima (as) and Her Role as a Mother</div><div class="story-excerpt">Lady Fatima al-Zahra (as) raised two of the greatest men in Islamic history — Imam Hassan (as) and Imam Hussain (as). Her parenting was rooted in love, knowledge, prayer, and moral example. She taught her children the Quran, instilled in them the highest values, and modeled for them a life of complete devotion to Allah. For modern Muslim parents, her example as a mother offers timeless and practical guidance for raising children of faith in any era.</div><div class="story-link">Read Full Article →</div></div></a>
+      <a href="javascript:void(0)" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="story-item"><div class="story-icon" style="background:linear-gradient(135deg,#2a1a0d,#6b4215)">🏠</div><div><div class="story-cat">Raising Faith</div><div class="story-title">Building an Islamic Home — Practical Guidance from the Quran</div><div class="story-excerpt">The home is the first madrasa (school) a child ever attends. Islam places immense importance on the domestic environment — the values practiced, the conversations held, the habits formed, and the love expressed within the family home. Drawing from Quranic verses, Prophetic traditions, and the example of the AhlulBayt, this article offers practical, actionable guidance for Muslim parents seeking to build a truly Islamic home in the modern world.</div><div class="story-link">Read Full Article →</div></div></a>
+    </div>
+
+    <!-- REFINEMENT OF SOUL -->
+    <div class="sec-head"><div class="sec-title">Refinement of Soul Series</div></div>
+    <div class="story-list">
+      <a href="javascript:void(0)" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="story-item"><div class="story-icon" style="background:linear-gradient(135deg,#1a3d3d,#1a7a7a)">💎</div><div><div class="story-cat">Refinement of Soul</div><div class="story-title">Purifying the Heart — The Islamic Path to Inner Peace</div><div class="story-excerpt">Islamic spirituality places the purification of the heart (Tazkiyat al-Nafs) at the center of the believer's journey. The Quran reminds us that on the Day of Judgment, neither wealth nor children will avail a person — only one who comes to Allah with a sound heart (qalbun saleem). This article explores the diseases of the heart identified in Islamic tradition — arrogance, envy, attachment to dunya — and the spiritual remedies prescribed by the Prophet ﷺ and the AhlulBayt.</div><div class="story-link">Read Full Article →</div></div></a>
+      <a href="javascript:void(0)" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="story-item"><div class="story-icon" style="background:linear-gradient(135deg,#2a3d1a,#5a7a3a)">🌱</div><div><div class="story-cat">Youth: Life's Spring</div><div class="story-title">Youth in Islam — The Season of Opportunity</div><div class="story-excerpt">The Prophet ﷺ described youth as one of five blessings that must be valued before they pass. Youth is the season of greatest energy, capacity, and potential — and Islam calls young Muslims to invest this priceless time in knowledge, worship, service, and the development of strong character. This article addresses the unique challenges facing Muslim youth today and offers Quranic and Prophetic guidance for navigating them with faith and purpose.</div><div class="story-link">Read Full Article →</div></div></a>
+    </div>
+  </div>
+  <div class="sidebar">
+    <div class="widget"><div class="whead">📖 Verse of the Day</div><div class="wbody"><div class="verse-box"><div class="verse-ar">قُل لَّا أَسْأَلُكُمْ عَلَيْهِ أَجْرًا إِلَّا الْمَوَدَّةَ فِي الْقُرْبَىٰ</div><div class="verse-en">"Say: I do not ask of you any reward for this except the love of near relatives."</div><div class="verse-ref">— Surah Ash-Shura (42:23)</div></div><div class="verse-reflection"><strong>Reflection:</strong> This verse, according to many scholars, refers to the love of the Prophet's family (AhlulBayt). Their love is not merely sentimental — it is a Quranic obligation and a path to spiritual guidance.</div></div></div>
+    <div class="widget"><div class="whead">📚 All Series</div><div class="wbody"><div class="cat-list"><a href="javascript:void(0)" class="citem" style="cursor:default"><span>🌿 AhlulBayt Series</span><span class="ccount">12</span></a><a href="javascript:void(0)" class="citem" style="cursor:default"><span>👨‍👩‍👧 Raising Faith</span><span class="ccount">9</span></a><a href="javascript:void(0)" class="citem" style="cursor:default"><span>💎 Refinement of Soul</span><span class="ccount">8</span></a><a href="javascript:void(0)" class="citem" style="cursor:default"><span>🌱 Youth Series</span><span class="ccount">7</span></a><a href="javascript:void(0)" class="citem" style="cursor:default"><span>📿 Prophets Series</span><span class="ccount">10</span></a><a href="muharram.html" class="citem"><span>⚔️ Karbala Series</span><span class="ccount">8</span></a></div></div></div>
+    <div class="widget"><div class="whead">🌐 Follow Us</div><div class="wbody"><div class="social-grid"><a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank" class="slink slink-fb"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>Facebook</a><a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank" class="slink slink-ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>Instagram</a><a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank" class="slink-yt-full">▶ @ismlamicinsights110 on YouTube</a></div></div></div>
+    <div class="nl-widget"><h3>Stay Connected</h3><p>Get Islamic insights every week.</p><form name="newsletter-series" method="POST" data-netlify="true" action="/series.html" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;">
+        <input type="hidden" name="form-name" value="newsletter-series">
+        <input type="email" name="email" class="nl-input" placeholder="Your email..." required style="flex:1;min-width:0;">
+        <button type="submit" class="nl-btn">Subscribe</button>
+      </form></div>
+  </div>
+</div>
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="fl"><svg width="32" height="32" viewBox="0 0 52 52"><rect width="52" height="52" rx="11" fill="rgba(200,148,28,0.2)"/><text x="26" y="36" font-family="Scheherazade New,serif" font-size="26" fill="#e8b84b" text-anchor="middle">☪</text></svg> Islamic Insights</div>
+      <p>An online magazine delivering authentic Islamic knowledge, stories of the AhlulBayt, and Quranic guidance to Muslims worldwide since 2007.</p>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+        <a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="rgba(255,255,255,0.75)"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <a href="religion.html">Religion</a>
+      <a href="history.html">History</a>
+      <a href="news.html">News</a>
+      <a href="series.html">Series</a>
+      <a href="muharram.html">Muharram</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="footer-col">
+      <h4>Series</h4>
+      <a href="series.html">Raising Faith</a>
+      <a href="series.html">Refinement of Soul</a>
+      <a href="series.html">An Ethical Life</a>
+      <a href="series.html">Youth: Life's Spring</a>
+      <a href="muharram.html">Karbala Series</a>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="about.html">About Us</a>
+      <a href="about.html">Write For Us</a>
+      <a href="about.html">Contact Us</a>
+      <a href="books.html">📚 Books & Downloads</a>
+      <a href="about.html">Donate</a>
+      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank">YouTube Channel</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© Islamic Insights 2007–2026 · All Rights Reserved · Inspired by The Holy Quran & The AhlulBayt</div>
+    <div class="footer-links">
+      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank">YouTube: @ismlamicinsights110</a>
+      <a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank">Instagram: @zeeshanahmed1100011</a>
+    </div>
+  </div>
+</footer>
+</body></html>

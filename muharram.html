@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#0a4a2a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Islamic Insights">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/icons/icon-192.png">
+<script>if("serviceWorker"in navigator){
+  window.addEventListener("load",function(){
+    navigator.serviceWorker.register("/sw.js",{scope:"/"})
+      .then(function(reg){console.log("SW registered",reg.scope);})
+      .catch(function(err){console.log("SW error",err);});
+  });
+}</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VZJ1ETL0JQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-VZJ1ETL0JQ");
+</script>
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<title>Muharram & Karbala Series — Islamic Insights</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" onclick="document.getElementById('mobileNav').classList.remove('open')">✕</button>
+  <a href="index.html">Home</a>
+  <a href="religion.html">Religion</a>
+  <a href="history.html">History</a>
+  <a href="muharram.html">Muharram</a>
+  <a href="series.html">Series</a>
+  <a href="news.html">News</a>
+  <a href="about.html">About</a>
+  <a href="islamic-app.html" style="color:#e8b84b!important;">📱 Islamic App</a>
+</div>
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div style="display:flex;gap:20px;align-items:center;">
+      <div class="topbar-bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ</div>
+      <span style="color:rgba(255,255,255,.4);font-size:11px;border-right:1px solid rgba(255,255,255,.15);padding-right:20px;">Tuesday, June 2, 2026</span>
+    </div>
+    <div class="topbar-social">
+      <span class="lbl">Follow</span>
+      <a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank" style="display:inline-flex;align-items:center;gap:6px;color:white;text-decoration:none;font-size:13px;font-weight:600;"><svg viewBox="0 0 24 24" width="22" height="22" fill="#ff0000"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>YouTube</a>
+      <a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
+    </div>
+  </div>
+</div>
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-emblem"><svg viewBox="0 0 52 52"><rect width="52" height="52" rx="13" fill="#0a4a2a"/><text x="26" y="36" font-family="Scheherazade New,serif" font-size="28" fill="#c8941c" text-anchor="middle">☪</text><rect x="6" y="6" width="40" height="40" rx="9" fill="none" stroke="rgba(200,148,28,0.3)" stroke-width="1"/></svg></div>
+      <div class="logo-text"><h1>Islamic Insights</h1><p>Quran & AhlulBayt</p></div>
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="religion.html">Religion</a>
+      <a href="history.html">History</a>
+      <a href="muharram.html">Muharram</a>
+      <a href="series.html">Series</a>
+      <a href="news.html">News</a>
+      <a href="about.html">About</a>
+      <a href="islamic-app.html" style="background:linear-gradient(135deg,#0a4a2a,#0e6b3a);color:#e8b84b!important;padding:8px 14px;border-radius:8px;font-weight:600;margin-left:6px;">📱 App</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank" class="btn-yt">▶ YouTube</a>
+      <div class="hamburger" onclick="document.getElementById('mobileNav').classList.add('open')"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</header>
+<!-- App Download Banner -->
+<div style="background:linear-gradient(135deg,#0a4a2a,#041f10);padding:20px 24px;text-align:center;">
+  <p style="color:rgba(255,255,255,.7);font-size:13px;margin:0 0 4px;">📱 Islamic Insights App</p>
+  <h2 style="font-family:'Playfair Display',serif;color:#e8b84b;font-size:22px;margin:0 0 12px;">App Download karein — Bilkul FREE</h2>
+  <a href="https://drive.google.com/file/d/1CNs0Lf5KNiC9zeSvzDX7SQFDlpaSSnQ0/view?usp=sharing" target="_blank" style="display:inline-block;background:linear-gradient(135deg,#c8941c,#e8b84b);color:#1a1612;padding:13px 32px;border-radius:50px;font-size:14px;font-weight:700;text-decoration:none;margin-bottom:8px;">⬇ Download App (Android)</a>
+  <p style="color:rgba(255,255,255,.5);font-size:11px;margin:8px 0 0;">Google Drive khulega → Download button dabain → Install karein</p>
+</div>
+<!-- TICKER -->
+<div class="gold-strip">
+  <div class="ticker-wrap">
+    <div class="ticker-label">✦ Trending</div>
+    <div class="ticker-content">
+      <div class="ticker-inner">
+        <span class="ticker-item">Abu Talib — The Believer of Quraysh</span>
+        <span class="ticker-item">Lady Khadija, Esteemed Wife of the Prophet ﷺ</span>
+        <span class="ticker-item">Jannat al-Baqi — From Cemetery to Holy Sanctuary</span>
+        <span class="ticker-item">Dangers of Desensitization to Sin</span>
+        <span class="ticker-item">The Eternal Stand of Imam Hussain (as) at Karbala</span>
+        <span class="ticker-item">Abu Talib — The Believer of Quraysh</span>
+        <span class="ticker-item">Lady Khadija, Esteemed Wife of the Prophet ﷺ</span>
+        <span class="ticker-item">Jannat al-Baqi — From Cemetery to Holy Sanctuary</span>
+        <span class="ticker-item">Dangers of Desensitization to Sin</span>
+        <span class="ticker-item">The Eternal Stand of Imam Hussain (as) at Karbala</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-hero">
+  <div class="page-hero-tag">✦ Muharram Series</div>
+  <h1>Karbala & Muharram</h1>
+  <p>The eternal sacrifice of Imam Hussain (as) — lessons of truth, justice, and devotion to Allah for all of humanity</p>
+</div>
+<div class="breadcrumb"><div class="breadcrumb-inner"><a href="index.html">Home</a><span>›</span><span>Muharram & Karbala</span></div></div>
+
+<div class="main">
+  <div>
+    <div class="hadith-box">
+      <div class="hadith-label">✦ Imam Hussain (as) ✦</div>
+      <div class="hadith-ar">«هَيْهَاتَ مِنَّا الذِّلَّةُ»</div>
+      <div class="hadith-en">"Disgrace is far from us!" — The immortal words of Imam Hussain (as) on the Day of Ashura, refusing to give allegiance to tyranny.</div>
+      <div class="hadith-src">— Imam Hussain ibn Ali (as) · Karbala, 10 Muharram 61 AH</div>
+    </div>
+
+    <div class="sec-head"><div class="sec-title">The Story of Karbala</div></div>
+    <div class="article-full" style="margin-bottom:36px;">
+      <div class="article-full-header">
+        <div class="article-full-cat">🕋 Karbala · Full Story</div>
+        <div class="article-full-title">The Eternal Stand of Imam Hussain (as) at Karbala</div>
+        <div class="article-full-meta"><span class="author">Islamic Insights Team</span><span>10 Muharram 61 AH</span><span>👁 21,500 views</span></div>
+      </div>
+      <div class="article-divider"></div>
+      <div class="article-full-body">
+        <p>On the 10th of Muharram, 61 AH — known forever as the Day of Ashura — a pivotal moment in Islamic history unfolded on the scorching plains of Karbala in present-day Iraq. Imam Hussain ibn Ali (as), the grandson of the Prophet Muhammad ﷺ, the son of Imam Ali (as) and Lady Fatima al-Zahra (as), stood against the forces of tyranny and injustice with a small group of 72 loyal companions and family members.</p>
+        <div class="article-arabic">يَا أَيُّهَا النَّاسُ إِنَّ رَسُولَ اللهِ قَالَ: مَنْ رَأَى سُلْطَاناً جَائِراً… فَلَمْ يُغَيِّرْ عَلَيْهِ بِفِعْلٍ وَلَا قَوْلٍ كَانَ حَقّاً عَلَى اللهِ أَنْ يُدْخِلَهُ مَدْخَلَهُ</div>
+        <h3>Background: The Call from Kufa</h3>
+        <p>After the death of Muawiyah ibn Abi Sufyan, his son Yazid — a man known for his immoral conduct and open violations of Islamic law — assumed the caliphate. The people of Kufa, Iraq, sent thousands of letters to Imam Hussain (as) in Makkah, pledging their support and urging him to come lead them. The Imam sent his cousin Muslim ibn Aqeel to Kufa to verify the sincerity of this support. Muslim initially received overwhelming backing, with over 18,000 people pledging allegiance.</p>
+        <h3>The Journey to Karbala</h3>
+        <p>Imam Hussain (as) departed from Makkah on the 8th of Dhul Hijjah, refusing to desecrate the sanctity of the Holy Kaaba by allowing conflict there. He traveled with his family, his companions, and the women and children of the Hashimite clan. Along the way, he learned that the Kufan governor Ubaydullah ibn Ziyad had arrested and executed Muslim ibn Aqeel, and that the people of Kufa had abandoned their pledge.</p>
+        <blockquote><p>"I have not risen to cause mischief, but to seek reform in the Ummah of my grandfather. I wish to bid good and forbid evil, and follow the conduct of my grandfather and my father Ali ibn Abi Talib." — Imam Hussain (as)</p></blockquote>
+        <p>The Imam continued nevertheless, knowing what lay ahead. On the 2nd of Muharram 61 AH, the caravan reached the land of Karbala, where they were stopped and encircled by a massive army under the command of Umar ibn Sa'd, acting on orders from Yazid and Ibn Ziyad.</p>
+        <h3>The Days of Muharram</h3>
+        <p>For the next eight days, the army of Yazid surrounded the camp of Imam Hussain (as). On the 7th of Muharram, access to the Euphrates river was cut off, depriving the Imam's camp of water — including the women and small children, including the six-month-old infant Ali Asghar. Despite this, the Imam and his companions remained steadfast in their resolve.</p>
+        <p>On the eve of Ashura, the Imam gathered his companions and family and released them from any obligation, telling them the enemy sought only him. Every single one refused to leave, declaring their willingness to sacrifice their lives for the truth. Abbas ibn Ali (as), the Imam's brother, gathered water for the camp under enemy fire, ultimately losing both his arms and his life in the attempt.</p>
+        <h3>The Day of Ashura — 10 Muharram</h3>
+        <p>On the morning of the 10th of Muharram, after the Fajr prayer, Imam Hussain (as) rode out and addressed the army of Yazid, presenting clear Islamic arguments against their actions. One by one, his companions and family members fought and were martyred. Imam Hussain (as) himself was the last to fall — his body bearing 72 wounds — as he performed his final prostration to Allah.</p>
+        <blockquote><p>"هَيْهَاتَ مِنَّا الذِّلَّةُ" — "Disgrace is far from us!" — These words, echoing across the desert of Karbala, became the eternal motto of all who resist oppression.</p></blockquote>
+        <h3>The Aftermath and the Message of Karbala</h3>
+        <p>After the martyrdom of Imam Hussain (as) and his companions, the women and children — including Imam Ali ibn Hussain (Zainul Abideen, as) who was ill — were taken prisoner to Kufa and then Damascus. Lady Zainab bint Ali (as), the daughter of Imam Ali (as) and Lady Fatima (as), delivered powerful speeches in the courts of Ibn Ziyad and Yazid himself, exposing the injustice of the massacre and ensuring the message of Karbala reached every corner of the Muslim world.</p>
+        <p>The sacrifice of Imam Hussain (as) at Karbala was not merely a historical event — it was the preservation of the soul of Islam. His stand against tyranny, his refusal to pledge allegiance to oppression, and his ultimate sacrifice sent a message that echoes through every generation: that truth must never bow to falsehood, and justice must never be sacrificed at the altar of power.</p>
+      </div>
+    </div>
+
+    <div class="sec-head"><div class="sec-title">More Karbala Articles</div></div>
+    <div class="story-list">
+      <a href="javascript:void(0)" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="story-item"><div class="story-icon" style="background:linear-gradient(135deg,#1a0d3d,#4a2a8a)">👩</div><div><div class="story-cat">AhlulBayt</div><div class="story-title">Lady Zainab (as) — The Voice of Karbala</div><div class="story-excerpt">After the massacre of Karbala, Lady Zainab bint Ali (as) became the guardian of the message of Imam Hussain (as). Her courageous speeches in the courts of tyranny ensured that the sacrifice of Karbala would never be forgotten. She was the tongue where swords had fallen silent.</div><div class="story-link">Read Full Article →</div></div></a>
+      <a href="javascript:void(0)" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="story-item"><div class="story-icon" style="background:linear-gradient(135deg,#0d2a3d,#1a5577)">🌊</div><div><div class="story-cat">Karbala</div><div class="story-title">Abbas ibn Ali (as) — The Moon of the Hashimites</div><div class="story-excerpt">Abbas ibn Ali (as), the standard-bearer of Imam Hussain (as), is remembered for his unwavering loyalty, extraordinary bravery, and ultimate sacrifice. His attempt to bring water to the thirsty children of the camp stands as one of the most moving acts of selfless devotion in Islamic history.</div><div class="story-link">Read Full Article →</div></div></a>
+      <a href="javascript:void(0)" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="story-item"><div class="story-icon" style="background:linear-gradient(135deg,#2a1a0d,#6b4215)">📿</div><div><div class="story-cat">Karbala</div><div class="story-title">Discourse with the Pilgrim of Imam Hussain (as)</div><div class="story-excerpt">The profound dialogue between Imam Ali ibn Hussain (Zainul Abideen, as) and a devoted pilgrim who had traveled to perform the Ziyarat of Imam Hussain (as). The Imam's words illuminate the profound spiritual significance of connecting to Karbala in every age.</div><div class="story-link">Read Full Article →</div></div></a>
+      <a href="javascript:void(0)" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="story-item"><div class="story-icon" style="background:linear-gradient(135deg,#1a1a0d,#4a4a15)">🕌</div><div><div class="story-cat">Muharram</div><div class="story-title">Why We Commemorate Muharram — A Guide for Muslims</div><div class="story-excerpt">The commemoration of Muharram is not merely mourning — it is a commitment to the principles of justice, truth, and standing against oppression that Imam Hussain (as) embodied. Understanding the spirit of Muharram is essential for every Muslim who wishes to truly follow the Prophet's family.</div><div class="story-link">Read Full Article →</div></div></a>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <div class="widget"><div class="whead">📖 Verse of the Day</div><div class="wbody"><div class="verse-box"><div class="verse-ar">وَلَا تَحْسَبَنَّ الَّذِينَ قُتِلُوا فِي سَبِيلِ اللَّهِ أَمْوَاتًا</div><div class="verse-en">"And never think of those who have been killed in the cause of Allah as dead. Rather, they are alive with their Lord, receiving provision."</div><div class="verse-ref">— Surah Aal-Imran (3:169)</div></div><div class="verse-reflection"><strong>Reflection:</strong> The martyrs of Karbala, led by Imam Hussain (as), are eternally alive in the sight of Allah — their sacrifice a light that guides every generation toward truth and justice.</div></div></div>
+    <div class="widget"><div class="whead">🕋 Muharram Topics</div><div class="wbody"><div class="cat-list"><a href="javascript:void(0)" class="citem" style="cursor:default"><span>⚔️ Day of Ashura</span><span class="ccount">8</span></a><a href="javascript:void(0)" class="citem" style="cursor:default"><span>👩 Lady Zainab (as)</span><span class="ccount">5</span></a><a href="javascript:void(0)" class="citem" style="cursor:default"><span>🌊 Abbas ibn Ali (as)</span><span class="ccount">4</span></a><a href="javascript:void(0)" class="citem" style="cursor:default"><span>📿 Ziyarat</span><span class="ccount">6</span></a><a href="javascript:void(0)" class="citem" style="cursor:default"><span>🕌 Why We Commemorate</span><span class="ccount">3</span></a></div></div></div>
+    <div class="widget"><div class="whead">🌐 Follow Us</div><div class="wbody"><div class="social-grid"><a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank" class="slink slink-fb"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>Facebook</a><a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank" class="slink slink-ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>Instagram</a><a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank" class="slink-yt-full">▶ @ismlamicinsights110 on YouTube</a></div></div></div>
+    <div class="nl-widget"><h3>Stay Connected</h3><p>Get Islamic insights delivered to your inbox every week.</p><form name="newsletter-muharram" method="POST" data-netlify="true" action="/muharram.html" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;">
+        <input type="hidden" name="form-name" value="newsletter-muharram">
+        <input type="email" name="email" class="nl-input" placeholder="Your email..." required style="flex:1;min-width:0;">
+        <button type="submit" class="nl-btn">Subscribe</button>
+      </form></div>
+    <div class="widget"><div class="whead">🏷 Tags</div><div class="wbody"><div class="tags-cloud"><a href="javascript:void(0)" class="tag" style="cursor:default">#Karbala</a><a href="javascript:void(0)" class="tag" style="cursor:default">#Muharram</a><a href="javascript:void(0)" class="tag" style="cursor:default">#Ashura</a><a href="javascript:void(0)" class="tag" style="cursor:default">#ImamHussain</a><a href="javascript:void(0)" class="tag" style="cursor:default">#Zainab</a><a href="javascript:void(0)" class="tag" style="cursor:default">#Abbas</a><a href="javascript:void(0)" class="tag" style="cursor:default">#AhlulBayt</a><a href="javascript:void(0)" class="tag" style="cursor:default">#Martyrdom</a><a href="javascript:void(0)" class="tag" style="cursor:default">#Justice</a></div></div></div>
+  </div>
+</div>
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="fl"><svg width="32" height="32" viewBox="0 0 52 52"><rect width="52" height="52" rx="11" fill="rgba(200,148,28,0.2)"/><text x="26" y="36" font-family="Scheherazade New,serif" font-size="26" fill="#e8b84b" text-anchor="middle">☪</text></svg> Islamic Insights</div>
+      <p>An online magazine delivering authentic Islamic knowledge, stories of the AhlulBayt, and Quranic guidance to Muslims worldwide since 2007.</p>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+        <a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="rgba(255,255,255,0.75)"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <a href="religion.html">Religion</a>
+      <a href="history.html">History</a>
+      <a href="news.html">News</a>
+      <a href="series.html">Series</a>
+      <a href="muharram.html">Muharram</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="footer-col">
+      <h4>Series</h4>
+      <a href="series.html">Raising Faith</a>
+      <a href="series.html">Refinement of Soul</a>
+      <a href="series.html">An Ethical Life</a>
+      <a href="series.html">Youth: Life's Spring</a>
+      <a href="muharram.html">Karbala Series</a>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="about.html">About Us</a>
+      <a href="about.html">Write For Us</a>
+      <a href="about.html">Contact Us</a>
+      <a href="books.html">📚 Books & Downloads</a>
+      <a href="about.html">Donate</a>
+      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank">YouTube Channel</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© Islamic Insights 2007–2026 · All Rights Reserved · Inspired by The Holy Quran & The AhlulBayt</div>
+    <div class="footer-links">
+      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank">YouTube: @ismlamicinsights110</a>
+      <a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank">Instagram: @zeeshanahmed1100011</a>
+    </div>
+  </div>
+</footer>
+</body></html>

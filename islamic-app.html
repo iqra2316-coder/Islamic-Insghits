@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#0a4a2a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Islamic Insights">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/icons/icon-192.png">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VZJ1ETL0JQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-VZJ1ETL0JQ");
+</script>
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<title>Islamic App — Islamic Insights</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/app.css">
+<script>if("serviceWorker"in navigator){
+  window.addEventListener("load",function(){
+    navigator.serviceWorker.register("/sw.js",{scope:"/"})
+      .then(function(reg){console.log("SW registered",reg.scope);})
+      .catch(function(err){console.log("SW error",err);});
+  });
+}</script>
+</head>
+<body>
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" onclick="document.getElementById('mobileNav').classList.remove('open')">✕</button>
+  <a href="index.html">Home</a>
+  <a href="religion.html">Religion</a>
+  <a href="history.html">History</a>
+  <a href="muharram.html">Muharram</a>
+  <a href="series.html">Series</a>
+  <a href="news.html">News</a>
+  <a href="about.html">About</a>
+  <a href="islamic-app.html" style="color:#e8b84b!important;">📱 Islamic App</a>
+</div>
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div style="display:flex;gap:20px;align-items:center;">
+      <div class="topbar-bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ</div>
+      <span style="color:rgba(255,255,255,.4);font-size:11px;border-right:1px solid rgba(255,255,255,.15);padding-right:20px;" id="top-date"></span>
+    </div>
+    <div class="topbar-social">
+      <span class="lbl">Follow</span>
+      <a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank" style="display:inline-flex;align-items:center;gap:6px;color:white;text-decoration:none;font-size:13px;font-weight:600;"><svg viewBox="0 0 24 24" width="22" height="22" fill="#ff0000"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>YouTube</a>
+      <a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
+    </div>
+  </div>
+</div>
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-emblem"><svg viewBox="0 0 52 52"><rect width="52" height="52" rx="13" fill="#0a4a2a"/><text x="26" y="36" font-family="Scheherazade New,serif" font-size="28" fill="#c8941c" text-anchor="middle">☪</text><rect x="6" y="6" width="40" height="40" rx="9" fill="none" stroke="rgba(200,148,28,0.3)" stroke-width="1"/></svg></div>
+      <div class="logo-text"><h1>Islamic Insights</h1><p>Quran & AhlulBayt</p></div>
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="religion.html">Religion</a>
+      <a href="history.html">History</a>
+      <a href="muharram.html">Muharram</a>
+      <a href="series.html">Series</a>
+      <a href="news.html">News</a>
+      <a href="about.html">About</a>
+      <a href="islamic-app.html" class="active" style="background:linear-gradient(135deg,#0a4a2a,#0e6b3a);color:#e8b84b!important;padding:8px 14px;border-radius:8px;font-weight:600;margin-left:6px;">📱 App</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <button class="btn-yt" id="pwa-install-btn" style="display:none;background:linear-gradient(135deg,#c8941c,#e8b84b);color:#1a1612;border:none;cursor:pointer;font-weight:700;" onclick="installPWA()">⬇ Install App FREE</button>
+      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank" class="btn-yt">▶ YouTube</a>
+      <div class="hamburger" onclick="document.getElementById('mobileNav').classList.add('open')"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</header>
+<!-- App Download Banner -->
+<div style="background:linear-gradient(135deg,#0a4a2a,#041f10);padding:20px 24px;text-align:center;">
+  <p style="color:rgba(255,255,255,.7);font-size:13px;margin:0 0 4px;">📱 Islamic Insights App</p>
+  <h2 style="font-family:'Playfair Display',serif;color:#e8b84b;font-size:22px;margin:0 0 12px;">App Download karein — Bilkul FREE</h2>
+  <a href="https://drive.google.com/file/d/1CNs0Lf5KNiC9zeSvzDX7SQFDlpaSSnQ0/view?usp=sharing" target="_blank" style="display:inline-block;background:linear-gradient(135deg,#c8941c,#e8b84b);color:#1a1612;padding:13px 32px;border-radius:50px;font-size:14px;font-weight:700;text-decoration:none;margin-bottom:8px;">⬇ Download App (Android)</a>
+  <p style="color:rgba(255,255,255,.5);font-size:11px;margin:8px 0 0;">Google Drive khulega → Download button dabain → Install karein</p>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-tag">✦ Islamic App — Mobile Ready</div>
+  <h1>Islamic Insights App</h1>
+  <p>Quran • Nahj al-Balagha • Namaz Timings • Qibla • Daily Hadith</p>
+</div>
+
+<!-- APP FEATURES STRIP -->
+<div class="gold-strip">
+  <div class="ticker-wrap">
+    <div class="ticker-label">✦ Features</div>
+    <div class="ticker-content">
+      <div class="ticker-inner">
+        <span class="ticker-item">📖 Quran 30 Para with Audio</span>
+        <span class="ticker-item">🌹 Nahj al-Balagha Complete</span>
+        <span class="ticker-item">🕌 GPS Namaz Timings</span>
+        <span class="ticker-item">🧭 Qibla Direction</span>
+        <span class="ticker-item">✨ Daily Hadith</span>
+        <span class="ticker-item">📲 Install as Mobile App</span>
+        <span class="ticker-item">📖 Quran 30 Para with Audio</span>
+        <span class="ticker-item">🌹 Nahj al-Balagha Complete</span>
+        <span class="ticker-item">🕌 GPS Namaz Timings</span>
+        <span class="ticker-item">🧭 Qibla Direction</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- APP SHELL -->
+<div style="background:var(--cream);padding:30px 20px 0;">
+  <div style="max-width:540px;margin:0 auto;">
+
+    <!-- Install Banner -->
+    <div id="install-banner" style="display:none;background:linear-gradient(135deg,#0a4a2a,#0e6b3a);border-radius:16px;padding:18px 20px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;">
+      <div>
+        <div style="font-family:'Playfair Display',serif;font-size:16px;color:#e8b84b;font-weight:700;">📲 Install Islamic Insights App</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.7);margin-top:3px;">Works offline · No app store needed</div>
+      </div>
+      <button onclick="installPWA()" style="background:linear-gradient(135deg,#c8941c,#e8b84b);color:#1a1612;border:none;padding:10px 20px;border-radius:50px;font-weight:700;font-size:13px;cursor:pointer;">⬇ Install Now</button>
+    </div>
+
+    <!-- Loading -->
+    <div id="app-loading" style="text-align:center;padding:60px 20px;">
+      <div style="font-size:56px;margin-bottom:12px;">☪</div>
+      <div style="font-family:'Playfair Display',serif;font-size:20px;color:var(--emerald);margin-bottom:6px;">Loading App...</div>
+      <div style="font-family:'Scheherazade New',serif;font-size:18px;color:var(--gold);direction:rtl;">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+    </div>
+
+    <!-- APP CONTENT (hidden until loaded) -->
+    <div id="app-content" style="display:none;">
+
+      <!-- Bottom Tab Nav -->
+      <div style="display:flex;background:white;border:1px solid var(--border-light);border-radius:16px;overflow:hidden;margin-bottom:20px;box-shadow:0 2px 12px rgba(0,0,0,.06);">
+        <button class="app-tab active" data-tab="quran" onclick="switchAppTab('quran')">📖<span>Quran</span></button>
+        <button class="app-tab" data-tab="nahj" onclick="switchAppTab('nahj')">🌹<span>Nahj</span></button>
+        <button class="app-tab" data-tab="prayer" onclick="switchAppTab('prayer')">🕌<span>Namaz</span></button>
+        <button class="app-tab" data-tab="qibla" onclick="switchAppTab('qibla')">🧭<span>Qibla</span></button>
+        <button class="app-tab" data-tab="hadith" onclick="switchAppTab('hadith')">✨<span>Hadith</span></button>
+        <button class="app-tab" data-tab="donate" onclick="switchAppTab('donate')">🤲<span>Donate</span></button>
+      </div>
+
+      <!-- ══ QURAN SCREEN ══ -->
+      <div id="atab-quran" class="app-screen active">
+        <div id="para-list-wrap">
+          <div style="margin-bottom:14px;">
+            <div style="display:flex;align-items:center;background:white;border:1px solid var(--border-light);border-radius:50px;padding:10px 16px;gap:10px;box-shadow:0 2px 8px rgba(0,0,0,.04);">
+              <span>🔍</span>
+              <input type="text" id="quran-search" placeholder="Search para..." style="flex:1;border:none;outline:none;font-family:'Outfit',sans-serif;font-size:14px;color:var(--text);background:transparent;">
+            </div>
+          </div>
+          <div id="para-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;"></div>
+        </div>
+        <div id="quran-reader" style="display:none;">
+          <button onclick="closePara()" style="display:flex;align-items:center;gap:6px;background:white;border:1px solid var(--border-light);color:var(--emerald);padding:8px 16px;border-radius:50px;font-size:13px;cursor:pointer;margin-bottom:14px;font-family:'Outfit',sans-serif;font-weight:600;">← Back to Paras</button>
+          <div style="background:linear-gradient(135deg,var(--emerald),#0e6b3a);border-radius:16px;padding:16px 18px;margin-bottom:14px;">
+            <div id="reader-para-title" style="font-family:'Playfair Display',serif;font-size:15px;color:#e8b84b;font-weight:700;"></div>
+            <div id="reader-para-ar" style="font-family:'Scheherazade New',serif;font-size:22px;color:white;direction:rtl;margin-top:4px;"></div>
+            <!-- Audio -->
+            <div style="margin-top:14px;background:rgba(255,255,255,.08);border-radius:12px;padding:12px;">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                <button id="play-btn" onclick="toggleAudio()" style="width:38px;height:38px;background:linear-gradient(135deg,#c8941c,#e8b84b);border:none;border-radius:50%;color:#1a1612;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;">▶</button>
+                <select onchange="currentReciter=this.value" style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:white;padding:5px 8px;border-radius:8px;font-size:11px;flex:1;">
+                  <option value="ar.alafasy">Mishary Alafasy</option>
+                  <option value="ar.abdurrahmaansudais">As-Sudais</option>
+                  <option value="ar.hudhaify">Al-Hudhaify</option>
+                </select>
+              </div>
+              <input type="range" id="audio-progress" value="0" min="0" max="100" oninput="seekAudio(event)" style="width:100%;height:4px;accent-color:#e8b84b;">
+              <div style="display:flex;justify-content:space-between;font-size:10px;color:rgba(255,255,255,.5);margin-top:4px;">
+                <span id="time-current">0:00</span><span id="time-total">0:00</span>
+              </div>
+            </div>
+          </div>
+          <!-- Translation toggle -->
+          <div style="display:flex;background:white;border:1px solid var(--border-light);border-radius:50px;padding:3px;margin-bottom:14px;">
+            <button class="trans-btn active" data-trans="urdu" onclick="setTranslation('urdu')" style="flex:1;padding:7px;border:none;background:var(--emerald);color:white;border-radius:47px;font-size:12px;cursor:pointer;font-family:'Outfit',sans-serif;">Arabic+اردو</button>
+            <button class="trans-btn" data-trans="both" onclick="setTranslation('both')" style="flex:1;padding:7px;border:none;background:transparent;border-radius:47px;font-size:12px;cursor:pointer;font-family:'Outfit',sans-serif;">+English</button>
+            <button class="trans-btn" data-trans="none" onclick="setTranslation('none')" style="flex:1;padding:7px;border:none;background:transparent;border-radius:47px;font-size:12px;cursor:pointer;font-family:'Outfit',sans-serif;">Arabic Only</button>
+          </div>
+          <!-- Auto-next toggle -->
+          <div style="display:flex;align-items:center;justify-content:space-between;background:white;border:1px solid var(--border-light);border-radius:12px;padding:10px 16px;margin-bottom:14px;">
+            <span style="font-size:13px;font-family:'Outfit',sans-serif;color:var(--text);">🔄 Auto-play next ayah</span>
+            <div id="autoplay-toggle" onclick="toggleAutoplay()" style="width:44px;height:24px;background:var(--emerald);border-radius:24px;cursor:pointer;position:relative;transition:.3s;">
+              <div style="position:absolute;top:2px;right:2px;width:20px;height:20px;background:white;border-radius:50%;transition:.3s;" id="autoplay-knob"></div>
+            </div>
+          </div>
+          <div id="quran-list" style="display:flex;flex-direction:column;gap:14px;"></div>
+        </div>
+      </div>
+
+      <!-- ══ NAHJ SCREEN ══ -->
+      <div id="atab-nahj" class="app-screen" style="display:none;">
+        <div style="display:flex;gap:8px;overflow-x:auto;padding-bottom:12px;-ms-overflow-style:none;scrollbar-width:none;">
+          <button class="nahj-tab active" data-nahj="sermons" onclick="switchNahjTab('sermons')" style="padding:8px 16px;border:1px solid var(--border-light);background:white;border-radius:50px;font-size:12px;cursor:pointer;white-space:nowrap;font-family:'Outfit',sans-serif;">📜 Sermons</button>
+          <button class="nahj-tab" data-nahj="letters" onclick="switchNahjTab('letters')" style="padding:8px 16px;border:1px solid var(--border-light);background:white;border-radius:50px;font-size:12px;cursor:pointer;white-space:nowrap;font-family:'Outfit',sans-serif;">✉ Letters</button>
+          <button class="nahj-tab" data-nahj="aphorisms" onclick="switchNahjTab('aphorisms')" style="padding:8px 16px;border:1px solid var(--border-light);background:white;border-radius:50px;font-size:12px;cursor:pointer;white-space:nowrap;font-family:'Outfit',sans-serif;">💎 Sayings</button>
+        </div>
+        <div id="nahj-list" style="display:flex;flex-direction:column;gap:14px;"></div>
+      </div>
+
+      <!-- ══ PRAYER SCREEN ══ -->
+      <div id="atab-prayer" class="app-screen" style="display:none;">
+        <div id="prayer-prompt" style="text-align:center;padding:40px 20px;background:white;border-radius:16px;border:1px solid var(--border-light);">
+          <div style="font-size:48px;margin-bottom:12px;">🕌</div>
+          <p style="color:var(--muted);font-size:14px;margin-bottom:16px;">Allow location access for accurate prayer times</p>
+          <button onclick="requestLocation()" style="background:linear-gradient(135deg,var(--emerald),#0e6b3a);color:white;border:none;padding:12px 28px;border-radius:50px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">📍 Get My Location</button>
+        </div>
+        <div id="prayer-display" style="display:none;">
+          <div style="background:linear-gradient(135deg,var(--emerald),#041f10);border-radius:20px;padding:24px;margin-bottom:16px;text-align:center;">
+            <div style="font-size:12px;color:rgba(255,255,255,.5);margin-bottom:4px;">📍 <span id="prayer-city">—</span></div>
+            <div style="font-family:'Scheherazade New',serif;font-size:18px;color:#e8b84b;direction:rtl;" id="prayer-hijri"></div>
+            <div style="font-size:11px;color:rgba(255,255,255,.4);" id="prayer-en-date"></div>
+            <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);">
+              <div style="font-size:10px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:1px;">Next Prayer</div>
+              <div style="font-family:'Scheherazade New',serif;font-size:26px;color:white;" id="next-prayer-name"></div>
+              <div style="font-size:34px;font-weight:700;color:#e8b84b;letter-spacing:2px;" id="next-prayer-time"></div>
+              <div style="font-size:12px;color:#34d399;margin-top:4px;" id="prayer-countdown"></div>
+            </div>
+          </div>
+          <div id="prayer-times-list" style="display:flex;flex-direction:column;gap:8px;"></div>
+          <div style="text-align:center;margin-top:14px;">
+            <button onclick="requestLocation()" style="background:white;border:1px solid var(--border-light);color:var(--emerald);padding:10px 20px;border-radius:50px;font-size:12px;cursor:pointer;font-family:'Outfit',sans-serif;font-weight:600;">🔄 Refresh</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ QIBLA SCREEN ══ -->
+      <div id="atab-qibla" class="app-screen" style="display:none;">
+        <div id="qibla-prompt" style="text-align:center;padding:40px 20px;background:white;border-radius:16px;border:1px solid var(--border-light);">
+          <div style="font-size:48px;margin-bottom:12px;">🧭</div>
+          <p style="color:var(--muted);font-size:14px;margin-bottom:16px;">Find the direction of the Holy Kaaba</p>
+          <button onclick="requestQiblaLocation()" style="background:linear-gradient(135deg,var(--emerald),#0e6b3a);color:white;border:none;padding:12px 28px;border-radius:50px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;">📍 Find Qibla</button>
+        </div>
+        <div id="qibla-main" style="display:none;display:flex;flex-direction:column;align-items:center;gap:20px;padding:10px 0;">
+          <div style="position:relative;width:250px;height:250px;">
+            <div style="width:100%;height:100%;border-radius:50%;background:linear-gradient(135deg,#f0f8f4,white);border:2px solid #c8941c;box-shadow:0 0 30px rgba(200,148,28,.2);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+              <div style="position:absolute;top:12px;left:50%;transform:translateX(-50%);font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:#c8941c;">N</div>
+              <div style="position:absolute;bottom:12px;left:50%;transform:translateX(-50%);font-size:12px;color:var(--muted);">S</div>
+              <div style="position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:12px;color:var(--muted);">E</div>
+              <div style="position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:12px;color:var(--muted);">W</div>
+              <div style="font-size:28px;">🕋</div>
+              <div id="compass-needle" style="position:absolute;width:4px;top:50%;left:50%;transform-origin:bottom center;transform:translate(-50%,-100%) rotate(0deg);transition:transform .5s;">
+                <div style="width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:85px solid #c8941c;margin-left:-4px;filter:drop-shadow(0 0 6px rgba(200,148,28,.5));"></div>
+                <div style="width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:55px solid #0a4a2a;margin-left:-3px;"></div>
+              </div>
+            </div>
+          </div>
+          <div style="background:white;border:1px solid var(--border-light);border-radius:16px;padding:20px 28px;text-align:center;width:100%;max-width:300px;">
+            <div style="font-family:'Playfair Display',serif;font-size:44px;font-weight:700;color:var(--emerald);line-height:1;" id="qibla-degree">—°</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:4px;" id="qibla-from-north">from North</div>
+            <div style="font-size:14px;color:var(--gold);margin-top:8px;font-weight:600;" id="qibla-distance"></div>
+            <button onclick="calibrateCompass()" style="margin-top:10px;background:var(--cream-warm);border:1px solid var(--border-light);color:var(--emerald);padding:8px 18px;border-radius:50px;font-size:12px;cursor:pointer;font-family:'Outfit',sans-serif;">🔄 Calibrate</button>
+          </div>
+          <p style="font-size:12px;color:var(--muted);text-align:center;max-width:280px;">Hold device flat and face the gold arrow — that is the direction of Makkah</p>
+        </div>
+      </div>
+
+      <!-- ══ HADITH SCREEN ══ -->
+      <div id="atab-hadith" class="app-screen" style="display:none;">
+        <div class="hadith-box" style="border-radius:16px;margin-bottom:14px;">
+          <div class="hadith-label">✦ Hadith of the Day ✦</div>
+          <div class="hadith-ar" id="hadith-arabic" style="direction:rtl;"></div>
+          <div style="font-family:'Scheherazade New',serif;font-size:18px;color:rgba(255,255,255,.8);direction:rtl;line-height:1.9;margin-bottom:10px;" id="hadith-urdu"></div>
+          <div class="hadith-en" id="hadith-english"></div>
+          <div class="hadith-src"><span>📚</span> <span id="hadith-source"></span></div>
+        </div>
+        <div style="display:flex;gap:10px;">
+          <button onclick="nextHadith()" style="flex:1;padding:12px;background:white;border:1px solid var(--border-light);border-radius:12px;color:var(--emerald);font-size:13px;cursor:pointer;font-family:'Outfit',sans-serif;font-weight:600;">🔄 Next</button>
+          <button onclick="shareHadith()" style="flex:1;padding:12px;background:white;border:1px solid var(--border-light);border-radius:12px;color:var(--emerald);font-size:13px;cursor:pointer;font-family:'Outfit',sans-serif;font-weight:600;">📤 Share</button>
+          <button onclick="copyHadith()" style="flex:1;padding:12px;background:white;border:1px solid var(--border-light);border-radius:12px;color:var(--emerald);font-size:13px;cursor:pointer;font-family:'Outfit',sans-serif;font-weight:600;">📋 Copy</button>
+        </div>
+      </div>
+
+      <!-- ══ DONATE SCREEN ══ -->
+      <div id="atab-donate" class="app-screen" style="display:none;">
+        <div style="background:linear-gradient(135deg,var(--emerald),#041f10);border-radius:20px;padding:28px 24px;text-align:center;margin-bottom:16px;">
+          <div style="font-size:44px;margin-bottom:10px;">🤲</div>
+          <div style="font-family:'Playfair Display',serif;font-size:20px;color:#e8b84b;font-weight:700;margin-bottom:8px;">Sadaqah Jariyah</div>
+          <p style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.6;">Help keep Islamic Insights free for Muslims worldwide. Your support maintains servers and creates new content.</p>
+          <div style="font-family:'Scheherazade New',serif;font-size:16px;color:#e8b84b;direction:rtl;margin-top:14px;">مَن ذَا الَّذِي يُقْرِضُ اللَّهَ قَرْضًا حَسَنًا</div>
+        </div>
+        <p style="font-size:12px;color:var(--muted);margin-bottom:10px;font-weight:600;">Select Amount (PKR):</p>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px;">
+          <button class="amt-btn" data-amount="100" onclick="selectAmount(100)" style="padding:12px 6px;background:white;border:1px solid var(--border-light);border-radius:12px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;color:var(--text);">PKR 100</button>
+          <button class="amt-btn" data-amount="500" onclick="selectAmount(500)" style="padding:12px 6px;background:var(--emerald);border:1px solid var(--emerald);border-radius:12px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;color:#e8b84b;">PKR 500</button>
+          <button class="amt-btn" data-amount="1000" onclick="selectAmount(1000)" style="padding:12px 6px;background:white;border:1px solid var(--border-light);border-radius:12px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;color:var(--text);">PKR 1,000</button>
+          <button class="amt-btn" data-amount="2500" onclick="selectAmount(2500)" style="padding:12px 6px;background:white;border:1px solid var(--border-light);border-radius:12px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;color:var(--text);">PKR 2,500</button>
+          <button class="amt-btn" data-amount="5000" onclick="selectAmount(5000)" style="padding:12px 6px;background:white;border:1px solid var(--border-light);border-radius:12px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;color:var(--text);">PKR 5,000</button>
+          <button class="amt-btn" data-amount="10000" onclick="selectAmount(10000)" style="padding:12px 6px;background:white;border:1px solid var(--border-light);border-radius:12px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;color:var(--text);">PKR 10,000</button>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="background:rgba(255,255,255,.1);border-radius:10px;padding:12px;margin-bottom:10px;text-align:center;"><p style="color:rgba(255,255,255,.8);font-size:12px;margin:0 0 4px;">📱 EasyPaisa / JazzCash Number</p><p style="color:#e8b84b;font-size:20px;font-weight:700;margin:0;letter-spacing:2px;">03337546622</p><p style="color:rgba(255,255,255,.6);font-size:11px;margin:4px 0 0;">Tap button below then send to this number</p></div>
+          <button onclick="donatePKR()" style="padding:14px;background:linear-gradient(135deg,var(--emerald),#0e6b3a);color:white;border:none;border-radius:12px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;">💳 Donate <span id="donate-amount-label">PKR 500</span> via EasyPaisa / JazzCash</button>
+          <button onclick="donatePayPal()" style="padding:14px;background:linear-gradient(135deg,#c8941c,#e8b84b);color:#1a1612;border:none;border-radius:12px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;">🌐 Donate via PayPal</button>
+        </div>
+      </div>
+
+    </div><!-- end app-content -->
+  </div><!-- end max-width wrapper -->
+</div><!-- end app shell -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="fl"><svg width="32" height="32" viewBox="0 0 52 52"><rect width="52" height="52" rx="11" fill="rgba(200,148,28,0.2)"/><text x="26" y="36" font-family="Scheherazade New,serif" font-size="26" fill="#e8b84b" text-anchor="middle">☪</text></svg> Islamic Insights</div>
+      <p>An online magazine delivering authentic Islamic knowledge, stories of the AhlulBayt, and Quranic guidance to Muslims worldwide since 2007.</p>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+        <a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="rgba(255,255,255,0.75)"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col"><h4>Categories</h4><a href="religion.html">Religion</a><a href="history.html">History</a><a href="news.html">News</a><a href="series.html">Series</a><a href="muharram.html">Muharram</a></div>
+    <div class="footer-col"><h4>App Features</h4><a href="islamic-app.html">Quran 30 Para</a><a href="islamic-app.html">Nahj al-Balagha</a><a href="islamic-app.html">Prayer Times</a><a href="islamic-app.html">Qibla Direction</a><a href="islamic-app.html">Daily Hadith</a></div>
+    <div class="footer-col"><h4>Quick Links</h4><a href="about.html">About Us</a><a href="about.html">Contact Us</a><a href="islamic-app.html">Donate</a><a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank">YouTube</a></div>
+  </div>
+  <div class="footer-bottom">
+    <div>© Islamic Insights 2007–2026 · All Rights Reserved</div>
+    <div class="footer-links">
+      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank">YouTube</a>
+      <a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast -->
+<div id="toast" style="position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--emerald);color:white;padding:10px 22px;border-radius:50px;font-size:13px;opacity:0;transition:all .3s;z-index:500;pointer-events:none;white-space:nowrap;box-shadow:0 4px 20px rgba(0,0,0,.2);"></div>
+
+<style>
+.app-tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:10px 4px;border:none;background:transparent;color:var(--muted);font-size:9px;cursor:pointer;transition:all .2s;font-family:'Outfit',sans-serif;border-bottom:2px solid transparent;}
+.app-tab span{opacity:.7;}
+.app-tab.active{color:var(--emerald);border-bottom-color:var(--gold);}
+.app-tab.active span{opacity:1;font-weight:700;}
+.trans-btn.active{background:var(--emerald)!important;color:white!important;}
+.nahj-tab.active{background:var(--emerald)!important;color:#e8b84b!important;border-color:var(--emerald)!important;}
+.amt-btn.selected{background:var(--emerald)!important;border-color:var(--emerald)!important;color:#e8b84b!important;}
+</style>
+
+<script src="js/quran.js"></script>
+<script src="js/nahj.js"></script>
+<script src="js/prayer.js"></script>
+<script src="js/qibla.js"></script>
+<script src="js/hadith.js"></script>
+<script>
+// Date
+document.getElementById('top-date').textContent = new Date().toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
+
+// PWA Install
+let deferredPrompt=null;
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;document.getElementById('pwa-install-btn').style.display='flex';document.getElementById('install-banner').style.display='flex';});
+function installPWA(){
+  if(!deferredPrompt){ window.open('https://drive.google.com/uc?export=download&id=1CNs0Lf5KNiC9zeSvzDX7SQFDlpaSSnQ0','_blank'); return; }if(!deferredPrompt)return;deferredPrompt.prompt();deferredPrompt.userChoice.then(()=>{deferredPrompt=null;document.getElementById('install-banner').style.display='none';});}
+
+// Toast
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)';},3000);}
+
+// Tab switching
+function switchAppTab(id){
+  document.querySelectorAll('.app-tab').forEach(t=>t.classList.toggle('active',t.dataset.tab===id));
+  document.querySelectorAll('.app-screen').forEach(s=>s.style.display='none');
+  document.getElementById('atab-'+id).style.display='block';
+  if(id==='prayer')initPrayer();
+  if(id==='qibla')initQibla();
+  if(id==='hadith')initHadith();
+  if(id==='donate')initDonate();
+}
+
+// Init app
+window.addEventListener('load',()=>{
+  setTimeout(()=>{
+    document.getElementById('app-loading').style.display='none';
+    document.getElementById('app-content').style.display='block';
+    initNahj();
+    initHadith();
+  },800);
+});
+
+// ── QURAN ──
+const paraGrid=document.getElementById('para-grid');
+let currentAudio=null,isPlaying=false,currentVerses=[],transMode='none',currentReciter='ar.alafasy';
+
+if(window.QuranData){
+  QuranData.QURAN_PARAS.forEach(para=>{
+    const card=document.createElement('div');
+    card.style.cssText='background:white;border:1px solid var(--border-light);border-radius:12px;padding:12px 8px;text-align:center;cursor:pointer;transition:all .2s;box-shadow:0 2px 8px rgba(0,0,0,.04);';
+    card.innerHTML=`<div style="font-family:'Scheherazade New',serif;font-size:18px;color:var(--gold);font-weight:700;">${para.ar}</div><div style="font-size:11px;color:var(--emerald);margin:2px 0;">${para.en}</div><div style="font-size:10px;color:var(--muted);">Para ${para.num}</div>`;
+    card.addEventListener('mouseover',()=>card.style.borderColor='var(--gold)');
+    card.addEventListener('mouseout',()=>card.style.borderColor='var(--border-light)');
+    card.addEventListener('click',()=>openPara(para));
+    paraGrid.appendChild(card);
+  });
+}
+
+document.getElementById('quran-search').addEventListener('input',e=>{
+  const q=e.target.value.toLowerCase();
+  document.querySelectorAll('#para-grid > div').forEach((card,i)=>{
+    const para=QuranData.QURAN_PARAS[i];
+    card.style.display=(para.en.toLowerCase().includes(q)||String(para.num).includes(q))?'':'none';
+  });
+});
+
+async function openPara(para){
+  document.getElementById('para-list-wrap').style.display='none';
+  document.getElementById('quran-reader').style.display='block';
+  document.getElementById('reader-para-title').textContent=`Para ${para.num} — ${para.en}`;
+  document.getElementById('reader-para-ar').textContent=para.ar;
+  document.getElementById('quran-list').innerHTML='<div style="text-align:center;padding:30px;color:var(--muted);">Loading verses...</div>';
+  const verses=await QuranData.fetchParaVerses(para.num);
+  currentVerses=verses;
+    renderVerses(verses);
+  setTranslation('urdu');
+}
+function closePara(){stopAudio();document.getElementById('quran-reader').style.display='none';document.getElementById('para-list-wrap').style.display='block';}
+let autoplayOn=true;
+let transMode='urdu';
+let currentVerseIdx=0;
+function toggleAutoplay(){
+  autoplayOn=!autoplayOn;
+  const tog=document.getElementById('autoplay-toggle');
+  const knob=document.getElementById('autoplay-knob');
+  tog.style.background=autoplayOn?'var(--emerald)':'#ccc';
+  knob.style.right=autoplayOn?'2px':'';
+  knob.style.left=autoplayOn?'':'2px';
+  showToast(autoplayOn?'✅ Auto-play ON':'⏹ Auto-play OFF');
+}
+function renderVerses(verses){
+  const list=document.getElementById('quran-list');list.innerHTML='';
+  verses.forEach((v,i)=>{
+    const d=document.createElement('div');
+    d.id='ayah-'+i;
+    d.style.cssText='background:white;border:1px solid var(--border-light);border-radius:14px;padding:16px;position:relative;box-shadow:0 2px 8px rgba(0,0,0,.04);transition:box-shadow .2s;';
+    d.innerHTML=`
+      <div style="position:absolute;top:12px;right:12px;width:28px;height:28px;background:linear-gradient(135deg,var(--emerald),#0e6b3a);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Scheherazade New',serif;font-size:11px;color:#e8b84b;">${v.number||i+1}</div>
+      <div style="font-family:'Scheherazade New',serif;font-size:22px;line-height:1.9;text-align:right;direction:rtl;color:var(--ink);margin-bottom:10px;padding-right:34px;">${v.arabic}</div>
+      <div class="v-urdu" style="font-family:'Scheherazade New',serif;font-size:15px;line-height:2;text-align:right;direction:rtl;color:#0a5c35;margin-bottom:8px;padding:8px 10px;background:#f0f7f3;border-radius:8px;border-right:3px solid var(--gold);">${v.urdu||''}</div>
+      <div class="v-en" style="font-size:13px;line-height:1.7;color:var(--muted);font-style:italic;border-top:1px solid var(--border-light);padding-top:8px;margin-top:4px;display:none;">${v.english||''}</div>
+      <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;">
+        <button onclick="playVerse(${i})" id="vbtn-${i}" style="padding:5px 12px;background:var(--cream-warm);border:1px solid var(--border-light);border-radius:50px;color:var(--emerald);font-size:11px;cursor:pointer;font-family:'Outfit',sans-serif;">▶ سنیں</button>
+        <button onclick="speakUrdu(${i})" style="padding:5px 12px;background:#e8f4ee;border:1px solid #b8dfc8;border-radius:50px;color:#0a5c35;font-size:11px;cursor:pointer;font-family:'Outfit',sans-serif;">🔊 اردو آواز</button>
+        <button onclick="copyVerse(${i})" style="padding:5px 12px;background:var(--cream-warm);border:1px solid var(--border-light);border-radius:50px;color:var(--emerald);font-size:11px;cursor:pointer;font-family:'Outfit',sans-serif;">📋 Copy</button>
+      </div>`;
+    list.appendChild(d);
+  });
+  applyTrans();
+}
+function applyTrans(){
+  const showUrdu=transMode==='urdu'||transMode==='both';
+  const showEn=transMode==='both';
+  document.querySelectorAll('.v-urdu').forEach(el=>el.style.display=showUrdu?'block':'none');
+  document.querySelectorAll('.v-en').forEach(el=>el.style.display=showEn?'block':'none');
+}
+function setTranslation(mode){
+  transMode=mode;
+  document.querySelectorAll('.trans-btn').forEach(b=>{
+    b.style.background=b.dataset.trans===mode?'var(--emerald)':'transparent';
+    b.style.color=b.dataset.trans===mode?'white':'var(--text)';
+  });
+  applyTrans();
+}
+function highlightVerse(idx){
+  document.querySelectorAll('[id^="ayah-"]').forEach(el=>el.style.boxShadow='0 2px 8px rgba(0,0,0,.04)');
+  const el=document.getElementById('ayah-'+idx);
+  if(el){el.style.boxShadow='0 0 0 2px var(--gold)';el.scrollIntoView({behavior:'smooth',block:'nearest'});}
+}
+function speakUrdu(idx){
+  if(!currentVerses[idx])return;
+  const txt=currentVerses[idx].urdu||'';
+  if(!txt)return showToast('❌ Urdu text not available');
+  window.speechSynthesis.cancel();
+  const utt=new SpeechSynthesisUtterance(txt);
+  // try to find urdu voice
+  const voices=window.speechSynthesis.getVoices();
+  const urduVoice=voices.find(v=>v.lang.startsWith('ur')||v.name.toLowerCase().includes('urdu'));
+  if(urduVoice)utt.voice=urduVoice;
+  utt.lang='ur-PK';utt.rate=0.85;utt.pitch=1;
+  utt.onend=()=>{if(autoplayOn&&idx+1<currentVerses.length){setTimeout(()=>speakUrdu(idx+1),600);}};
+  window.speechSynthesis.speak(utt);
+  highlightVerse(idx);
+  showToast('🔊 Urdu translation playing...');
+}
+function toggleAudio(){if(!currentAudio||currentAudio.ended){playParaAudio();}else if(isPlaying){currentAudio.pause();isPlaying=false;document.getElementById('play-btn').textContent='▶';}else{currentAudio.play();isPlaying=true;document.getElementById('play-btn').textContent='⏸';}}
+function playParaAudio(){if(!window.currentPara)return;stopAudio();currentAudio=new Audio(QuranData.getParaAudioUrl(window.currentPara.num));currentAudio.addEventListener('timeupdate',()=>{const p=(currentAudio.currentTime/currentAudio.duration*100)||0;const bar=document.getElementById('audio-progress');if(bar)bar.value=p;document.getElementById('time-current').textContent=fmtTime(currentAudio.currentTime);document.getElementById('time-total').textContent=fmtTime(currentAudio.duration||0);});currentAudio.addEventListener('ended',()=>{isPlaying=false;document.getElementById('play-btn').textContent='▶';});currentAudio.play().catch(()=>showToast('❌ Audio unavailable offline'));isPlaying=true;document.getElementById('play-btn').textContent='⏸';}
+async function playVerse(idx){
+  if(!currentVerses[idx])return;
+  stopAudio();
+  highlightVerse(idx);
+  currentVerseIdx=idx;
+  document.querySelectorAll('[id^="vbtn-"]').forEach(b=>b.textContent='▶ سنیں');
+  const btn=document.getElementById('vbtn-'+idx);
+  if(btn)btn.textContent='⏸';
+  const url=QuranData.getVerseAudioUrl(currentVerses[idx].ayahNum||idx+1,currentReciter);
+  currentAudio=new Audio(url);
+  currentAudio.onended=()=>{
+    if(btn)btn.textContent='▶ سنیں';
+    if(autoplayOn&&idx+1<currentVerses.length){setTimeout(()=>playVerse(idx+1),500);}
+    else{isPlaying=false;}
+  };
+  currentAudio.play().catch(()=>showToast('❌ Audio unavailable'));
+  isPlaying=true;
+}
+function stopAudio(){if(currentAudio){currentAudio.pause();currentAudio.src='';currentAudio=null;}isPlaying=false;const b=document.getElementById('play-btn');if(b)b.textContent='▶';}
+function seekAudio(e){if(currentAudio&&currentAudio.duration)currentAudio.currentTime=(e.target.value/100)*currentAudio.duration;}
+function fmtTime(s){if(!s||isNaN(s))return'0:00';return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');}
+function copyVerse(idx){const v=currentVerses[idx];if(!v)return;navigator.clipboard?.writeText(`${v.arabic}\n${v.english||''}`).then(()=>showToast('📋 Copied!'));}
+window.openPara=openPara;window.closePara=closePara;window.setTranslation=setTranslation;window.toggleAudio=toggleAudio;window.playVerse=playVerse;window.seekAudio=seekAudio;window.copyVerse=copyVerse;
+
+// ── NAHJ ──
+function initNahj(){renderNahj('sermons');}
+function switchNahjTab(type){
+  document.querySelectorAll('.nahj-tab').forEach(t=>{t.style.background=t.dataset.nahj===type?'var(--emerald)':'white';t.style.color=t.dataset.nahj===type?'#e8b84b':'var(--text)';t.style.borderColor=t.dataset.nahj===type?'var(--emerald)':'var(--border-light)';});
+  renderNahj(type);
+}
+function renderNahj(type){
+  const list=document.getElementById('nahj-list');if(!list||!window.NahjData)return;
+  list.innerHTML='';
+  NahjData[type].forEach(item=>{
+    const d=document.createElement('div');
+    const label=type==='sermons'?'Sermon':type==='letters'?'Letter':'Saying';
+    d.style.cssText='background:white;border:1px solid var(--border-light);border-left:3px solid var(--emerald);border-radius:14px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,.04);';
+    d.innerHTML=`<div style="display:flex;justify-content:space-between;margin-bottom:10px;"><div><div style="font-size:10px;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:1px;">${label} ${item.id}</div><div style="font-size:13px;color:var(--emerald);font-weight:600;margin-top:2px;">${item.title}</div></div><div style="font-family:'Scheherazade New',serif;font-size:13px;color:var(--muted);">${item.titleAr}</div></div><div style="font-family:'Scheherazade New',serif;font-size:18px;line-height:1.9;text-align:right;direction:rtl;color:var(--ink);margin-bottom:10px;">${item.arabic}</div><div style="font-family:'Scheherazade New',serif;font-size:14px;line-height:1.9;text-align:right;direction:rtl;color:var(--emerald-bright);margin-bottom:8px;">${item.urdu}</div><div style="font-size:13px;line-height:1.7;color:var(--muted);font-style:italic;">${item.english}</div>`;
+    list.appendChild(d);
+  });
+}
+window.switchNahjTab=switchNahjTab;
+
+// ── PRAYER ──
+let prayerDone=false,cdInt=null;
+function initPrayer(){if(prayerDone)return;const s=JSON.parse(localStorage.getItem('userLocation')||'null');if(s)renderPrayerTimes(s.lat,s.lng,s.city);}
+function requestLocation(){
+  navigator.geolocation?.getCurrentPosition(pos=>{
+    const{latitude:lat,longitude:lng}=pos.coords;
+    fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`).then(r=>r.json()).then(d=>{
+      const city=d.address?.city||d.address?.town||'Your City';
+      localStorage.setItem('userLocation',JSON.stringify({lat,lng,city}));
+      renderPrayerTimes(lat,lng,city);
+    }).catch(()=>renderPrayerTimes(lat,lng,'Your City'));
+  },()=>renderPrayerTimes(24.8607,67.0011,'Karachi'));
+}
+function renderPrayerTimes(lat,lng,city){
+  prayerDone=true;
+  document.getElementById('prayer-prompt').style.display='none';
+  document.getElementById('prayer-display').style.display='block';
+  const date=new Date(),times=PrayerCalc.compute(lat,lng,date,'Karachi');
+  const{next}=getCurrentAndNextPrayer(times);
+  document.getElementById('prayer-city').textContent=city;
+  document.getElementById('prayer-hijri').textContent=toHijri(date);
+  document.getElementById('prayer-en-date').textContent=date.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
+  document.getElementById('next-prayer-name').textContent=PRAYER_NAMES[next].ar;
+  document.getElementById('next-prayer-time').textContent=times[next];
+  if(cdInt)clearInterval(cdInt);
+  const upd=()=>document.getElementById('prayer-countdown').textContent=getCountdown(times[next])+' remaining';
+  upd();cdInt=setInterval(upd,60000);
+  const list=document.getElementById('prayer-times-list');list.innerHTML='';
+  Object.entries(times).forEach(([key,time])=>{
+    const info=PRAYER_NAMES[key];if(!info)return;
+    const isCurr=key===next;
+    const d=document.createElement('div');
+    d.style.cssText=`display:flex;align-items:center;background:${isCurr?'linear-gradient(135deg,var(--emerald),#0e6b3a)':'white'};border:1px solid ${isCurr?'var(--emerald)':'var(--border-light)'};border-radius:12px;padding:14px 16px;${isCurr?'box-shadow:0 4px 16px rgba(10,74,42,.2);':''}`;
+    d.innerHTML=`<span style="font-size:22px;margin-right:12px;">${info.icon}</span><div style="flex:1;"><div style="font-size:14px;font-weight:600;color:${isCurr?'white':'var(--ink)'};">${info.en}</div><div style="font-family:'Scheherazade New',serif;font-size:12px;color:${isCurr?'rgba(255,255,255,.6)':'var(--muted)'};direction:rtl;">${info.ar}</div></div><div style="font-size:18px;font-weight:700;color:${isCurr?'#e8b84b':'var(--gold)'};">${time}</div>`;
+    list.appendChild(d);
+  });
+}
+window.requestLocation=requestLocation;
+
+// ── QIBLA ──
+let qiblaDone=false,compass=null;
+function initQibla(){if(qiblaDone)return;const s=JSON.parse(localStorage.getItem('userLocation')||'null');if(s)setupQibla(s.lat,s.lng);}
+function requestQiblaLocation(){navigator.geolocation?.getCurrentPosition(pos=>{localStorage.setItem('userLocation',JSON.stringify({lat:pos.coords.latitude,lng:pos.coords.longitude,city:'Your Location'}));setupQibla(pos.coords.latitude,pos.coords.longitude);},()=>setupQibla(24.8607,67.0011));}
+function setupQibla(lat,lng){
+  qiblaDone=true;
+  document.getElementById('qibla-prompt').style.display='none';
+  document.getElementById('qibla-main').style.display='flex';
+  const angle=calculateQibla(lat,lng),dist=getDistanceToMakkah(lat,lng);
+  document.getElementById('qibla-degree').textContent=angle+'°';
+  document.getElementById('qibla-from-north').textContent=angle+'° from North';
+  document.getElementById('qibla-distance').textContent='📍 '+dist.toLocaleString()+' km to Makkah';
+  compass=new QiblaCompass((rot)=>{const n=document.getElementById('compass-needle');if(n)n.style.transform=`translate(-50%,-100%) rotate(${rot}deg)`;});
+  compass.setQiblaAngle(angle);compass.start();
+}
+async function calibrateCompass(){if(compass){const g=await compass.requestPermission();showToast(g?'✅ Compass active':'⚠️ Use manual mode');}}
+window.requestQiblaLocation=requestQiblaLocation;window.calibrateCompass=calibrateCompass;
+
+// ── HADITH ──
+let hadithDone=false;
+function initHadith(){if(hadithDone)return;hadithDone=true;renderHadith(HadithData.getDailyHadith());}
+function renderHadith(h){document.getElementById('hadith-arabic').textContent=h.arabic;document.getElementById('hadith-urdu').textContent=h.urdu;document.getElementById('hadith-english').textContent=h.english;document.getElementById('hadith-source').textContent=h.source+' | '+h.reference;}
+function nextHadith(){renderHadith(HadithData.getRandomHadith());showToast('🔄 New hadith!');}
+function shareHadith(){const t=document.getElementById('hadith-arabic').textContent+'\n\n'+document.getElementById('hadith-english').textContent+'\n\n— '+document.getElementById('hadith-source').textContent;if(navigator.share)navigator.share({title:'Daily Hadith',text:t});else navigator.clipboard?.writeText(t).then(()=>showToast('📋 Copied!'));}
+function copyHadith(){navigator.clipboard?.writeText(document.getElementById('hadith-arabic').textContent+'\n'+document.getElementById('hadith-english').textContent).then(()=>showToast('📋 Copied!'));}
+window.nextHadith=nextHadith;window.shareHadith=shareHadith;window.copyHadith=copyHadith;
+
+// ── DONATE ──
+let selAmt=500;
+function initDonate(){selectAmount(500);}
+function selectAmount(amt){
+  selAmt=amt;
+  document.querySelectorAll('.amt-btn').forEach(b=>{const sel=Number(b.dataset.amount)===amt;b.style.background=sel?'var(--emerald)':'white';b.style.borderColor=sel?'var(--emerald)':'var(--border-light)';b.style.color=sel?'#e8b84b':'var(--text)';});
+  document.getElementById('donate-amount-label').textContent='PKR '+amt.toLocaleString();
+}
+function donatePKR(){
+  const amt = document.getElementById('donate-amount-label').textContent;
+  const price = amt.replace('PKR ','').replace(',','');
+  const epLink = 'easypaisa://sendmoney?msisdn=03337546622&amount='+price;
+  const jcLink = 'jazzcash://sendmoney?msisdn=03337546622&amount='+price;
+  const webLink = 'https://easypaisa.com.pk/consumer/send-money';
+  
+  const overlay = document.createElement('div');
+  overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;';
+  overlay.innerHTML = `
+    <div style="background:white;border-radius:20px;padding:24px;max-width:320px;width:100%;text-align:center;">
+      <div style="font-size:36px;margin-bottom:10px;">🤲</div>
+      <h3 style="font-family:'Playfair Display',serif;color:#0a4a2a;margin:0 0 14px;">Sadaqah Jariyah</h3>
+      <div style="background:#e8f5ef;border-radius:12px;padding:14px;margin-bottom:16px;">
+        <p style="font-size:11px;color:#0a4a2a;margin:0 0 4px;font-weight:600;">EasyPaisa / JazzCash</p>
+        <p style="font-size:24px;font-weight:700;color:#0a4a2a;letter-spacing:2px;margin:0;">0333-7546622</p>
+        <p style="font-size:14px;color:#c8941c;font-weight:700;margin:6px 0 0;">${amt}</p>
+      </div>
+      <a href="${epLink}" style="display:block;background:linear-gradient(135deg,#4caf50,#2e7d32);color:white;padding:12px;border-radius:50px;font-size:13px;font-weight:700;text-decoration:none;margin-bottom:8px;" onclick="setTimeout(()=>window.open('${webLink}','_blank'),1500)">📱 EasyPaisa Se Bhejein</a>
+      <a href="${jcLink}" style="display:block;background:linear-gradient(135deg,#e53935,#b71c1c);color:white;padding:12px;border-radius:50px;font-size:13px;font-weight:700;text-decoration:none;margin-bottom:14px;" onclick="setTimeout(()=>window.open('${webLink}','_blank'),1500)">📱 JazzCash Se Bhejein</a>
+      <button onclick="this.closest('div[style*=fixed]').remove()" style="background:none;border:1px solid #ddd;padding:8px 24px;border-radius:50px;color:#666;font-size:12px;cursor:pointer;font-family:'Outfit',sans-serif;">Close</button>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+  overlay.addEventListener('click', e=>{ if(e.target===overlay) overlay.remove(); });
+}
+function donatePayPal(){window.open('mailto:zs673811@gmail.com?subject=Donation - Islamic Insights','_blank');}
+window.selectAmount=selectAmount;window.donatePKR=donatePKR;window.donatePayPal=donatePayPal;
+</script>
+</body>
+</html>

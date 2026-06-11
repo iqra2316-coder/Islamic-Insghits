@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#0a4a2a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Islamic Insights">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/icons/icon-192.png">
+<script>if("serviceWorker"in navigator){
+  window.addEventListener("load",function(){
+    navigator.serviceWorker.register("/sw.js",{scope:"/"})
+      .then(function(reg){console.log("SW registered",reg.scope);})
+      .catch(function(err){console.log("SW error",err);});
+  });
+}</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VZJ1ETL0JQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-VZJ1ETL0JQ");
+</script>
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<title>News — Islamic Insights</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" onclick="document.getElementById('mobileNav').classList.remove('open')">✕</button>
+  <a href="index.html">Home</a>
+  <a href="religion.html">Religion</a>
+  <a href="history.html">History</a>
+  <a href="muharram.html">Muharram</a>
+  <a href="series.html">Series</a>
+  <a href="news.html">News</a>
+  <a href="about.html">About</a>
+  <a href="islamic-app.html" style="color:#e8b84b!important;">📱 Islamic App</a>
+</div>
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div style="display:flex;gap:20px;align-items:center;">
+      <div class="topbar-bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ</div>
+      <span style="color:rgba(255,255,255,.4);font-size:11px;border-right:1px solid rgba(255,255,255,.15);padding-right:20px;">Tuesday, June 2, 2026</span>
+    </div>
+    <div class="topbar-social">
+      <span class="lbl">Follow</span>
+      <a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank" style="display:inline-flex;align-items:center;gap:6px;color:white;text-decoration:none;font-size:13px;font-weight:600;"><svg viewBox="0 0 24 24" width="22" height="22" fill="#ff0000"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>YouTube</a>
+      <a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
+    </div>
+  </div>
+</div>
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-emblem"><svg viewBox="0 0 52 52"><rect width="52" height="52" rx="13" fill="#0a4a2a"/><text x="26" y="36" font-family="Scheherazade New,serif" font-size="28" fill="#c8941c" text-anchor="middle">☪</text><rect x="6" y="6" width="40" height="40" rx="9" fill="none" stroke="rgba(200,148,28,0.3)" stroke-width="1"/></svg></div>
+      <div class="logo-text"><h1>Islamic Insights</h1><p>Quran & AhlulBayt</p></div>
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="religion.html">Religion</a>
+      <a href="history.html">History</a>
+      <a href="muharram.html">Muharram</a>
+      <a href="series.html">Series</a>
+      <a href="news.html">News</a>
+      <a href="about.html">About</a>
+      <a href="islamic-app.html" style="background:linear-gradient(135deg,#0a4a2a,#0e6b3a);color:#e8b84b!important;padding:8px 14px;border-radius:8px;font-weight:600;margin-left:6px;">📱 App</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank" class="btn-yt">▶ YouTube</a>
+      <div class="hamburger" onclick="document.getElementById('mobileNav').classList.add('open')"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</header>
+<!-- App Download Banner -->
+<div style="background:linear-gradient(135deg,#0a4a2a,#041f10);padding:20px 24px;text-align:center;">
+  <p style="color:rgba(255,255,255,.7);font-size:13px;margin:0 0 4px;">📱 Islamic Insights App</p>
+  <h2 style="font-family:'Playfair Display',serif;color:#e8b84b;font-size:22px;margin:0 0 12px;">App Download karein — Bilkul FREE</h2>
+  <a href="https://drive.google.com/file/d/1CNs0Lf5KNiC9zeSvzDX7SQFDlpaSSnQ0/view?usp=sharing" target="_blank" style="display:inline-block;background:linear-gradient(135deg,#c8941c,#e8b84b);color:#1a1612;padding:13px 32px;border-radius:50px;font-size:14px;font-weight:700;text-decoration:none;margin-bottom:8px;">⬇ Download App (Android)</a>
+  <p style="color:rgba(255,255,255,.5);font-size:11px;margin:8px 0 0;">Google Drive khulega → Download button dabain → Install karein</p>
+</div>
+<!-- TICKER -->
+<div class="gold-strip">
+  <div class="ticker-wrap">
+    <div class="ticker-label">✦ Trending</div>
+    <div class="ticker-content">
+      <div class="ticker-inner">
+        <span class="ticker-item">Abu Talib — The Believer of Quraysh</span>
+        <span class="ticker-item">Lady Khadija, Esteemed Wife of the Prophet ﷺ</span>
+        <span class="ticker-item">Jannat al-Baqi — From Cemetery to Holy Sanctuary</span>
+        <span class="ticker-item">Dangers of Desensitization to Sin</span>
+        <span class="ticker-item">The Eternal Stand of Imam Hussain (as) at Karbala</span>
+        <span class="ticker-item">Abu Talib — The Believer of Quraysh</span>
+        <span class="ticker-item">Lady Khadija, Esteemed Wife of the Prophet ﷺ</span>
+        <span class="ticker-item">Jannat al-Baqi — From Cemetery to Holy Sanctuary</span>
+        <span class="ticker-item">Dangers of Desensitization to Sin</span>
+        <span class="ticker-item">The Eternal Stand of Imam Hussain (as) at Karbala</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-hero">
+  <div class="page-hero-tag">✦ News</div>
+  <h1>Islamic World News</h1>
+  <p>Stay informed on the latest news and events affecting Muslims around the world</p>
+</div>
+<div class="breadcrumb"><div class="breadcrumb-inner"><a href="index.html">Home</a><span>›</span><span>News</span></div></div>
+<div class="main">
+  <div>
+    <div class="hadith-box">
+      <div class="hadith-label">✦ Reminder ✦</div>
+      <div class="hadith-ar">«الْمُؤْمِنُ مِرْآةُ الْمُؤْمِنِ»</div>
+      <div class="hadith-en">"The believer is the mirror of the believer."</div>
+      <div class="hadith-src">— Prophet Muhammad ﷺ · Abu Dawud</div>
+    </div>
+    <div class="sec-head"><div class="sec-title">Latest News</div></div>
+    <div class="story-list">
+      <a href="javascript:void(0)" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="story-item"><div class="story-icon" style="background:linear-gradient(135deg,#3d0d0d,#7a1a1a)">🚨</div><div><div class="story-cat">News · Pakistan</div><div class="story-title">Abdullah Shah Ghazi Shrine Attacked in Karachi</div><div class="story-excerpt">The revered shrine of Abdullah Shah Ghazi, one of the most visited religious sites in Karachi, Pakistan, was targeted in a violent attack that shocked the Muslim community. Abdullah Shah Ghazi is considered a great Islamic saint and scholar whose tomb has drawn pilgrims for centuries. The attack, condemned by religious leaders across Pakistan, has renewed calls for better security at sacred sites and renewed discussions about the rising tide of extremism targeting places of Islamic heritage and devotion.</div><div class="story-link">Read Full Article →</div></div></a>
+      <a href="javascript:void(0)" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="story-item"><div class="story-icon" style="background:linear-gradient(135deg,#1a2a3d,#2a4a6b)">📰</div><div><div class="story-cat">News · Controversy</div><div class="story-title">Zakir Naik Draws Ire With Insensitive Karbala Comments</div><div class="story-excerpt">Controversial Islamic preacher Zakir Naik sparked widespread outrage across the Muslim world after making comments perceived as dismissive of the tragedy of Karbala and the martyrdom of Imam Hussain (as). Scholars, community leaders, and Muslims across sectarian lines condemned the remarks as historically inaccurate and spiritually offensive. The incident reignited important discussions about the responsibility of public Islamic figures, the centrality of Karbala to Muslim identity, and the dangers of divisive rhetoric within the Ummah.</div><div class="story-link">Read Full Article →</div></div></a>
+      <a href="javascript:void(0)" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="story-item"><div class="story-icon" style="background:linear-gradient(135deg,#0d2a0d,#1a5a1a)">🕌</div><div><div class="story-cat">News · World</div><div class="story-title">Millions Gather for Arbaeen — World's Largest Peaceful March</div><div class="story-excerpt">Over 20 million pilgrims from across the globe converged on the holy city of Karbala, Iraq, for the annual Arbaeen commemoration — marking 40 days after the martyrdom of Imam Hussain (as). The Arbaeen walk, during which millions trek on foot to reach Karbala, is recognized as the largest annual human gathering on earth. Pilgrims from more than 40 countries participate, with Iraqi families hosting millions of visitors entirely free of charge in one of the most remarkable displays of Islamic brotherhood and hospitality in the world.</div><div class="story-link">Read Full Article →</div></div></a>
+      <a href="javascript:void(0)" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="story-item"><div class="story-icon" style="background:linear-gradient(135deg,#2a1a0d,#6b4215)">🌍</div><div><div class="story-cat">News · Global</div><div class="story-title">UN Report Highlights Rising Islamophobia Worldwide</div><div class="story-excerpt">A new United Nations report has documented a sharp global rise in incidents of Islamophobia, hate crimes, and discrimination against Muslim communities across Europe, North America, and parts of Asia. The report calls on governments to enact stronger protections for religious minorities, improve hate crime reporting systems, and challenge the systemic biases that enable Islamophobia to persist in media, politics, and public discourse. Muslim civil society organizations have welcomed the report while calling for concrete action beyond rhetoric.</div><div class="story-link">Read Full Article →</div></div></a>
+      <a href="javascript:void(0)" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="story-item"><div class="story-icon" style="background:linear-gradient(135deg,#1a1a2a,#3a3a5a)">📡</div><div><div class="story-cat">News · Media</div><div class="story-title">Islamic Insights Launches New YouTube Channel — @ismlamicinsights110</div><div class="story-excerpt">Islamic Insights is proud to announce the official launch of its YouTube channel, bringing the magazine's beloved articles and Islamic content to a new video format. The channel — @ismlamicinsights110 — will feature video essays on Islamic history, the lives of the AhlulBayt, Quranic reflections, and current affairs affecting the Muslim world. Subscribers can expect high-quality, authentic, and thought-provoking content rooted in the same values that have guided Islamic Insights since 2007. Subscribe today and join our growing community.</div><div class="story-link">Read Full Article →</div></div></a>
+    </div>
+  </div>
+  <div class="sidebar">
+    <div class="widget"><div class="whead">📖 Verse of the Day</div><div class="wbody"><div class="verse-box"><div class="verse-ar">وَلَا تَهِنُوا وَلَا تَحْزَنُوا وَأَنتُمُ الْأَعْلَوْنَ إِن كُنتُم مُّؤْمِنِينَ</div><div class="verse-en">"Do not weaken and do not grieve, and you will be superior if you are true believers."</div><div class="verse-ref">— Surah Aal-Imran (3:139)</div></div><div class="verse-reflection"><strong>Reflection:</strong> In times of difficulty and persecution, this verse reminds believers that true strength comes from faith — and that ultimately, truth and justice will prevail.</div></div></div>
+    <div class="widget"><div class="whead">🔥 Most Read News</div><div class="wbody"><div class="popular-list"><a href="javascript:void(0)" class="pitem" style="cursor:default"><div class="pitem-num">01</div><div><div class="pitem-title">Abdullah Shah Ghazi Shrine Attacked in Karachi</div><div class="pitem-cat">📰 Pakistan</div></div></a><a href="javascript:void(0)" class="pitem" style="cursor:default"><div class="pitem-num">02</div><div><div class="pitem-title">Zakir Naik Draws Ire With Karbala Comments</div><div class="pitem-cat">📰 Controversy</div></div></a><a href="javascript:void(0)" class="pitem" style="cursor:default"><div class="pitem-num">03</div><div><div class="pitem-title">Millions Gather for Arbaeen in Karbala</div><div class="pitem-cat">📰 World</div></div></a><a href="javascript:void(0)" class="pitem" style="cursor:default"><div class="pitem-num">04</div><div><div class="pitem-title">UN Report: Rising Islamophobia Worldwide</div><div class="pitem-cat">📰 Global</div></div></a></div></div></div>
+    <div class="widget"><div class="whead">🌐 Follow Us</div><div class="wbody"><div class="social-grid"><a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank" class="slink slink-fb"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>Facebook</a><a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank" class="slink slink-ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>Instagram</a><a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank" class="slink-yt-full">▶ @ismlamicinsights110 on YouTube</a></div></div></div>
+    <div class="nl-widget"><h3>Stay Connected</h3><p>Get Islamic insights every week.</p><form name="newsletter-news" method="POST" data-netlify="true" action="/news.html" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;">
+        <input type="hidden" name="form-name" value="newsletter-news">
+        <input type="email" name="email" class="nl-input" placeholder="Your email..." required style="flex:1;min-width:0;">
+        <button type="submit" class="nl-btn">Subscribe</button>
+      </form></div>
+  </div>
+</div>
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="fl"><svg width="32" height="32" viewBox="0 0 52 52"><rect width="52" height="52" rx="11" fill="rgba(200,148,28,0.2)"/><text x="26" y="36" font-family="Scheherazade New,serif" font-size="26" fill="#e8b84b" text-anchor="middle">☪</text></svg> Islamic Insights</div>
+      <p>An online magazine delivering authentic Islamic knowledge, stories of the AhlulBayt, and Quranic guidance to Muslims worldwide since 2007.</p>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+        <a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="rgba(255,255,255,0.75)"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <a href="religion.html">Religion</a>
+      <a href="history.html">History</a>
+      <a href="news.html">News</a>
+      <a href="series.html">Series</a>
+      <a href="muharram.html">Muharram</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="footer-col">
+      <h4>Series</h4>
+      <a href="series.html">Raising Faith</a>
+      <a href="series.html">Refinement of Soul</a>
+      <a href="series.html">An Ethical Life</a>
+      <a href="series.html">Youth: Life's Spring</a>
+      <a href="muharram.html">Karbala Series</a>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="about.html">About Us</a>
+      <a href="about.html">Write For Us</a>
+      <a href="about.html">Contact Us</a>
+      <a href="books.html">📚 Books & Downloads</a>
+      <a href="about.html">Donate</a>
+      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank">YouTube Channel</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© Islamic Insights 2007–2026 · All Rights Reserved · Inspired by The Holy Quran & The AhlulBayt</div>
+    <div class="footer-links">
+      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank">YouTube: @ismlamicinsights110</a>
+      <a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank">Instagram: @zeeshanahmed1100011</a>
+    </div>
+  </div>
+</footer>
+</body></html>

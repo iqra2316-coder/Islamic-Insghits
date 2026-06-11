@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#0a4a2a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Islamic Insights">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/icons/icon-192.png">
+<script>if("serviceWorker"in navigator){
+  window.addEventListener("load",function(){
+    navigator.serviceWorker.register("/sw.js",{scope:"/"})
+      .then(function(reg){console.log("SW registered",reg.scope);})
+      .catch(function(err){console.log("SW error",err);});
+  });
+}</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VZJ1ETL0JQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-VZJ1ETL0JQ");
+</script>
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<title>About Us — Islamic Insights</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:40px;}
+.about-card{background:white;border-radius:16px;padding:28px;border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,.04);}
+.about-card h3{font-family:'Playfair Display',serif;font-size:20px;color:var(--emerald);margin-bottom:12px;font-weight:700;}
+.about-card p{font-size:14px;color:var(--muted);line-height:1.75;}
+.about-icon{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--emerald),var(--emerald-mid));display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px;}
+.contact-form{background:white;border-radius:20px;padding:36px;border:1px solid var(--border-light);}
+.contact-form h3{font-family:'Playfair Display',serif;font-size:24px;color:var(--emerald);margin-bottom:6px;}
+.contact-form p{color:var(--muted);font-size:14px;margin-bottom:24px;}
+.form-group{margin-bottom:18px;}
+.form-group label{display:block;font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px;}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:12px 16px;border-radius:10px;border:1.5px solid var(--border);background:var(--cream);font-size:14px;font-family:'Outfit',sans-serif;color:var(--text);outline:none;transition:border-color .2s;}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--emerald);}
+.form-group textarea{resize:vertical;min-height:120px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.submit-btn{background:linear-gradient(135deg,var(--emerald),var(--emerald-mid));color:white;padding:13px 32px;border-radius:50px;border:none;font-size:14px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:all .25s;}
+.submit-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(10,74,42,.25);}
+.mission-box{background:linear-gradient(135deg,var(--emerald),var(--emerald-mid));border-radius:20px;padding:40px;color:white;margin-bottom:32px;text-align:center;}
+.mission-box h2{font-family:'Playfair Display',serif;font-size:30px;font-weight:900;margin-bottom:14px;}
+.mission-box p{font-size:16px;color:rgba(255,255,255,.8);line-height:1.8;max-width:600px;margin:0 auto;}
+.donate-box{background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:16px;padding:28px;text-align:center;margin-bottom:24px;}
+.donate-box h3{font-family:'Playfair Display',serif;font-size:22px;color:var(--ink);margin-bottom:8px;}
+.donate-box p{font-size:13px;color:rgba(0,0,0,.6);margin-bottom:16px;}
+.donate-btn{background:var(--emerald);color:white;padding:11px 28px;border-radius:50px;border:none;font-size:13px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;}
+@media(max-width:768px){.about-grid{grid-template-columns:1fr;}.form-row{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" onclick="document.getElementById('mobileNav').classList.remove('open')">✕</button>
+  <a href="index.html">Home</a>
+  <a href="religion.html">Religion</a>
+  <a href="history.html">History</a>
+  <a href="muharram.html">Muharram</a>
+  <a href="series.html">Series</a>
+  <a href="news.html">News</a>
+  <a href="about.html">About</a>
+  <a href="islamic-app.html" style="color:#e8b84b!important;">📱 Islamic App</a>
+</div>
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div style="display:flex;gap:20px;align-items:center;">
+      <div class="topbar-bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ</div>
+      <span style="color:rgba(255,255,255,.4);font-size:11px;border-right:1px solid rgba(255,255,255,.15);padding-right:20px;">Tuesday, June 2, 2026</span>
+    </div>
+    <div class="topbar-social">
+      <span class="lbl">Follow</span>
+      <a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank" style="display:inline-flex;align-items:center;gap:6px;color:white;text-decoration:none;font-size:13px;font-weight:600;"><svg viewBox="0 0 24 24" width="22" height="22" fill="#ff0000"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>YouTube</a>
+      <a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
+    </div>
+  </div>
+</div>
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-emblem"><svg viewBox="0 0 52 52"><rect width="52" height="52" rx="13" fill="#0a4a2a"/><text x="26" y="36" font-family="Scheherazade New,serif" font-size="28" fill="#c8941c" text-anchor="middle">☪</text><rect x="6" y="6" width="40" height="40" rx="9" fill="none" stroke="rgba(200,148,28,0.3)" stroke-width="1"/></svg></div>
+      <div class="logo-text"><h1>Islamic Insights</h1><p>Quran & AhlulBayt</p></div>
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="religion.html">Religion</a>
+      <a href="history.html">History</a>
+      <a href="muharram.html">Muharram</a>
+      <a href="series.html">Series</a>
+      <a href="news.html">News</a>
+      <a href="about.html">About</a>
+      <a href="islamic-app.html" style="background:linear-gradient(135deg,#0a4a2a,#0e6b3a);color:#e8b84b!important;padding:8px 14px;border-radius:8px;font-weight:600;margin-left:6px;">📱 App</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank" class="btn-yt">▶ YouTube</a>
+      <div class="hamburger" onclick="document.getElementById('mobileNav').classList.add('open')"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</header>
+<!-- App Download Banner -->
+<div style="background:linear-gradient(135deg,#0a4a2a,#041f10);padding:20px 24px;text-align:center;">
+  <p style="color:rgba(255,255,255,.7);font-size:13px;margin:0 0 4px;">📱 Islamic Insights App</p>
+  <h2 style="font-family:'Playfair Display',serif;color:#e8b84b;font-size:22px;margin:0 0 12px;">App Download karein — Bilkul FREE</h2>
+  <a href="https://drive.google.com/file/d/1CNs0Lf5KNiC9zeSvzDX7SQFDlpaSSnQ0/view?usp=sharing" target="_blank" style="display:inline-block;background:linear-gradient(135deg,#c8941c,#e8b84b);color:#1a1612;padding:13px 32px;border-radius:50px;font-size:14px;font-weight:700;text-decoration:none;margin-bottom:8px;">⬇ Download App (Android)</a>
+  <p style="color:rgba(255,255,255,.5);font-size:11px;margin:8px 0 0;">Google Drive khulega → Download button dabain → Install karein</p>
+</div>
+<!-- TICKER -->
+<div class="gold-strip">
+  <div class="ticker-wrap">
+    <div class="ticker-label">✦ Trending</div>
+    <div class="ticker-content">
+      <div class="ticker-inner">
+        <span class="ticker-item">Abu Talib — The Believer of Quraysh</span>
+        <span class="ticker-item">Lady Khadija, Esteemed Wife of the Prophet ﷺ</span>
+        <span class="ticker-item">Jannat al-Baqi — From Cemetery to Holy Sanctuary</span>
+        <span class="ticker-item">Dangers of Desensitization to Sin</span>
+        <span class="ticker-item">The Eternal Stand of Imam Hussain (as) at Karbala</span>
+        <span class="ticker-item">Abu Talib — The Believer of Quraysh</span>
+        <span class="ticker-item">Lady Khadija, Esteemed Wife of the Prophet ﷺ</span>
+        <span class="ticker-item">Jannat al-Baqi — From Cemetery to Holy Sanctuary</span>
+        <span class="ticker-item">Dangers of Desensitization to Sin</span>
+        <span class="ticker-item">The Eternal Stand of Imam Hussain (as) at Karbala</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-hero">
+  <div class="page-hero-tag">✦ About Us</div>
+  <h1>About Islamic Insights</h1>
+  <p>Dedicated to authentic Islamic knowledge, inspired by the Holy Quran and the blessed AhlulBayt since 2007</p>
+</div>
+<div class="breadcrumb"><div class="breadcrumb-inner"><a href="index.html">Home</a><span>›</span><span>About Us</span></div></div>
+
+<div class="main">
+  <div>
+    <div class="mission-box">
+      <h2>Our Mission</h2>
+      <p>Islamic Insights was founded with a single purpose: to bring the timeless wisdom of the Holy Quran and the teachings of the Prophet's blessed family — the AhlulBayt — to Muslims everywhere. In a world full of noise and distraction, we strive to be a trusted source of authentic, thoughtful, and spiritually nourishing Islamic content.</p>
+    </div>
+
+    <div class="sec-head"><div class="sec-title">Who We Are</div></div>
+    <div class="about-grid">
+      <div class="about-card"><div class="about-icon">📖</div><h3>Our Editorial Values</h3><p>Every article published on Islamic Insights is rooted in authentic Islamic sources — the Holy Quran, authenticated Hadith, and the teachings of the AhlulBayt. We are committed to accuracy, depth, and accessibility — making complex Islamic knowledge understandable for Muslims of all backgrounds and levels of knowledge.</p></div>
+      <div class="about-card"><div class="about-icon">🌍</div><h3>Global Readership</h3><p>Since 2007, Islamic Insights has served readers across Pakistan, the Middle East, Africa, Europe, North America, and beyond. Our readership spans every continent, united by a shared love for the Prophet Muhammad ﷺ and his blessed family, and a desire for authentic Islamic guidance in their daily lives.</p></div>
+      <div class="about-card"><div class="about-icon">🕌</div><h3>Our Focus</h3><p>We focus on the rich tradition of the AhlulBayt — the Prophet's household — whose guidance the Quran itself identifies as a source of light for the Ummah. We also cover Islamic history, current affairs, spirituality, family life, and the inspiring stories of the Prophets, drawing lessons relevant to Muslims living in the modern world.</p></div>
+      <div class="about-card"><div class="about-icon">📱</div><h3>Our Platforms</h3><p>Islamic Insights is active across multiple platforms. Our website hosts over 150 in-depth articles. Our YouTube channel (@ismlamicinsights110) brings our content to video. Follow us on Facebook and Instagram (@zeeshanahmed1100011) for daily Islamic reminders, Quranic verses, and the latest articles from our team.</p></div>
+    </div>
+
+    <div class="sec-head"><div class="sec-title">Write For Us</div></div>
+    <div class="about-card" style="margin-bottom:32px;">
+      <h3>Contribute to Islamic Insights</h3>
+      <p style="margin-bottom:12px;">We welcome contributions from qualified Islamic writers, scholars, and students of knowledge. If you have a passion for authentic Islamic content and wish to share your knowledge with our global readership, we would love to hear from you.</p>
+      <p style="margin-bottom:12px;"><strong style="color:var(--emerald);">What we look for:</strong> Well-researched, authentic articles rooted in Quran and Sunnah. Clear, accessible writing for a general Muslim audience. Topics covering religion, history, AhlulBayt, spirituality, or current affairs from an Islamic perspective.</p>
+      <p>Send your article proposal or draft to us via the contact form below, or reach out on our social media platforms. We review all submissions and respond within 7 days.</p>
+    </div>
+
+    <div class="sec-head"><div class="sec-title">Contact Us</div></div>
+    <div class="contact-form">
+      <h3>Get in Touch</h3>
+      <p>Have a question, article suggestion, or want to collaborate? We'd love to hear from you.</p>
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/about.html">
+        <input type="hidden" name="form-name" value="contact">
+        <p style="display:none"><input name="bot-field"></p>
+        <div class="form-row">
+          <div class="form-group"><label>Your Name</label><input type="text" name="name" placeholder="Enter your name" required></div>
+          <div class="form-group"><label>Email Address</label><input type="email" name="email" placeholder="your@email.com" required></div>
+        </div>
+        <div class="form-group"><label>Subject</label>
+          <select name="subject">
+            <option>General Inquiry</option>
+            <option>Write For Us</option>
+            <option>Article Suggestion</option>
+            <option>Collaboration</option>
+            <option>Correction / Feedback</option>
+            <option>Donation</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Message</label><textarea name="message" placeholder="Write your message here..." required></textarea></div>
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <div class="widget"><div class="whead">📖 Verse of the Day</div><div class="wbody"><div class="verse-box"><div class="verse-ar">وَقُل رَّبِّ زِدْنِي عِلْمًا</div><div class="verse-en">"And say: My Lord, increase me in knowledge."</div><div class="verse-ref">— Surah Ta-Ha (20:114)</div></div><div class="verse-reflection"><strong>Reflection:</strong> The Quran's only command to the Prophet ﷺ to ask for more of something is — knowledge. This tells us the supreme value Islam places on learning and intellectual growth in the path of Allah.</div></div></div>
+    <div class="donate-box"><h3>Support Islamic Insights</h3><p>Help us continue delivering authentic Islamic content to Muslims worldwide. Your support keeps this platform free for all.</p><p style="font-size:13px;color:rgba(0,0,0,.7);margin-bottom:8px;">📱 <strong>EasyPaisa:</strong> 03337546622</p>
+<p style="font-size:13px;color:rgba(0,0,0,.7);margin-bottom:12px;">📧 <strong>Email:</strong> zs673811@gmail.com</p>
+<a href="https://easypaisa.com.pk/sendmoney" target="_blank" class="donate-btn" style="display:inline-block;text-decoration:none;">💚 Send via EasyPaisa</a></div>
+    <div class="widget"><div class="whead">🌐 Connect With Us</div><div class="wbody"><div class="social-grid"><a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank" class="slink slink-fb"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>Facebook</a><a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank" class="slink slink-ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>Instagram</a><a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank" class="slink-yt-full">▶ @ismlamicinsights110 on YouTube</a></div></div></div>
+    <div class="widget"><div class="whead">📂 Browse</div><div class="wbody"><div class="cat-list"><a href="religion.html" class="citem"><span>🕌 Religion</span><span class="ccount">48</span></a><a href="history.html" class="citem"><span>📜 History</span><span class="ccount">32</span></a><a href="news.html" class="citem"><span>📰 News</span><span class="ccount">25</span></a><a href="series.html" class="citem"><span>📚 Series</span><span class="ccount">19</span></a><a href="muharram.html" class="citem"><span>🕋 Muharram</span><span class="ccount">11</span></a></div></div></div>
+    <div class="nl-widget"><h3>Newsletter</h3><p>Weekly Islamic insights in your inbox.</p>
+      <form name="newsletter" method="POST" data-netlify="true" action="/about.html" style="display:flex;gap:8px;flex-wrap:wrap;">
+        <input type="hidden" name="form-name" value="newsletter">
+        <input type="email" name="email" class="nl-input" placeholder="Your email..." required style="flex:1;min-width:0;">
+        <button type="submit" class="nl-btn">Subscribe Now</button>
+      </form>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="fl"><svg width="32" height="32" viewBox="0 0 52 52"><rect width="52" height="52" rx="11" fill="rgba(200,148,28,0.2)"/><text x="26" y="36" font-family="Scheherazade New,serif" font-size="26" fill="#e8b84b" text-anchor="middle">☪</text></svg> Islamic Insights</div>
+      <p>An online magazine delivering authentic Islamic knowledge, stories of the AhlulBayt, and Quranic guidance to Muslims worldwide since 2007.</p>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+        <a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="rgba(255,255,255,0.75)"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <a href="religion.html">Religion</a>
+      <a href="history.html">History</a>
+      <a href="news.html">News</a>
+      <a href="series.html">Series</a>
+      <a href="muharram.html">Muharram</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="footer-col">
+      <h4>Series</h4>
+      <a href="series.html">Raising Faith</a>
+      <a href="series.html">Refinement of Soul</a>
+      <a href="series.html">An Ethical Life</a>
+      <a href="series.html">Youth: Life's Spring</a>
+      <a href="muharram.html">Karbala Series</a>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="about.html">About Us</a>
+      <a href="about.html">Write For Us</a>
+      <a href="about.html">Contact Us</a>
+      <a href="books.html">📚 Books & Downloads</a>
+      <a href="about.html">Donate</a>
+      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank">YouTube Channel</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© Islamic Insights 2007–2026 · All Rights Reserved · Inspired by The Holy Quran & The AhlulBayt</div>
+    <div class="footer-links">
+      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank">YouTube: @ismlamicinsights110</a>
+      <a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank">Instagram: @zeeshanahmed1100011</a>
+    </div>
+  </div>
+</footer>
+</body></html>

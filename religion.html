@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#0a4a2a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Islamic Insights">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/icons/icon-192.png">
+<script>if("serviceWorker"in navigator){
+  window.addEventListener("load",function(){
+    navigator.serviceWorker.register("/sw.js",{scope:"/"})
+      .then(function(reg){console.log("SW registered",reg.scope);})
+      .catch(function(err){console.log("SW error",err);});
+  });
+}</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VZJ1ETL0JQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-VZJ1ETL0JQ");
+</script>
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<title>Religion — Islamic Insights</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" onclick="document.getElementById('mobileNav').classList.remove('open')">✕</button>
+  <a href="index.html">Home</a>
+  <a href="religion.html">Religion</a>
+  <a href="history.html">History</a>
+  <a href="muharram.html">Muharram</a>
+  <a href="series.html">Series</a>
+  <a href="news.html">News</a>
+  <a href="about.html">About</a>
+  <a href="islamic-app.html" style="color:#e8b84b!important;">📱 Islamic App</a>
+</div>
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div style="display:flex;gap:20px;align-items:center;">
+      <div class="topbar-bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ</div>
+      <span style="color:rgba(255,255,255,.4);font-size:11px;border-right:1px solid rgba(255,255,255,.15);padding-right:20px;">Tuesday, June 2, 2026</span>
+    </div>
+    <div class="topbar-social">
+      <span class="lbl">Follow</span>
+      <a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank" style="display:inline-flex;align-items:center;gap:6px;color:white;text-decoration:none;font-size:13px;font-weight:600;"><svg viewBox="0 0 24 24" width="22" height="22" fill="#ff0000"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>YouTube</a>
+      <a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
+    </div>
+  </div>
+</div>
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-emblem"><svg viewBox="0 0 52 52"><rect width="52" height="52" rx="13" fill="#0a4a2a"/><text x="26" y="36" font-family="Scheherazade New,serif" font-size="28" fill="#c8941c" text-anchor="middle">☪</text><rect x="6" y="6" width="40" height="40" rx="9" fill="none" stroke="rgba(200,148,28,0.3)" stroke-width="1"/></svg></div>
+      <div class="logo-text"><h1>Islamic Insights</h1><p>Quran & AhlulBayt</p></div>
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="religion.html">Religion</a>
+      <a href="history.html">History</a>
+      <a href="muharram.html">Muharram</a>
+      <a href="series.html">Series</a>
+      <a href="news.html">News</a>
+      <a href="about.html">About</a>
+      <a href="islamic-app.html" style="background:linear-gradient(135deg,#0a4a2a,#0e6b3a);color:#e8b84b!important;padding:8px 14px;border-radius:8px;font-weight:600;margin-left:6px;">📱 App</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank" class="btn-yt">▶ YouTube</a>
+      <div class="hamburger" onclick="document.getElementById('mobileNav').classList.add('open')"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</header>
+<!-- App Download Banner -->
+<div style="background:linear-gradient(135deg,#0a4a2a,#041f10);padding:20px 24px;text-align:center;">
+  <p style="color:rgba(255,255,255,.7);font-size:13px;margin:0 0 4px;">📱 Islamic Insights App</p>
+  <h2 style="font-family:'Playfair Display',serif;color:#e8b84b;font-size:22px;margin:0 0 12px;">App Download karein — Bilkul FREE</h2>
+  <a href="https://drive.google.com/file/d/1CNs0Lf5KNiC9zeSvzDX7SQFDlpaSSnQ0/view?usp=sharing" target="_blank" style="display:inline-block;background:linear-gradient(135deg,#c8941c,#e8b84b);color:#1a1612;padding:13px 32px;border-radius:50px;font-size:14px;font-weight:700;text-decoration:none;margin-bottom:8px;">⬇ Download App (Android)</a>
+  <p style="color:rgba(255,255,255,.5);font-size:11px;margin:8px 0 0;">Google Drive khulega → Download button dabain → Install karein</p>
+</div>
+<!-- TICKER -->
+<div class="gold-strip">
+  <div class="ticker-wrap">
+    <div class="ticker-label">✦ Trending</div>
+    <div class="ticker-content">
+      <div class="ticker-inner">
+        <span class="ticker-item">Abu Talib — The Believer of Quraysh</span>
+        <span class="ticker-item">Lady Khadija, Esteemed Wife of the Prophet ﷺ</span>
+        <span class="ticker-item">Jannat al-Baqi — From Cemetery to Holy Sanctuary</span>
+        <span class="ticker-item">Dangers of Desensitization to Sin</span>
+        <span class="ticker-item">The Eternal Stand of Imam Hussain (as) at Karbala</span>
+        <span class="ticker-item">Abu Talib — The Believer of Quraysh</span>
+        <span class="ticker-item">Lady Khadija, Esteemed Wife of the Prophet ﷺ</span>
+        <span class="ticker-item">Jannat al-Baqi — From Cemetery to Holy Sanctuary</span>
+        <span class="ticker-item">Dangers of Desensitization to Sin</span>
+        <span class="ticker-item">The Eternal Stand of Imam Hussain (as) at Karbala</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-hero">
+  <div class="page-hero-tag">✦ Religion</div>
+  <h1>Religion & Spirituality</h1>
+  <p>Deepen your faith with authentic Islamic teachings rooted in the Quran and the guidance of the AhlulBayt</p>
+</div>
+<div class="breadcrumb"><div class="breadcrumb-inner"><a href="index.html">Home</a><span>›</span><span>Religion</span></div></div>
+<div class="main">
+  <div>
+    <div class="hadith-box">
+      <div class="hadith-label">✦ Hadith ✦</div>
+      <div class="hadith-ar">«طَلَبُ الْعِلْمِ فَرِيضَةٌ عَلَى كُلِّ مُسْلِمٍ»</div>
+      <div class="hadith-en">"Seeking knowledge is an obligation upon every Muslim."</div>
+      <div class="hadith-src">— Prophet Muhammad ﷺ · Ibn Majah</div>
+    </div>
+    <div class="sec-head"><div class="sec-title">Religion Articles</div></div>
+    <div class="story-list">
+      <a href="javascript:void(0)" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="story-item"><div class="story-icon" style="background:linear-gradient(135deg,#0d3d21,#1a6b3a)">☪</div><div><div class="story-cat">Religion</div><div class="story-title">The Believer of Quraysh: Abu Talib</div><div class="story-excerpt">It was the 26th of Rajab — a significant day when Abu Talib, the devoted uncle and unwavering protector of the Prophet ﷺ, passed away. For more than 40 years, Abu Talib shielded the Prophet ﷺ from the persecution of Quraysh, sacrificing his own comfort and security. His faith, though long debated, is confirmed through numerous historical accounts and his own poetry of deep love for the Prophet ﷺ.</div><div class="story-link">Read Full Article →</div></div></a>
+      <a href="javascript:void(0)" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="story-item"><div class="story-icon" style="background:linear-gradient(135deg,#1a3a0d,#3a7a1a)">📿</div><div><div class="story-cat">Religion</div><div class="story-title">The Obesity Within Us — Spiritual Health in Islam</div><div class="story-excerpt">Just as the body can accumulate unhealthy weight through poor diet and inactivity, the soul too can become heavy and sluggish through sin, heedlessness, and the abandonment of worship. Islam teaches us that the health of the soul is paramount — and that spiritual obesity manifests as hardness of heart, distance from Allah, and inability to enjoy worship. How do we diagnose and cure this condition?</div><div class="story-link">Read Full Article →</div></div></a>
+      <a href="javascript:void(0)" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="story-item"><div class="story-icon" style="background:linear-gradient(135deg,#0d2a3d,#1a5577)">📖</div><div><div class="story-cat">Religion</div><div class="story-title">Dangers of Desensitization to Sin</div><div class="story-excerpt">One of the most dangerous spiritual diseases a believer can fall into is becoming comfortable with sin. What begins as a single transgression, followed by genuine remorse, can gradually become habit — and habit becomes nature. The Prophet ﷺ warned of the day when the heart is so accustomed to sin that it no longer recognizes it as wrong. This article explores the psychology and spiritual consequences of sin acclimation.</div><div class="story-link">Read Full Article →</div></div></a>
+      <a href="javascript:void(0)" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="story-item"><div class="story-icon" style="background:linear-gradient(135deg,#2a1a3d,#5a3a7a)">🤲</div><div><div class="story-cat">Religion</div><div class="story-title">The Power of Dua — Conversing with Allah</div><div class="story-excerpt">Dua (supplication) is described by the Prophet ﷺ as "the essence of worship." It is the most direct form of communication between the servant and his Lord — requiring no intermediary, no formal setting, no specific language. Through Dua, the believer acknowledges his complete dependence on Allah and opens his heart to divine mercy. This article explores the etiquette, power, and transformative impact of sincere supplication.</div><div class="story-link">Read Full Article →</div></div></a>
+      <a href="javascript:void(0)" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="story-item"><div class="story-icon" style="background:linear-gradient(135deg,#1a2a0d,#3a5a1a)">🌙</div><div><div class="story-cat">Religion</div><div class="story-title">Ramadan — The Month of Spiritual Renewal</div><div class="story-excerpt">The holy month of Ramadan is far more than abstaining from food and drink from dawn to dusk. It is a comprehensive spiritual training program designed by Allah to reform the believer — purifying the soul, sharpening the conscience, building gratitude, and deepening the connection with the Quran. The Prophet ﷺ called it the month of Allah, describing it as a guest of immense honor that should be welcomed with preparation.</div><div class="story-link">Read Full Article →</div></div></a>
+      <a href="javascript:void(0)" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="story-item"><div class="story-icon" style="background:linear-gradient(135deg,#3d1a1a,#7a3a3a)">💔</div><div><div class="story-cat">Religion</div><div class="story-title">Tawbah — The Door That Never Closes</div><div class="story-excerpt">One of the most beautiful aspects of Islam is the concept of Tawbah — sincere repentance to Allah. The Quran describes Allah as Al-Tawwab (The Ever-Accepting of Repentance) and Al-Ghafur (The Most Forgiving). No matter how heavy the burden of sin, no matter how far a person has strayed, the door of repentance remains open until the moment of death. This article explores the conditions, impact, and mercy behind sincere Tawbah.</div><div class="story-link">Read Full Article →</div></div></a>
+    </div>
+  </div>
+  <div class="sidebar">
+    <div class="widget"><div class="whead">📖 Verse of the Day</div><div class="wbody"><div class="verse-box"><div class="verse-ar">وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا</div><div class="verse-en">"And whoever fears Allah — He will make for him a way out."</div><div class="verse-ref">— Surah At-Talaq (65:2)</div></div><div class="verse-reflection"><strong>Reflection:</strong> Taqwa (God-consciousness) is the greatest protection a believer can carry. When we place Allah first, He opens doors we could never have imagined and removes burdens beyond our strength.</div></div></div>
+    <div class="widget"><div class="whead">🌐 Follow Us</div><div class="wbody"><div class="social-grid"><a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank" class="slink slink-fb"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>Facebook</a><a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank" class="slink slink-ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>Instagram</a><a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank" class="slink-yt-full">▶ @ismlamicinsights110 on YouTube</a></div></div></div>
+    <div class="nl-widget"><h3>Stay Connected</h3><p>Get Islamic insights every week.</p><form name="newsletter-religion" method="POST" data-netlify="true" action="/religion.html" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;">
+        <input type="hidden" name="form-name" value="newsletter-religion">
+        <input type="email" name="email" class="nl-input" placeholder="Your email..." required style="flex:1;min-width:0;">
+        <button type="submit" class="nl-btn">Subscribe</button>
+      </form></div>
+    <div class="widget"><div class="whead">📂 Categories</div><div class="wbody"><div class="cat-list"><a href="religion.html" class="citem"><span>🕌 Religion</span><span class="ccount">48</span></a><a href="history.html" class="citem"><span>📜 History</span><span class="ccount">32</span></a><a href="muharram.html" class="citem"><span>🕋 Muharram</span><span class="ccount">11</span></a><a href="series.html" class="citem"><span>📚 Series</span><span class="ccount">19</span></a><a href="news.html" class="citem"><span>📰 News</span><span class="ccount">25</span></a></div></div></div>
+  </div>
+</div>
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="fl"><svg width="32" height="32" viewBox="0 0 52 52"><rect width="52" height="52" rx="11" fill="rgba(200,148,28,0.2)"/><text x="26" y="36" font-family="Scheherazade New,serif" font-size="26" fill="#e8b84b" text-anchor="middle">☪</text></svg> Islamic Insights</div>
+      <p>An online magazine delivering authentic Islamic knowledge, stories of the AhlulBayt, and Quranic guidance to Muslims worldwide since 2007.</p>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+        <a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="rgba(255,255,255,0.75)"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <a href="religion.html">Religion</a>
+      <a href="history.html">History</a>
+      <a href="news.html">News</a>
+      <a href="series.html">Series</a>
+      <a href="muharram.html">Muharram</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="footer-col">
+      <h4>Series</h4>
+      <a href="series.html">Raising Faith</a>
+      <a href="series.html">Refinement of Soul</a>
+      <a href="series.html">An Ethical Life</a>
+      <a href="series.html">Youth: Life's Spring</a>
+      <a href="muharram.html">Karbala Series</a>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="about.html">About Us</a>
+      <a href="about.html">Write For Us</a>
+      <a href="about.html">Contact Us</a>
+      <a href="books.html">📚 Books & Downloads</a>
+      <a href="about.html">Donate</a>
+      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank">YouTube Channel</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© Islamic Insights 2007–2026 · All Rights Reserved · Inspired by The Holy Quran & The AhlulBayt</div>
+    <div class="footer-links">
+      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank">YouTube: @ismlamicinsights110</a>
+      <a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank">Instagram: @zeeshanahmed1100011</a>
+    </div>
+  </div>
+</footer>
+</body></html>

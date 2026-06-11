@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#0a4a2a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Islamic Insights">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/icons/icon-192.png">
+<script>if("serviceWorker"in navigator){
+  window.addEventListener("load",function(){
+    navigator.serviceWorker.register("/sw.js",{scope:"/"})
+      .then(function(reg){console.log("SW registered",reg.scope);})
+      .catch(function(err){console.log("SW error",err);});
+  });
+}</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VZJ1ETL0JQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-VZJ1ETL0JQ");
+</script>
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<title>Poetry — Islamic Insights</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.poem-card{background:white;border-radius:18px;border:1px solid var(--border-light);padding:32px;margin-bottom:24px;box-shadow:0 2px 16px rgba(0,0,0,.04);transition:all .3s;}
+.poem-card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(10,74,42,.1);}
+.poem-cat{display:inline-block;background:var(--cream-warm);color:var(--emerald);padding:4px 14px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;}
+.poem-title{font-family:'Playfair Display',serif;font-size:24px;color:var(--emerald);font-weight:700;margin-bottom:6px;}
+.poem-author{font-size:12px;color:var(--muted);margin-bottom:18px;}
+.poem-body{font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--text);line-height:2;border-left:3px solid var(--gold);padding-left:20px;font-style:italic;}
+.poem-arabic{font-family:'Scheherazade New',serif;font-size:26px;color:var(--emerald);direction:rtl;text-align:right;line-height:2;background:linear-gradient(135deg,#f0f8f4,#e8f5ee);border-radius:12px;padding:20px;margin:20px 0;}
+</style>
+</head>
+<body>
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" onclick="document.getElementById('mobileNav').classList.remove('open')">✕</button>
+  <a href="index.html">Home</a>
+  <a href="religion.html">Religion</a>
+  <a href="history.html">History</a>
+  <a href="muharram.html">Muharram</a>
+  <a href="series.html">Series</a>
+  <a href="news.html">News</a>
+  <a href="about.html">About</a>
+  <a href="islamic-app.html" style="color:#e8b84b!important;">📱 Islamic App</a>
+</div>
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div style="display:flex;gap:20px;align-items:center;">
+      <div class="topbar-bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ</div>
+      <span style="color:rgba(255,255,255,.4);font-size:11px;border-right:1px solid rgba(255,255,255,.15);padding-right:20px;">Tuesday, June 2, 2026</span>
+    </div>
+    <div class="topbar-social">
+      <span class="lbl">Follow</span>
+      <a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank" style="display:inline-flex;align-items:center;gap:6px;color:white;text-decoration:none;font-size:13px;font-weight:600;"><svg viewBox="0 0 24 24" width="22" height="22" fill="#ff0000"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>YouTube</a>
+      <a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
+    </div>
+  </div>
+</div>
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-emblem"><svg viewBox="0 0 52 52"><rect width="52" height="52" rx="13" fill="#0a4a2a"/><text x="26" y="36" font-family="Scheherazade New,serif" font-size="28" fill="#c8941c" text-anchor="middle">☪</text><rect x="6" y="6" width="40" height="40" rx="9" fill="none" stroke="rgba(200,148,28,0.3)" stroke-width="1"/></svg></div>
+      <div class="logo-text"><h1>Islamic Insights</h1><p>Quran & AhlulBayt</p></div>
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="religion.html">Religion</a>
+      <a href="history.html">History</a>
+      <a href="muharram.html">Muharram</a>
+      <a href="series.html">Series</a>
+      <a href="news.html">News</a>
+      <a href="about.html">About</a>
+      <a href="islamic-app.html" style="background:linear-gradient(135deg,#0a4a2a,#0e6b3a);color:#e8b84b!important;padding:8px 14px;border-radius:8px;font-weight:600;margin-left:6px;">📱 App</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank" class="btn-yt">▶ YouTube</a>
+      <div class="hamburger" onclick="document.getElementById('mobileNav').classList.add('open')"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</header>
+<!-- App Download Banner -->
+<div style="background:linear-gradient(135deg,#0a4a2a,#041f10);padding:20px 24px;text-align:center;">
+  <p style="color:rgba(255,255,255,.7);font-size:13px;margin:0 0 4px;">📱 Islamic Insights App</p>
+  <h2 style="font-family:'Playfair Display',serif;color:#e8b84b;font-size:22px;margin:0 0 12px;">App Download karein — Bilkul FREE</h2>
+  <a href="https://drive.google.com/file/d/1CNs0Lf5KNiC9zeSvzDX7SQFDlpaSSnQ0/view?usp=sharing" target="_blank" style="display:inline-block;background:linear-gradient(135deg,#c8941c,#e8b84b);color:#1a1612;padding:13px 32px;border-radius:50px;font-size:14px;font-weight:700;text-decoration:none;margin-bottom:8px;">⬇ Download App (Android)</a>
+  <p style="color:rgba(255,255,255,.5);font-size:11px;margin:8px 0 0;">Google Drive khulega → Download button dabain → Install karein</p>
+</div>
+<!-- TICKER -->
+<div class="gold-strip">
+  <div class="ticker-wrap">
+    <div class="ticker-label">✦ Trending</div>
+    <div class="ticker-content">
+      <div class="ticker-inner">
+        <span class="ticker-item">Abu Talib — The Believer of Quraysh</span>
+        <span class="ticker-item">Lady Khadija, Esteemed Wife of the Prophet ﷺ</span>
+        <span class="ticker-item">Jannat al-Baqi — From Cemetery to Holy Sanctuary</span>
+        <span class="ticker-item">Dangers of Desensitization to Sin</span>
+        <span class="ticker-item">The Eternal Stand of Imam Hussain (as) at Karbala</span>
+        <span class="ticker-item">Abu Talib — The Believer of Quraysh</span>
+        <span class="ticker-item">Lady Khadija, Esteemed Wife of the Prophet ﷺ</span>
+        <span class="ticker-item">Jannat al-Baqi — From Cemetery to Holy Sanctuary</span>
+        <span class="ticker-item">Dangers of Desensitization to Sin</span>
+        <span class="ticker-item">The Eternal Stand of Imam Hussain (as) at Karbala</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-hero">
+  <div class="page-hero-tag">✦ Poetry</div>
+  <h1>Islamic Poetry</h1>
+  <p>Verses of love, faith, and devotion — honoring the Prophet ﷺ and the blessed AhlulBayt</p>
+</div>
+<div class="breadcrumb"><div class="breadcrumb-inner"><a href="index.html">Home</a><span>›</span><span>Poetry</span></div></div>
+<div class="main">
+  <div>
+    <div class="hadith-box">
+      <div class="hadith-label">✦ On Poetry ✦</div>
+      <div class="hadith-ar">«إِنَّ مِنَ الشِّعْرِ لَحِكْمَةً»</div>
+      <div class="hadith-en">"Indeed, some poetry contains wisdom."</div>
+      <div class="hadith-src">— Prophet Muhammad ﷺ · Sahih Bukhari</div>
+    </div>
+
+    <div class="poem-card">
+      <div class="poem-cat">✍ Poetry · Karbala</div>
+      <div class="poem-title">From Cemetery to a Holy Sanctuary — Jannat al-Baqi</div>
+      <div class="poem-author">Islamic Insights · Poetry Series</div>
+      <div class="poem-arabic">يَا بَاقِيَ الْبَاقِيَاتِ الصَّالِحَاتِ</div>
+      <div class="poem-body">
+        A piece of land not like any other,<br>
+        Carrying saints unlike any other,<br>
+        Beneath its earth sleep the beloved ones,<br>
+        The family of the Prophet — daughters and sons.<br><br>
+        Where Fatima's heart was buried in grief,<br>
+        Where Imams rest, beyond belief,<br>
+        Where the companions of the chosen one lie,<br>
+        Under Madinah's eternal sky.<br><br>
+        They destroyed your domes, they broke your stones,<br>
+        But they could never silence the groans,<br>
+        Of millions who weep, who visit, who pray,<br>
+        At Jannat al-Baqi, till the judgement day.<br><br>
+        O land of the sacred, O garden of peace,<br>
+        In your soil all sorrow must cease,<br>
+        For those who rest within your embrace,<br>
+        Are alive — with Allah — in the highest place.
+      </div>
+    </div>
+
+    <div class="poem-card">
+      <div class="poem-cat">✍ Poetry · AhlulBayt</div>
+      <div class="poem-title">Ya Hussain — The Eternal Call</div>
+      <div class="poem-author">Islamic Insights · AhlulBayt Series</div>
+      <div class="poem-arabic">لَبَّيْكَ يَا حُسَيْن</div>
+      <div class="poem-body">
+        On the plains of Karbala you stood,<br>
+        Alone but never misunderstood,<br>
+        With seventy-two hearts beating as one,<br>
+        You faced the darkness, you faced the gun.<br><br>
+        They cut the water, they blocked the way,<br>
+        But thirst could not make your spirit sway,<br>
+        You said: disgrace is far from us,<br>
+        And gave your life without a fuss.<br><br>
+        O grandson of the Prophet ﷺ most dear,<br>
+        Your sacrifice grows louder every year,<br>
+        The more they tried to bury your name,<br>
+        The higher rose your undying flame.<br><br>
+        Labbayk ya Hussain — here we stand,<br>
+        Carrying your message across every land,<br>
+        That truth must rise and falsehood must fall,<br>
+        Till the end of time — ya Hussain, your call.
+      </div>
+    </div>
+
+    <div class="poem-card">
+      <div class="poem-cat">✍ Poetry · Prophet ﷺ</div>
+      <div class="poem-title">Mercy to the Worlds — A Tribute to the Prophet ﷺ</div>
+      <div class="poem-author">Islamic Insights · Prophetic Series</div>
+      <div class="poem-arabic">وَمَا أَرْسَلْنَاكَ إِلَّا رَحْمَةً لِّلْعَالَمِينَ</div>
+      <div class="poem-body">
+        Before you came, the world was blind,<br>
+        Lost in darkness of heart and mind,<br>
+        Then Allah sent His mercy rare,<br>
+        Muhammad ﷺ — light beyond compare.<br><br>
+        You fed the hungry, freed the slave,<br>
+        You gave the hopeless what they craved,<br>
+        You wiped the tears of those in grief,<br>
+        You were the world's eternal relief.<br><br>
+        You held no grudge, you bore no hate,<br>
+        Even for those who sealed your fate,<br>
+        You prayed for those who threw the stones,<br>
+        And wept for those who broke their bones.<br><br>
+        O Prophet ﷺ of the final hour,<br>
+        Our hearts still bloom from your gentle flower,<br>
+        No matter how the centuries turn,<br>
+        For you alone our spirits yearn.
+      </div>
+    </div>
+
+    <div class="poem-card">
+      <div class="poem-cat">✍ Poetry · Imam Ali (as)</div>
+      <div class="poem-title">The Lion of Allah — Imam Ali (as)</div>
+      <div class="poem-author">Islamic Insights · AhlulBayt Series</div>
+      <div class="poem-arabic">أَنَا مَدِينَةُ الْعِلْمِ وَعَلِيٌّ بَابُهَا</div>
+      <div class="poem-body">
+        In the house of Allah you first prayed,<br>
+        Before the world had heard the faith displayed,<br>
+        A child of ten, yet faith of mountains tall,<br>
+        The first to answer the Prophet's call.<br><br>
+        On Laylat al-Mabit you slept his bed,<br>
+        Offering your life instead,<br>
+        No man has loved with love so pure,<br>
+        No heart has been so strong and sure.<br><br>
+        Gate of knowledge, sword of truth,<br>
+        Lion of Allah in age and youth,<br>
+        Your justice filled the farthest land,<br>
+        From the Euphrates to the sand.<br><br>
+        They struck you down at dawn in prayer,<br>
+        But Ali's light is everywhere,<br>
+        In every word of truth we speak,<br>
+        It is your face, O Ali, we seek.
+      </div>
+    </div>
+
+    <div class="poem-card">
+      <div class="poem-cat">✍ Poetry · Spiritual</div>
+      <div class="poem-title">The Wandering Heart — Seeking Allah</div>
+      <div class="poem-author">Islamic Insights · Spirituality Series</div>
+      <div class="poem-body">
+        My heart is like a ship at sea,<br>
+        Tossed by the waves of what I see,<br>
+        The dunya calls with golden voice,<br>
+        But You, O Allah, are my only choice.<br><br>
+        I've chased the shadows of this world,<br>
+        Watched every dream become unfurled,<br>
+        And found that nothing fills the space,<br>
+        That only You can truly grace.<br><br>
+        So take this heart that wanders far,<br>
+        And guide it like a wandering star,<br>
+        Back to your door, back to your light,<br>
+        Back to the dawn that ends my night.<br><br>
+        For in your remembrance, souls find rest,<br>
+        In your worship, hearts are truly blessed,<br>
+        There is no peace, there is no shore,<br>
+        Except the peace of knowing You more.
+      </div>
+    </div>
+
+    <div class="poem-card">
+      <div class="poem-cat">✍ Poetry · Lady Fatima (as)</div>
+      <div class="poem-title">Flower of the Prophet — Lady Fatima al-Zahra (as)</div>
+      <div class="poem-author">Islamic Insights · AhlulBayt Series</div>
+      <div class="poem-arabic">فَاطِمَةُ بَضْعَةٌ مِنِّي</div>
+      <div class="poem-body">
+        "Fatima is a part of me," he said ﷺ,<br>
+        And in those words a universe was spread,<br>
+        To hurt her is to wound the Prophet's heart,<br>
+        Her joy his joy — from the very start.<br><br>
+        She ground the mill until her hands were worn,<br>
+        She wore the robe of patience, prayer-torn,<br>
+        Yet asked for nothing but her father's face,<br>
+        And in Allah's nearness found her grace.<br><br>
+        She wept for Islam's coming years,<br>
+        And watered faith with holy tears,<br>
+        She raised two sons who changed the earth,<br>
+        And gave a martyred message birth.<br><br>
+        O Zahra, flower of the Prophet's tree,<br>
+        Your fragrance fills eternity,<br>
+        And those who love you, love him too,<br>
+        And Allah's mercy falls on you.
+      </div>
+    </div>
+
+  </div>
+  <div class="sidebar">
+    <div class="widget"><div class="whead">📖 Verse of the Day</div><div class="wbody"><div class="verse-box"><div class="verse-ar">الَّذِينَ آمَنُوا وَتَطْمَئِنُّ قُلُوبُهُم بِذِكْرِ اللَّهِ أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ</div><div class="verse-en">"Those who believe and whose hearts find rest in the remembrance of Allah. Verily, in the remembrance of Allah do hearts find rest."</div><div class="verse-ref">— Surah Ar-Ra'd (13:28)</div></div><div class="verse-reflection"><strong>Reflection:</strong> Islamic poetry, at its finest, is a form of dhikr — a remembrance of Allah, His Prophet ﷺ, and the AhlulBayt that stirs the heart and draws the soul closer to divine love.</div></div></div>
+    <div class="widget"><div class="whead">✍ Poetry Topics</div><div class="wbody"><div class="cat-list"><a href="javascript:void(0)" class="citem" style="cursor:default"><span>⚔️ Karbala Poetry</span><span class="ccount">4</span></a><a href="javascript:void(0)" class="citem" style="cursor:default"><span>🌿 AhlulBayt</span><span class="ccount">5</span></a><a href="javascript:void(0)" class="citem" style="cursor:default"><span>☪ Prophet ﷺ</span><span class="ccount">3</span></a><a href="javascript:void(0)" class="citem" style="cursor:default"><span>💎 Spiritual</span><span class="ccount">2</span></a></div></div></div>
+    <div class="widget"><div class="whead">🌐 Follow Us</div><div class="wbody"><div class="social-grid"><a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank" class="slink slink-fb"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>Facebook</a><a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank" class="slink slink-ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>Instagram</a><a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank" class="slink-yt-full">▶ @ismlamicinsights110 on YouTube</a></div></div></div>
+    <div class="nl-widget"><h3>Stay Connected</h3><p>Get Islamic insights every week.</p><form name="newsletter-poetry" method="POST" data-netlify="true" action="/poetry.html" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;">
+        <input type="hidden" name="form-name" value="newsletter-poetry">
+        <input type="email" name="email" class="nl-input" placeholder="Your email..." required style="flex:1;min-width:0;">
+        <button type="submit" class="nl-btn">Subscribe</button>
+      </form></div>
+    <div class="widget"><div class="whead">📂 Categories</div><div class="wbody"><div class="cat-list"><a href="religion.html" class="citem"><span>🕌 Religion</span><span class="ccount">48</span></a><a href="history.html" class="citem"><span>📜 History</span><span class="ccount">32</span></a><a href="news.html" class="citem"><span>📰 News</span><span class="ccount">25</span></a><a href="series.html" class="citem"><span>📚 Series</span><span class="ccount">19</span></a><a href="poetry.html" class="citem"><span>✍ Poetry</span><span class="ccount">14</span></a><a href="muharram.html" class="citem"><span>🕋 Muharram</span><span class="ccount">11</span></a><a href="raising-faith.html" class="citem"><span>👨‍👩‍👧 Raising Faith</span><span class="ccount">9</span></a></div></div></div>
+  </div>
+</div>
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="fl"><svg width="32" height="32" viewBox="0 0 52 52"><rect width="52" height="52" rx="11" fill="rgba(200,148,28,0.2)"/><text x="26" y="36" font-family="Scheherazade New,serif" font-size="26" fill="#e8b84b" text-anchor="middle">☪</text></svg> Islamic Insights</div>
+      <p>An online magazine delivering authentic Islamic knowledge, stories of the AhlulBayt, and Quranic guidance to Muslims worldwide since 2007.</p>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+        <a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="rgba(255,255,255,0.75)"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <a href="religion.html">Religion</a>
+      <a href="history.html">History</a>
+      <a href="news.html">News</a>
+      <a href="series.html">Series</a>
+      <a href="muharram.html">Muharram</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="footer-col">
+      <h4>Series</h4>
+      <a href="series.html">Raising Faith</a>
+      <a href="series.html">Refinement of Soul</a>
+      <a href="series.html">An Ethical Life</a>
+      <a href="series.html">Youth: Life's Spring</a>
+      <a href="muharram.html">Karbala Series</a>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="about.html">About Us</a>
+      <a href="about.html">Write For Us</a>
+      <a href="about.html">Contact Us</a>
+      <a href="books.html">📚 Books & Downloads</a>
+      <a href="about.html">Donate</a>
+      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank">YouTube Channel</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© Islamic Insights 2007–2026 · All Rights Reserved · Inspired by The Holy Quran & The AhlulBayt</div>
+    <div class="footer-links">
+      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank">YouTube: @ismlamicinsights110</a>
+      <a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank">Instagram: @zeeshanahmed1100011</a>
+    </div>
+  </div>
+</footer>
+</body></html>
