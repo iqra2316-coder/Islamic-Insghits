@@ -1,265 +1,228 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ur">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#0a4a2a">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Islamic Insights">
-<link rel="manifest" href="/manifest.json">
-<link rel="apple-touch-icon" href="/icons/icon-192.png">
-<script>if("serviceWorker"in navigator){
-  window.addEventListener("load",function(){
-    navigator.serviceWorker.register("/sw.js",{scope:"/"})
-      .then(function(reg){console.log("SW registered",reg.scope);})
-      .catch(function(err){console.log("SW error",err);});
-  });
-}</script>
-<!-- Google tag (gtag.js) -->
+<meta name="description" content="Islamic Insights — Quran 30 Para with Audio, Namaz Timings, Nahj al-Balagha, Ziyarat Ashura, Dua Kumayl, Ahadith, Islamic History, Qibla Direction. Arabic, Urdu, English.">
+<meta name="keywords" content="Quran online, Quran with Urdu translation, 30 Para Quran, Namaz timings Pakistan, Dua Kumayl, Ziyarat Ashura, Nahj al-Balagha, Islamic website Urdu, AhlulBayt, Islamic Insights">
+<meta property="og:title" content="Islamic Insights — Quran, Duas & AhlulBayt">
+<meta property="og:description" content="Quran 30 Para with Audio, Namaz Timings, Ziyarat, Duas, Nahj al-Balagha, Ahadith and more.">
+<meta property="og:url" content="https://islamicinsights-net.netlify.app">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://islamicinsights-net.netlify.app/">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VZJ1ETL0JQ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag("js", new Date());
-  gtag("config", "G-VZJ1ETL0JQ");
-</script>
-<link rel="sitemap" type="application/xml" href="/sitemap.xml">
-<title>Islamic Insights — Quran & AhlulBayt</title>
-<link rel="stylesheet" href="style.css">
+<script src="js/ga.js"></script>
+<title>Islamic Insights — Quran 30 Para, Duas, Namaz, AhlulBayt | اسلامک انسائٹس</title>
+<link rel="stylesheet" href="css/main.css">
 <style>
 .hero{background:linear-gradient(135deg,var(--emerald) 0%,var(--emerald-mid) 60%,#041f10 100%);position:relative;overflow:hidden;min-height:80vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;}
 .hero::before{content:'';position:absolute;inset:0;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23ffffff' d='M40 0L53 13A18 18 0 0140 18 18 18 0 0127 13z'/%3E%3C/svg%3E");}
-.hero-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(21,147,79,.3) 0%,transparent 70%);}
 .hero-left{padding:80px 50px 80px 80px;position:relative;z-index:2;}
 .hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(200,148,28,.15);border:1px solid rgba(200,148,28,.4);color:var(--gold-light);padding:6px 16px;border-radius:50px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:22px;}
 .hero-arabic{font-family:'Scheherazade New',serif;font-size:36px;color:var(--gold-light);margin-bottom:16px;direction:rtl;text-shadow:0 2px 20px rgba(200,148,28,.3);}
-.hero h2{font-family:'Playfair Display',serif;font-size:52px;color:white;line-height:1.1;font-weight:900;margin-bottom:16px;letter-spacing:-1px;}
+.hero h2{font-family:'Playfair Display',serif;font-size:52px;color:white;line-height:1.1;font-weight:900;margin-bottom:16px;}
 .hero h2 em{color:var(--gold-light);font-style:italic;}
 .hero-sub{font-size:15px;color:rgba(255,255,255,.7);max-width:480px;margin-bottom:32px;font-weight:300;line-height:1.8;}
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
-.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--ink);padding:14px 30px;border-radius:50px;text-decoration:none;font-weight:700;font-size:13.5px;transition:all .3s;box-shadow:0 6px 24px rgba(200,148,28,.35);}
-.btn-gold:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(200,148,28,.45);}
 .btn-ghost{background:transparent;color:rgba(255,255,255,.85);padding:13px 26px;border-radius:50px;text-decoration:none;font-weight:500;font-size:13.5px;border:1.5px solid rgba(255,255,255,.3);transition:all .3s;display:flex;align-items:center;gap:8px;}
 .btn-ghost:hover{border-color:white;color:white;}
 .hero-stats{display:flex;gap:28px;margin-top:40px;padding-top:28px;border-top:1px solid rgba(255,255,255,.1);}
 .hero-stat .num{font-family:'Playfair Display',serif;font-size:28px;color:var(--gold-light);font-weight:700;line-height:1;}
-.hero-stat .lbl{font-size:11px;color:rgba(255,255,255,.5);margin-top:4px;}
+.hero-stat .lbl2{font-size:11px;color:rgba(255,255,255,.5);margin-top:4px;}
 .hero-right{position:relative;z-index:2;padding:80px 80px 80px 30px;display:flex;flex-direction:column;gap:14px;}
 .hero-qcard{background:linear-gradient(135deg,rgba(200,148,28,.15),rgba(200,148,28,.05));border:1px solid rgba(200,148,28,.3);border-radius:18px;padding:24px;backdrop-filter:blur(10px);}
 .hero-qcard .qa{font-family:'Scheherazade New',serif;font-size:24px;color:var(--gold-light);direction:rtl;text-align:right;line-height:1.8;margin-bottom:10px;}
 .hero-qcard .qt{font-size:13px;color:rgba(255,255,255,.7);font-style:italic;line-height:1.6;}
-.hero-qcard .qr{font-size:11px;color:var(--gold-light);margin-top:8px;font-weight:600;}
 .hero-acard{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:18px 20px;text-decoration:none;color:white;transition:all .3s;display:flex;gap:14px;align-items:flex-start;}
-.hero-acard:hover{background:rgba(255,255,255,.09);border-color:rgba(200,148,28,.4);transform:translateX(-4px);}
+.hero-acard:hover{background:rgba(255,255,255,.09);border-color:rgba(200,148,28,.4);}
 .hero-acard-icon{width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,var(--gold),var(--gold-light));display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
 .hac-cat{font-size:10px;color:var(--gold-light);letter-spacing:1.5px;text-transform:uppercase;font-weight:600;margin-bottom:3px;}
 .hac-title{font-family:'Playfair Display',serif;font-size:14px;line-height:1.35;color:rgba(255,255,255,.92);}
-.hac-meta{font-size:11px;color:rgba(255,255,255,.4);margin-top:5px;}
-@media(max-width:1024px){.hero{grid-template-columns:1fr;}.hero-left{padding:60px 32px;}.hero-right{display:none;}.hero h2{font-size:38px;}}
+.features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:50px;}
+.feat-card{background:white;border-radius:18px;padding:28px 22px;border:1px solid var(--border-light);text-align:center;text-decoration:none;color:inherit;transition:all .3s;box-shadow:0 2px 12px rgba(0,0,0,.04);}
+.feat-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(10,74,42,.1);border-color:var(--gold);}
+.feat-icon{font-size:44px;margin-bottom:14px;display:block;}
+.feat-title{font-family:'Playfair Display',serif;font-size:17px;color:var(--emerald);font-weight:700;margin-bottom:8px;}
+.feat-desc{font-size:12.5px;color:var(--muted);line-height:1.55;}
+.verse-highlight{background:linear-gradient(135deg,var(--emerald),var(--emerald-mid));border-radius:24px;padding:48px 56px;margin-bottom:50px;text-align:center;position:relative;overflow:hidden;}
+.verse-highlight::before{content:'❝';position:absolute;top:-20px;left:20px;font-size:140px;color:rgba(255,255,255,.04);font-family:Georgia,serif;line-height:1;}
+.vh-arabic{font-family:'Scheherazade New',serif;font-size:36px;color:var(--gold-light);direction:rtl;line-height:2;margin-bottom:16px;}
+.vh-urdu{font-size:18px;color:rgba(255,255,255,.85);font-family:'Scheherazade New',serif;direction:rtl;margin-bottom:10px;}
+.vh-english{font-family:'Cormorant Garamond',serif;font-size:18px;color:rgba(255,255,255,.7);font-style:italic;}
+.vh-ref{margin-top:14px;display:inline-block;background:rgba(200,148,28,.2);color:var(--gold-light);padding:4px 16px;border-radius:50px;font-size:12px;font-weight:700;}
+@media(max-width:1024px){.hero{grid-template-columns:1fr;}.hero-left{padding:60px 32px;}.hero-right{display:none;}.hero h2{font-size:38px;}.features-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:768px){.features-grid{grid-template-columns:1fr 1fr;}.verse-highlight{padding:32px 24px;}.vh-arabic{font-size:26px;}}
 </style>
 </head>
 <body>
-<!-- MOBILE NAV -->
-<div class="mobile-nav" id="mobileNav">
-  <button class="mobile-nav-close" onclick="document.getElementById('mobileNav').classList.remove('open')">✕</button>
-  <a href="index.html">Home</a>
-  <a href="religion.html">Religion</a>
-  <a href="history.html">History</a>
-  <a href="muharram.html">Muharram</a>
-  <a href="series.html">Series</a>
-  <a href="news.html">News</a>
-  <a href="about.html">About</a>
-  <a href="islamic-app.html" style="color:#e8b84b!important;">📱 Islamic App</a>
-</div>
-<!-- TOPBAR -->
-<div class="topbar">
-  <div class="topbar-inner">
-    <div style="display:flex;gap:20px;align-items:center;">
-      <div class="topbar-bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ</div>
-      <span style="color:rgba(255,255,255,.4);font-size:11px;border-right:1px solid rgba(255,255,255,.15);padding-right:20px;">Tuesday, June 2, 2026</span>
-    </div>
-    <div class="topbar-social">
-      <span class="lbl">Follow</span>
-      <a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank" style="display:inline-flex;align-items:center;gap:6px;color:white;text-decoration:none;font-size:13px;font-weight:600;"><svg viewBox="0 0 24 24" width="22" height="22" fill="#ff0000"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>YouTube</a>
-      <a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
-    </div>
-  </div>
-</div>
-<!-- HEADER -->
-<header>
-  <div class="header-inner">
-    <a href="index.html" class="logo">
-      <div class="logo-emblem"><svg viewBox="0 0 52 52"><rect width="52" height="52" rx="13" fill="#0a4a2a"/><text x="26" y="36" font-family="Scheherazade New,serif" font-size="28" fill="#c8941c" text-anchor="middle">☪</text><rect x="6" y="6" width="40" height="40" rx="9" fill="none" stroke="rgba(200,148,28,0.3)" stroke-width="1"/></svg></div>
-      <div class="logo-text"><h1>Islamic Insights</h1><p>Quran & AhlulBayt</p></div>
-    </a>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="religion.html">Religion</a>
-      <a href="history.html">History</a>
-      <a href="muharram.html">Muharram</a>
-      <a href="series.html">Series</a>
-      <a href="news.html">News</a>
-      <a href="about.html">About</a>
-      <a href="islamic-app.html" style="background:linear-gradient(135deg,#0a4a2a,#0e6b3a);color:#e8b84b!important;padding:8px 14px;border-radius:8px;font-weight:600;margin-left:6px;">📱 App</a>
-    </nav>
-    <div style="display:flex;align-items:center;gap:10px;">
-      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank" class="btn-yt">▶ YouTube</a>
-      <div class="hamburger" onclick="document.getElementById('mobileNav').classList.add('open')"><span></span><span></span><span></span></div>
-    </div>
-  </div>
-</header>
-<!-- App Download Banner -->
-<div style="background:linear-gradient(135deg,#0a4a2a,#041f10);padding:20px 24px;text-align:center;">
-  <p style="color:rgba(255,255,255,.7);font-size:13px;margin:0 0 4px;">📱 Islamic Insights App</p>
-  <h2 style="font-family:'Playfair Display',serif;color:#e8b84b;font-size:22px;margin:0 0 12px;">App Download karein — Bilkul FREE</h2>
-  <a href="https://drive.google.com/file/d/1CNs0Lf5KNiC9zeSvzDX7SQFDlpaSSnQ0/view?usp=sharing" target="_blank" style="display:inline-block;background:linear-gradient(135deg,#c8941c,#e8b84b);color:#1a1612;padding:13px 32px;border-radius:50px;font-size:14px;font-weight:700;text-decoration:none;margin-bottom:8px;">⬇ Download App (Android)</a>
-  <p style="color:rgba(255,255,255,.5);font-size:11px;margin:8px 0 0;">Google Drive khulega → Download button dabain → Install karein</p>
-</div>
-<!-- TICKER -->
+<div id="header-placeholder"></div>
+
+<!-- GOLD TICKER -->
 <div class="gold-strip">
   <div class="ticker-wrap">
-    <div class="ticker-label">✦ Trending</div>
+    <span class="ticker-label">Live</span>
     <div class="ticker-content">
       <div class="ticker-inner">
-        <span class="ticker-item">Abu Talib — The Believer of Quraysh</span>
-        <span class="ticker-item">Lady Khadija, Esteemed Wife of the Prophet ﷺ</span>
-        <span class="ticker-item">Jannat al-Baqi — From Cemetery to Holy Sanctuary</span>
-        <span class="ticker-item">Dangers of Desensitization to Sin</span>
-        <span class="ticker-item">The Eternal Stand of Imam Hussain (as) at Karbala</span>
-        <span class="ticker-item">Abu Talib — The Believer of Quraysh</span>
-        <span class="ticker-item">Lady Khadija, Esteemed Wife of the Prophet ﷺ</span>
-        <span class="ticker-item">Jannat al-Baqi — From Cemetery to Holy Sanctuary</span>
-        <span class="ticker-item">Dangers of Desensitization to Sin</span>
-        <span class="ticker-item">The Eternal Stand of Imam Hussain (as) at Karbala</span>
+        <span class="ticker-item">📖 Quran 30 Para with Full Audio — Ab Online Parhen</span>
+        <span class="ticker-item">🕌 Namaz Timings — Apne Sheher ke liye</span>
+        <span class="ticker-item">🤲 Dua Kumayl, Tawassul, Nudba — Mukammal</span>
+        <span class="ticker-item">🧭 Qibla Direction — GPS se</span>
+        <span class="ticker-item">Nahj al-Balagha — Arabic, Urdu, English</span>
+        <span class="ticker-item">📖 Quran 30 Para with Full Audio — Ab Online Parhen</span>
+        <span class="ticker-item">🕌 Namaz Timings — Apne Sheher ke liye</span>
+        <span class="ticker-item">🤲 Dua Kumayl, Tawassul, Nudba — Mukammal</span>
+        <span class="ticker-item">🧭 Qibla Direction — GPS se</span>
+        <span class="ticker-item">Nahj al-Balagha — Arabic, Urdu, English</span>
       </div>
     </div>
   </div>
 </div>
+
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-overlay"></div>
   <div class="hero-left">
-    <div class="hero-tag">✦ Islamic Insights Magazine</div>
-    <div class="hero-arabic">الْقُرْآنُ هُدًى لِّلنَّاسِ</div>
-    <h2>Light from the <em>Holy Quran</em> & AhlulBayt</h2>
-    <p class="hero-sub">Bringing timeless Islamic wisdom, authentic stories of the Prophet's family ﷺ, and spiritual guidance rooted in the Quran to Muslims around the world.</p>
+    <div class="hero-tag">✦ Islamic Insights</div>
+    <div class="hero-arabic">اَللّٰهُمَّ صَلِّ عَلٰی مُحَمَّدٍ وَّ آلِ مُحَمَّدٍ</div>
+    <h2>Quran, AhlulBayt<br>&amp; <em>Islamic Knowledge</em></h2>
+    <p class="hero-sub">Quran 30 Para with Full Audio • Namaz Timings • Dua Kumayl • Ziyarat Ashura • Nahj al-Balagha • Ahadith • Islamic History — Sab ek jagah, Arabic + Urdu + English mein.</p>
     <div class="hero-actions">
-      <a href="religion.html" class="btn-gold">📖 Explore Articles</a>
-      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank" class="btn-ghost">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon fill="white" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
-        Watch on YouTube
-      </a>
+      <a href="quran.html" class="btn-gold">📖 Quran Parhen</a>
+      <a href="namaz.html" class="btn-ghost">🕌 Namaz Timings</a>
     </div>
     <div class="hero-stats">
-      <div class="hero-stat"><div class="num">150+</div><div class="lbl">Articles</div></div>
-      <div class="hero-stat"><div class="num">48K+</div><div class="lbl">Readers</div></div>
-      <div class="hero-stat"><div class="num">2007</div><div class="lbl">Est.</div></div>
+      <div class="hero-stat"><div class="num">30</div><div class="lbl2">Quran Para</div></div>
+      <div class="hero-stat"><div class="num">6236+</div><div class="lbl2">Ayaat</div></div>
+      <div class="hero-stat"><div class="num">10+</div><div class="lbl2">Duaen</div></div>
+      <div class="hero-stat"><div class="num">100+</div><div class="lbl2">Ahadith</div></div>
     </div>
   </div>
   <div class="hero-right">
     <div class="hero-qcard">
-      <div class="qa">وَلَقَدْ يَسَّرْنَا الْقُرْآنَ لِلذِّكْرِ فَهَلْ مِن مُّدَّكِرٍ</div>
-      <div class="qt">"And We have certainly made the Quran easy for remembrance, so is there any who will remember?"</div>
-      <div class="qr">📖 Surah Al-Qamar (54:17)</div>
+      <div class="qa">إِنَّمَا يُرِيدُ اللَّهُ لِيُذْهِبَ عَنكُمُ الرِّجْسَ أَهْلَ الْبَيْتِ وَيُطَهِّرَكُمْ تَطْهِيرًا</div>
+      <div class="qt">Allah only desires to keep away the uncleanness from you, O people of the House, and to purify you a thorough purifying.</div>
+      <div style="font-size:11px;color:var(--gold-light);margin-top:8px;font-weight:600;">Surah Al-Ahzab 33:33 — Ayat-e-Tatheer</div>
     </div>
-    <a href="history.html" class="hero-acard">
-      <div class="hero-acard-icon">📜</div>
-      <div><div class="hac-cat">History · Featured</div><div class="hac-title">Lady Khadija al-Kubra — The Esteemed Wife of the Prophet ﷺ</div><div class="hac-meta">9,200 views · History</div></div>
+    <a href="duas.html" class="hero-acard">
+      <div class="hero-acard-icon">🤲</div>
+      <div><div class="hac-cat">Dua</div><div class="hac-title">Dua Kumayl — Imam Ali (AS) ki mashhoor dua, mukammal Arabic, Urdu, English mein</div></div>
     </a>
-    <a href="muharram.html" class="hero-acard">
-      <div class="hero-acard-icon">⚔️</div>
-      <div><div class="hac-cat">Karbala · Must Read</div><div class="hac-title">The Eternal Stand of Imam Hussain (as) at Karbala</div><div class="hac-meta">21,500 views · Karbala</div></div>
+    <a href="namaz.html" class="hero-acard">
+      <div class="hero-acard-icon">🕌</div>
+      <div><div class="hac-cat">Namaz</div><div class="hac-title">Aaj ki Namaz Timings — Apni location se automatic</div></div>
     </a>
-    <a href="series.html" class="hero-acard">
-      <div class="hero-acard-icon">🌿</div>
-      <div><div class="hac-cat">AhlulBayt · Story</div><div class="hac-title">Imam Ali (as) — The Gate of the City of Knowledge</div><div class="hac-meta">14,800 views · Series</div></div>
+    <a href="ziyarat.html" class="hero-acard">
+      <div class="hero-acard-icon">☪</div>
+      <div><div class="hac-cat">Ziyarat</div><div class="hac-title">Ziyarat Ashura — Mukammal text Arabic, Urdu, English</div></div>
     </a>
   </div>
 </section>
 
+<!-- MAIN CONTENT -->
 <div class="main">
-  <div>
-    <div class="hadith-box">
-      <div class="hadith-label">✦ Hadith of the Day ✦</div>
-      <div class="hadith-ar">«إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى»</div>
-      <div class="hadith-en">"Indeed, all actions are judged by intentions, and every person will receive only what they intended."</div>
-      <div class="hadith-src">— Prophet Muhammad ﷺ · Sahih Bukhari, Vol. 1 Hadith 1</div>
-    </div>
-    <div class="sec-head"><div class="sec-title">Latest Articles</div><a href="religion.html" class="sec-more">View All →</a></div>
-    <div class="articles-grid">
-      <a class="acard" href="religion.html"><div class="acard-img" style="background:linear-gradient(135deg,#0d3d21,#1a6b3a)"><div class="acard-badge">Religion</div><div class="deco">☪</div></div><div class="acard-body"><div class="acard-title">The Believer of Quraysh: Abu Talib</div><div class="acard-excerpt">On the 26th of Rajab, Abu Talib, the devoted uncle and protector of the Prophet ﷺ, passed away. His unwavering faith and support remain a cornerstone of early Islamic history.</div></div><div class="acard-foot"><span>📂 Religion</span><span class="acard-views">👁 6,400</span></div></a>
-      <a class="acard" href="religion.html"><div class="acard-img" style="background:linear-gradient(135deg,#1a3a0d,#3a7a1a)"><div class="acard-badge">Religion</div><div class="deco">📖</div></div><div class="acard-body"><div class="acard-title">Dangers of Desensitization to Sin</div><div class="acard-excerpt">How gradually becoming comfortable with sin blinds the heart and distances the believer from the mercy and guidance of Allah.</div></div><div class="acard-foot"><span>📂 Religion</span><span class="acard-views">👁 11,600</span></div></a>
-      <a class="acard" href="muharram.html"><div class="acard-img" style="background:linear-gradient(135deg,#3d0d0d,#7a1a1a)"><div class="acard-badge">Karbala</div><div class="deco">⚔</div></div><div class="acard-body"><div class="acard-title">Discourse with the Pilgrim of Imam Hussain (as)</div><div class="acard-excerpt">The profound dialogue between Imam Zainul Abideen (as) and a devoted pilgrim returning from the holy land of Karbala.</div></div><div class="acard-foot"><span>📂 Karbala</span><span class="acard-views">👁 8,300</span></div></a>
-      <a class="acard" href="history.html"><div class="acard-img" style="background:linear-gradient(135deg,#2a1a0d,#6b4215)"><div class="acard-badge">History</div><div class="deco">📜</div></div><div class="acard-body"><div class="acard-title">Jannat al-Baqi — From Cemetery to Holy Sanctuary</div><div class="acard-excerpt">A piece of land not like any other, carrying the graves of saints unlike any other — the blessed cemetery of Jannat al-Baqi in Madinah.</div></div><div class="acard-foot"><span>📂 History</span><span class="acard-views">👁 5,750</span></div></a>
-    </div>
-    <div class="sec-head" style="margin-top:40px;"><div class="sec-title">Islamic Stories</div><a href="series.html" class="sec-more">View All →</a></div>
-    <div class="story-list">
-      <a href="muharram.html" class="story-item"><div class="story-icon" style="background:linear-gradient(135deg,#3d0d0d,#7a1a1a)">⚔️</div><div><div class="story-cat">Karbala</div><div class="story-title">The Eternal Stand of Imam Hussain (as) at Karbala</div><div class="story-excerpt">On the 10th of Muharram, 61 AH, Imam Hussain ibn Ali (as) stood on the plains of Karbala with 72 companions against an army of thousands. His sacrifice preserved the soul of Islam forever.</div><div class="story-link">Read Full Story →</div></div></a>
-      <a href="history.html" class="story-item"><div class="story-icon" style="background:linear-gradient(135deg,#0d3d21,#1a6b3a)">📜</div><div><div class="story-cat">History</div><div class="story-title">The Night of Hijra — The Prophet's ﷺ Migration to Medina</div><div class="story-excerpt">On the night that would change history forever, the Prophet ﷺ left his beloved Makkah, trusting fully in Allah's protection. This great migration marked the beginning of the Islamic calendar.</div><div class="story-link">Read Full Story →</div></div></a>
-      <a href="series.html" class="story-item"><div class="story-icon" style="background:linear-gradient(135deg,#1a3d1a,#2a7a2a)">🌿</div><div><div class="story-cat">AhlulBayt</div><div class="story-title">Imam Ali (as) — The Gate of the City of Knowledge</div><div class="story-excerpt">The Prophet ﷺ said: "I am the city of knowledge and Ali is its gate." Imam Ali ibn Abi Talib (as) was the first male to embrace Islam, the rightful Imam, unparalleled in wisdom and justice.</div><div class="story-link">Read Full Story →</div></div></a>
-    </div>
+  <!-- FEATURES -->
+  <div class="sec-head" style="margin-bottom:26px;">
+    <h2 class="sec-title">Hamari Khidmaat</h2>
+    <span style="font-size:13px;color:var(--muted);">Sab kuch ek jagah</span>
   </div>
-  <div class="sidebar">
-    <div class="widget"><div class="whead">📖 Verse of the Day</div><div class="wbody"><div class="verse-box"><div class="verse-ar">إِنَّ اللَّهَ مَعَ الصَّابِرِينَ</div><div class="verse-en">"Indeed, Allah is with the patient."</div><div class="verse-ref">— Surah Al-Baqarah (2:153)</div></div><div class="verse-reflection"><strong>Reflection:</strong> Patience (sabr) is not merely waiting — it is trusting in Allah's wisdom with a heart that remains steadfast, knowing that every trial is a step closer to Him.</div></div></div>
-    <div class="widget"><div class="whead">🌐 Follow Us</div><div class="wbody"><div class="social-grid"><a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank" class="slink slink-fb"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>Facebook</a><a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank" class="slink slink-ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>Instagram</a><a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank" class="slink-yt-full"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon fill="white" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>▶ @ismlamicinsights110 on YouTube</a></div></div></div>
-    <div class="widget"><div class="whead">🔥 Most Read</div><div class="wbody"><div class="popular-list"><a href="news.html" class="pitem"><div class="pitem-num">01</div><div><div class="pitem-title">Abdullah Shah Ghazi Shrine Attacked in Karachi</div><div class="pitem-cat">📰 News</div></div></a><a href="history.html" class="pitem"><div class="pitem-num">02</div><div><div class="pitem-title">How Did Islam Spread: By Sword or Conversion?</div><div class="pitem-cat">📜 History</div></div></a><a href="religion.html" class="pitem"><div class="pitem-num">03</div><div><div class="pitem-title">The Believer of Quraysh: Abu Talib</div><div class="pitem-cat">🕌 Religion</div></div></a><a href="history.html" class="pitem"><div class="pitem-num">04</div><div><div class="pitem-title">Jesus Christ and His Fight Against Oppression</div><div class="pitem-cat">📜 History</div></div></a><a href="news.html" class="pitem"><div class="pitem-num">05</div><div><div class="pitem-title">Zakir Naik Draws Ire With Karbala Comments</div><div class="pitem-cat">📰 News</div></div></a></div></div></div>
-    <div class="nl-widget"><h3>Stay Connected</h3><p>Get Islamic insights delivered to your inbox every week.</p><form name="newsletter-index" method="POST" data-netlify="true" action="/index.html" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;">
-        <input type="hidden" name="form-name" value="newsletter-index">
-        <input type="email" name="email" class="nl-input" placeholder="Your email..." required style="flex:1;min-width:0;">
-        <button type="submit" class="nl-btn">Subscribe</button>
-      </form></div>
-    <div class="widget"><div class="whead">📂 Categories</div><div class="wbody"><div class="cat-list"><a href="religion.html" class="citem"><span>🕌 Religion</span><span class="ccount">48</span></a><a href="history.html" class="citem"><span>📜 History</span><span class="ccount">32</span></a><a href="news.html" class="citem"><span>📰 News</span><span class="ccount">25</span></a><a href="series.html" class="citem"><span>📚 Series</span><span class="ccount">19</span></a><a href="muharram.html" class="citem"><span>🕋 Muharram</span><span class="ccount">11</span></a></div></div></div>
-    <div class="widget"><div class="whead">🏷 Tags</div><div class="wbody"><div class="tags-cloud"><a href="religion.html" class="tag">#Islam</a><a href="religion.html" class="tag">#Quran</a><a href="series.html" class="tag">#AhlulBayt</a><a href="muharram.html" class="tag">#Karbala</a><a href="series.html" class="tag">#Imam</a><a href="religion.html" class="tag">#Ramadan</a><a href="series.html" class="tag">#Prophet</a><a href="muharram.html" class="tag">#Muharram</a><a href="religion.html" class="tag">#Dua</a><a href="series.html" class="tag">#Mahdi</a><a href="religion.html" class="tag">#Prayer</a><a href="series.html" class="tag">#Youth</a></div></div></div>
+  <div class="features-grid">
+    <a href="quran.html" class="feat-card">
+      <span class="feat-icon">📖</span>
+      <div class="feat-title">Quran 30 Para</div>
+      <div class="feat-desc">Pori Surah ke sath, continuous audio, Arabic+Urdu+English, download option</div>
+    </a>
+    <a href="namaz.html" class="feat-card">
+      <span class="feat-icon">🕌</span>
+      <div class="feat-title">Namaz Timings</div>
+      <div class="feat-desc">GPS se apne sheher ki exact prayer times, azan notification</div>
+    </a>
+    <a href="qibla.html" class="feat-card">
+      <span class="feat-icon">🧭</span>
+      <div class="feat-title">Qibla Direction</div>
+      <div class="feat-desc">Live compass se Qibla ka rukh jaanen, GPS based</div>
+    </a>
+    <a href="duas.html" class="feat-card">
+      <span class="feat-icon">🤲</span>
+      <div class="feat-title">Duaen</div>
+      <div class="feat-desc">Dua Kumayl, Tawassul, Nudba, Faraj — Mukammal collection</div>
+    </a>
+    <a href="ziyarat.html" class="feat-card">
+      <span class="feat-icon">☪</span>
+      <div class="feat-title">Ziyarat Ashura</div>
+      <div class="feat-desc">Mukammal Ziyarat text Arabic, Urdu aur English mein</div>
+    </a>
+    <a href="nahj.html" class="feat-card">
+      <span class="feat-icon">📜</span>
+      <div class="feat-title">Nahj al-Balagha</div>
+      <div class="feat-desc">Imam Ali AS ki khutbaat, maktoobaat, hukm — trilingual</div>
+    </a>
+    <a href="hadith.html" class="feat-card">
+      <span class="feat-icon">📚</span>
+      <div class="feat-title">Ahadith</div>
+      <div class="feat-desc">Bukhari, Muslim, Tirmizi — Arabic, Urdu, English mein</div>
+    </a>
+    <a href="history.html" class="feat-card">
+      <span class="feat-icon">🏛️</span>
+      <div class="feat-title">Islamic History</div>
+      <div class="feat-desc">Seerat-un-Nabi, Khulafa, AhlulBayt ki mukammal history</div>
+    </a>
+  </div>
+
+  <!-- DAILY VERSE -->
+  <div class="verse-highlight">
+    <div class="vh-arabic" id="daily-arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+    <div class="vh-urdu" id="daily-urdu">اللہ کے نام سے جو بہت مہربان، نہایت رحم والا ہے</div>
+    <div class="vh-english" id="daily-english">In the name of Allah, the Most Gracious, the Most Merciful</div>
+    <div class="vh-ref" id="daily-ref">Al-Fatiha 1:1</div>
+    <div style="margin-top:20px;"><a href="quran.html" class="btn-gold" style="font-size:13px;padding:10px 24px;">Quran Parhen →</a></div>
+  </div>
+
+  <!-- QUICK LINKS -->
+  <div class="sec-head">
+    <h2 class="sec-title">Aaj ki Zaroori Duaen</h2>
+    <a href="duas.html" class="sec-more">Sab Dekhen →</a>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px;" id="quick-duas">
+    <a href="duas.html#kumayl" class="card" style="padding:22px;text-decoration:none;color:inherit;">
+      <div style="font-size:28px;margin-bottom:10px;">🤲</div>
+      <div style="font-family:'Playfair Display',serif;font-size:16px;color:var(--emerald);font-weight:700;margin-bottom:6px;">Dua Kumayl</div>
+      <div style="font-family:'Scheherazade New',serif;font-size:18px;color:var(--gold);direction:rtl;margin-bottom:6px;">دعاء کمیل</div>
+      <div style="font-size:12px;color:var(--muted);">Imam Ali (AS) ne Kumayl ibn Ziyad ko sikhaya</div>
+    </a>
+    <a href="duas.html#tawassul" class="card" style="padding:22px;text-decoration:none;color:inherit;">
+      <div style="font-size:28px;margin-bottom:10px;">🕌</div>
+      <div style="font-family:'Playfair Display',serif;font-size:16px;color:var(--emerald);font-weight:700;margin-bottom:6px;">Dua Tawassul</div>
+      <div style="font-family:'Scheherazade New',serif;font-size:18px;color:var(--gold);direction:rtl;margin-bottom:6px;">دعاء توسل</div>
+      <div style="font-size:12px;color:var(--muted);">Aal-e-Muhammad AS ki wasila se dua</div>
+    </a>
+    <a href="ziyarat.html" class="card" style="padding:22px;text-decoration:none;color:inherit;">
+      <div style="font-size:28px;margin-bottom:10px;">☪</div>
+      <div style="font-family:'Playfair Display',serif;font-size:16px;color:var(--emerald);font-weight:700;margin-bottom:6px;">Ziyarat Ashura</div>
+      <div style="font-family:'Scheherazade New',serif;font-size:18px;color:var(--gold);direction:rtl;margin-bottom:6px;">زیارت عاشوراء</div>
+      <div style="font-size:12px;color:var(--muted);">Imam Hussain AS ki ziyarat — Mukammal</div>
+    </a>
   </div>
 </div>
-<footer>
-  <div class="footer-top">
-    <div class="footer-brand">
-      <div class="fl"><svg width="32" height="32" viewBox="0 0 52 52"><rect width="52" height="52" rx="11" fill="rgba(200,148,28,0.2)"/><text x="26" y="36" font-family="Scheherazade New,serif" font-size="26" fill="#e8b84b" text-anchor="middle">☪</text></svg> Islamic Insights</div>
-      <p>An online magazine delivering authentic Islamic knowledge, stories of the AhlulBayt, and Quranic guidance to Muslims worldwide since 2007.</p>
-      <div class="footer-socials">
-        <a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-        <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
-        <a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="rgba(255,255,255,0.75)"/></svg></a>
-      </div>
-    </div>
-    <div class="footer-col">
-      <h4>Categories</h4>
-      <a href="religion.html">Religion</a>
-      <a href="history.html">History</a>
-      <a href="news.html">News</a>
-      <a href="series.html">Series</a>
-      <a href="muharram.html">Muharram</a>
-      <a href="about.html">About</a>
-    </div>
-    <div class="footer-col">
-      <h4>Series</h4>
-      <a href="series.html">Raising Faith</a>
-      <a href="series.html">Refinement of Soul</a>
-      <a href="series.html">An Ethical Life</a>
-      <a href="series.html">Youth: Life's Spring</a>
-      <a href="muharram.html">Karbala Series</a>
-    </div>
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <a href="about.html">About Us</a>
-      <a href="about.html">Write For Us</a>
-      <a href="about.html">Contact Us</a>
-      <a href="books.html">📚 Books & Downloads</a>
-      <a href="about.html">Donate</a>
-      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank">YouTube Channel</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div>© Islamic Insights 2007–2026 · All Rights Reserved · Inspired by The Holy Quran & The AhlulBayt</div>
-    <div class="footer-links">
-      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank">YouTube: @ismlamicinsights110</a>
-      <a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank">Facebook</a>
-      <a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank">Instagram: @zeeshanahmed1100011</a>
-    </div>
-  </div>
-</footer>
+
+<div id="footer-placeholder"></div>
+
+<script src="js/shared.js"></script>
 <script>
-const obs=new IntersectionObserver((e)=>{e.forEach(x=>{if(x.isIntersecting){x.target.style.opacity='1';x.target.style.transform='none';}});},{threshold:0.1});
-document.querySelectorAll('.acard,.story-item').forEach((el,i)=>{el.style.opacity='0';el.style.transform='translateY(16px)';el.style.transition='opacity 0.5s ease '+(i*0.08)+'s, transform 0.5s ease '+(i*0.08)+'s';obs.observe(el);});
+document.getElementById('header-placeholder').innerHTML = buildHeader('index.html');
+document.getElementById('footer-placeholder').innerHTML = buildFooter();
+
+// Daily verse rotation
+const VERSES = [
+  {ar:'إِنَّ مَعَ الْعُسْرِ يُسْرًا',ur:'بے شک تنگی کے ساتھ آسانی ہے',en:'Indeed, with hardship will be ease.',ref:'Al-Inshirah 94:6'},
+  {ar:'وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ',ur:'جو اللہ پر بھروسہ کرے تو وہ اسے کافی ہے',en:'And whoever relies upon Allah — then He is sufficient for him.',ref:'At-Talaq 65:3'},
+  {ar:'إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ',ur:'بے شک ہم اللہ کے لیے ہیں اور اسی کی طرف لوٹنے والے ہیں',en:'Indeed we belong to Allah, and indeed to Him we will return.',ref:'Al-Baqarah 2:156'},
+];
+const v = VERSES[new Date().getDay() % VERSES.length];
+document.getElementById('daily-arabic').textContent = v.ar;
+document.getElementById('daily-urdu').textContent = v.ur;
+document.getElementById('daily-english').textContent = v.en;
+document.getElementById('daily-ref').textContent = v.ref;
 </script>
-</body></html>
+</body>
+</html>

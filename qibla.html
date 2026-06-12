@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#0a4a2a">
+<meta name="description" content="Qibla Direction — GPS se apni location se Kaaba ki exact direction jaanen. Live compass ke sath.">
+<meta name="keywords" content="Qibla direction, Qibla finder, Kaaba direction, Qibla compass online, قبلہ direction Pakistan">
+<link rel="canonical" href="https://islamicinsights-net.netlify.app/qibla.html">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VZJ1ETL0JQ"></script>
+<script src="js/ga.js"></script>
+<title>Qibla Direction — Live Compass | Islamic Insights</title>
+<link rel="stylesheet" href="css/main.css">
+<style>
+.qibla-main{display:flex;flex-direction:column;align-items:center;gap:28px;padding:40px 20px;}
+.compass-wrap{position:relative;width:320px;height:320px;}
+.compass-ring{width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,#f0f8f4 0%,white 40%,#e8f5ee 100%);border:3px solid var(--emerald);box-shadow:0 0 0 8px rgba(10,74,42,.08),0 16px 60px rgba(10,74,42,.15);position:relative;display:flex;align-items:center;justify-content:center;}
+.compass-dirs span{position:absolute;font-weight:700;font-size:14px;color:var(--emerald);}
+.compass-dirs .n{top:10px;left:50%;transform:translateX(-50%);color:#c8400a;}
+.compass-dirs .s{bottom:10px;left:50%;transform:translateX(-50%);}
+.compass-dirs .e{right:12px;top:50%;transform:translateY(-50%);}
+.compass-dirs .w{left:12px;top:50%;transform:translateY(-50%);}
+.compass-needle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(0deg);transform-origin:center;transition:transform 0.3s ease;z-index:10;}
+.needle-n{width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:80px solid #c8400a;position:absolute;top:calc(50% - 80px);left:calc(50% - 8px);}
+.needle-s{width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-top:80px solid #888;position:absolute;top:50%;left:calc(50% - 8px);}
+.needle-center{width:16px;height:16px;border-radius:50%;background:var(--ink);position:absolute;top:calc(50% - 8px);left:calc(50% - 8px);z-index:11;}
+.qibla-arrow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(0deg);transform-origin:center;transition:transform 0.3s ease;z-index:12;pointer-events:none;}
+.qibla-arrow-img{font-size:40px;display:block;text-shadow:0 2px 8px rgba(200,148,28,.5);}
+
+.qibla-info{text-align:center;}
+.qi-angle{font-family:'Playfair Display',serif;font-size:64px;color:var(--emerald);font-weight:900;line-height:1;}
+.qi-label{font-size:15px;color:var(--muted);margin-top:6px;}
+.qi-direction{font-size:20px;color:var(--gold);font-weight:700;margin-top:8px;}
+
+.qibla-status{background:white;border-radius:16px;padding:20px 28px;border:1px solid var(--border-light);text-align:center;max-width:480px;width:100%;}
+.qs-icon{font-size:40px;margin-bottom:10px;}
+.qs-text{font-size:14px;color:var(--muted);line-height:1.6;}
+
+.kaaba-info{background:linear-gradient(135deg,var(--emerald),var(--emerald-mid));border-radius:20px;padding:28px;max-width:480px;width:100%;color:white;text-align:center;}
+.ki-ar{font-family:'Scheherazade New',serif;font-size:28px;color:var(--gold-light);direction:rtl;margin-bottom:8px;}
+.ki-dist{font-family:'Playfair Display',serif;font-size:36px;color:white;font-weight:900;margin-bottom:4px;}
+.ki-label{font-size:13px;color:rgba(255,255,255,.6);}
+
+@media(max-width:480px){.compass-wrap{width:280px;height:280px;}.compass-ring{width:280px;height:280px;}.needle-n{border-bottom-width:70px;top:calc(50% - 70px);}.needle-s{border-top-width:70px;}}
+</style>
+</head>
+<body>
+<div id="header-placeholder"></div>
+
+<div class="page-hero">
+  <div class="page-hero-tag">🧭 Qibla</div>
+  <h1>قبلہ کی سمت</h1>
+  <p>GPS se apni location se Kaaba ki exact direction — Live Compass</p>
+</div>
+<div class="breadcrumb"><div class="breadcrumb-inner"><a href="index.html">Home</a> <span>›</span> <span>Qibla Direction</span></div></div>
+
+<div class="main">
+  <div class="qibla-main">
+    <!-- COMPASS -->
+    <div class="compass-wrap">
+      <div class="compass-ring">
+        <div class="compass-dirs">
+          <span class="n">N</span><span class="s">S</span>
+          <span class="e">E</span><span class="w">W</span>
+        </div>
+        <!-- Compass needle -->
+        <div class="compass-needle" id="compassNeedle">
+          <div style="position:relative;width:16px;height:160px;">
+            <div class="needle-n"></div>
+            <div class="needle-s"></div>
+            <div class="needle-center"></div>
+          </div>
+        </div>
+        <!-- Qibla arrow -->
+        <div class="qibla-arrow" id="qiblaArrow">
+          <span class="qibla-arrow-img">🕋</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANGLE INFO -->
+    <div class="qibla-info">
+      <div class="qi-angle" id="qiblaAngle">—°</div>
+      <div class="qi-label">Qibla angle from North</div>
+      <div class="qi-direction" id="qiblaDir">Location allow karein</div>
+    </div>
+
+    <!-- KAABA INFO -->
+    <div class="kaaba-info">
+      <div class="ki-ar">الكَعبَة المُشَرَّفَة</div>
+      <div class="ki-dist" id="kaabaDist">—</div>
+      <div class="ki-label">Makkah al-Mukarramah se faasla</div>
+      <div style="margin-top:14px;font-size:13px;color:rgba(255,255,255,.6);">📍 Kaaba: 21.4225° N, 39.8262° E</div>
+    </div>
+
+    <!-- STATUS -->
+    <div class="qibla-status" id="qiblaStatus">
+      <div class="qs-icon">📍</div>
+      <div class="qs-text">Qibla direction ke liye apni location allow karein.</div>
+      <button onclick="initQibla()" class="btn-gold" style="margin-top:14px;border:none;cursor:pointer;">🧭 Location Lo</button>
+    </div>
+  </div>
+
+  <!-- HOW TO USE -->
+  <div style="background:var(--cream-warm);border-radius:18px;padding:28px;border:1px solid var(--border-light);max-width:600px;margin:0 auto;">
+    <h3 style="font-family:'Playfair Display',serif;font-size:20px;color:var(--emerald);margin-bottom:14px;">🧭 Kaise Istemaal Karein?</h3>
+    <div style="display:flex;flex-direction:column;gap:12px;font-size:14px;color:var(--text);">
+      <div>1. "Location Lo" button par click karein</div>
+      <div>2. Browser ka location permission allow karein</div>
+      <div>3. Compass apni screen par flat rakhein</div>
+      <div>4. 🕋 symbol ki taraf munh karein — yahi Qibla ki smt hai</div>
+      <div style="color:var(--muted);font-size:13px;margin-top:6px;">⚠️ Device compass ke bina, sirf angle show hoga. Exact direction ke liye device tilt karein.</div>
+    </div>
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="js/shared.js"></script>
+<script src="js/qibla.js"></script>
+<script>
+document.getElementById('header-placeholder').innerHTML = buildHeader('qibla.html');
+document.getElementById('footer-placeholder').innerHTML = buildFooter();
+
+const KAABA = { lat: 21.4225, lng: 39.8262 };
+let userLat = null, userLng = null;
+let deviceHeading = 0;
+let qiblaAngle = 0;
+
+function toRad(d) { return d * Math.PI / 180; }
+function toDeg(r) { return r * 180 / Math.PI; }
+
+function calcQiblaAngle(lat, lng) {
+  const dLng = toRad(KAABA.lng - lng);
+  const lat1 = toRad(lat), lat2 = toRad(KAABA.lat);
+  const y = Math.sin(dLng) * Math.cos(lat2);
+  const x = Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(dLng);
+  return (toDeg(Math.atan2(y, x)) + 360) % 360;
+}
+
+function calcDistance(lat1, lng1, lat2, lng2) {
+  const R = 6371;
+  const dLat = toRad(lat2 - lat1), dLng = toRad(lng2 - lng1);
+  const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng/2)**2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+}
+
+function getDirectionName(angle) {
+  const dirs = ['North','NE','East','SE','South','SW','West','NW'];
+  return dirs[Math.round(angle / 45) % 8];
+}
+
+function updateDisplay() {
+  if (!userLat) return;
+  const qAngle = qiblaAngle - deviceHeading;
+  document.getElementById('qiblaArrow').style.transform = `translate(-50%,-50%) rotate(${qAngle}deg)`;
+  document.getElementById('compassNeedle').style.transform = `translate(-50%,-50%) rotate(${-deviceHeading}deg)`;
+}
+
+function initQibla() {
+  if (!navigator.geolocation) { alert('Geolocation supported nahi'); return; }
+  
+  document.getElementById('qiblaStatus').innerHTML = '<div class="qs-icon">⏳</div><div class="qs-text">Location mil rahi hai...</div>';
+  
+  navigator.geolocation.getCurrentPosition(pos => {
+    userLat = pos.coords.latitude;
+    userLng = pos.coords.longitude;
+    qiblaAngle = calcQiblaAngle(userLat, userLng);
+    const dist = calcDistance(userLat, userLng, KAABA.lat, KAABA.lng);
+    
+    document.getElementById('qiblaAngle').textContent = Math.round(qiblaAngle) + '°';
+    document.getElementById('qiblaDir').textContent = `Qibla: ${getDirectionName(qiblaAngle)} (${Math.round(qiblaAngle)}°)`;
+    document.getElementById('kaabaDist').textContent = Math.round(dist).toLocaleString() + ' km';
+    
+    document.getElementById('qiblaStatus').innerHTML = `
+      <div class="qs-icon">✅</div>
+      <div class="qs-text">Location mil gayi! 🕋 symbol ki taraf rukhh karein — yahi Qibla hai.<br><small style="color:var(--muted);">Lat: ${userLat.toFixed(4)}, Lng: ${userLng.toFixed(4)}</small></div>`;
+    
+    document.getElementById('qiblaArrow').style.transform = `translate(-50%,-50%) rotate(${qiblaAngle}deg)`;
+    
+    // Device compass
+    if (window.DeviceOrientationEvent) {
+      if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+        DeviceOrientationEvent.requestPermission().then(perm => {
+          if (perm === 'granted') window.addEventListener('deviceorientation', handleOrientation);
+        });
+      } else {
+        window.addEventListener('deviceorientation', handleOrientation);
+      }
+    }
+  }, () => {
+    document.getElementById('qiblaStatus').innerHTML = '<div class="qs-icon">❌</div><div class="qs-text">Location access deny hua. Default Karachi use ki ja rahi hai.</div>';
+    userLat = 24.8607; userLng = 67.0011;
+    qiblaAngle = calcQiblaAngle(userLat, userLng);
+    document.getElementById('qiblaAngle').textContent = Math.round(qiblaAngle) + '°';
+    document.getElementById('qiblaDir').textContent = `Qibla: ${getDirectionName(qiblaAngle)} (~${Math.round(qiblaAngle)}°) [Karachi Default]`;
+    const dist = calcDistance(userLat, userLng, KAABA.lat, KAABA.lng);
+    document.getElementById('kaabaDist').textContent = Math.round(dist).toLocaleString() + ' km';
+    document.getElementById('qiblaArrow').style.transform = `translate(-50%,-50%) rotate(${qiblaAngle}deg)`;
+  });
+}
+
+function handleOrientation(e) {
+  let heading = e.webkitCompassHeading || (e.alpha ? 360 - e.alpha : 0);
+  deviceHeading = heading;
+  updateDisplay();
+}
+
+// Auto-init
+initQibla();
+</script>
+</body>
+</html>

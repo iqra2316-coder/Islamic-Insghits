@@ -1,190 +1,216 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ur">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#0a4a2a">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Islamic Insights">
-<link rel="manifest" href="/manifest.json">
-<link rel="apple-touch-icon" href="/icons/icon-192.png">
-<script>if("serviceWorker"in navigator){
-  window.addEventListener("load",function(){
-    navigator.serviceWorker.register("/sw.js",{scope:"/"})
-      .then(function(reg){console.log("SW registered",reg.scope);})
-      .catch(function(err){console.log("SW error",err);});
-  });
-}</script>
-<!-- Google tag (gtag.js) -->
+<meta name="description" content="Islamic History — Seerat-un-Nabi SAW, Khulafa, AhlulBayt, Karbala, Islamic Civilisation ki mukammal history Urdu mein.">
+<meta name="keywords" content="Islamic history Urdu, Seerat un Nabi, Karbala history, AhlulBayt history, Islamic civilization, اسلامی تاریخ اردو">
+<link rel="canonical" href="https://islamicinsights-net.netlify.app/history.html">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VZJ1ETL0JQ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag("js", new Date());
-  gtag("config", "G-VZJ1ETL0JQ");
-</script>
-<link rel="sitemap" type="application/xml" href="/sitemap.xml">
-<title>History — Islamic Insights</title>
-<link rel="stylesheet" href="style.css">
+<script src="js/ga.js"></script>
+<title>Islamic History — Seerat, Karbala, AhlulBayt | Islamic Insights</title>
+<link rel="stylesheet" href="css/main.css">
+<style>
+.hist-cats{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px;}
+.hcat-btn{padding:9px 22px;border-radius:50px;border:2px solid var(--border);background:white;font-size:13px;cursor:pointer;transition:all .2s;font-family:'Outfit',sans-serif;color:var(--text);}
+.hcat-btn.active{background:var(--emerald);color:white;border-color:var(--emerald);}
+
+.hist-card{background:white;border-radius:18px;overflow:hidden;border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,.04);margin-bottom:20px;transition:all .3s;}
+.hist-card:hover{box-shadow:0 12px 40px rgba(10,74,42,.1);}
+.hc-banner{height:5px;}
+.hc-head{padding:22px 26px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.hc-icon{font-size:36px;flex-shrink:0;}
+.hc-meta{flex:1;}
+.hc-era{font-size:10.5px;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;font-weight:700;margin-bottom:4px;}
+.hc-title{font-family:'Playfair Display',serif;font-size:19px;color:var(--emerald);font-weight:700;margin-bottom:4px;}
+.hc-subtitle{font-size:13px;color:var(--muted);}
+.hc-chevron{color:var(--muted);font-size:18px;transition:transform .3s;flex-shrink:0;}
+.hist-card.open .hc-chevron{transform:rotate(180deg);}
+.hc-body{display:none;padding:0 26px 26px;}
+.hist-card.open .hc-body{display:block;}
+.hc-content{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--text);line-height:1.9;}
+.hc-content p{margin-bottom:16px;}
+.hc-content h4{font-family:'Playfair Display',serif;font-size:18px;color:var(--emerald);margin:20px 0 10px;}
+.hc-timeline{display:flex;flex-direction:column;gap:12px;margin-top:16px;}
+.hc-tl-item{display:flex;gap:14px;align-items:flex-start;}
+.hc-tl-year{background:var(--emerald);color:white;padding:4px 12px;border-radius:50px;font-size:11px;font-weight:700;white-space:nowrap;flex-shrink:0;margin-top:2px;}
+.hc-tl-text{font-size:14px;color:var(--text);}
+
+.timeline-banner{background:linear-gradient(135deg,var(--emerald),var(--emerald-mid));border-radius:20px;padding:32px;margin-bottom:32px;color:white;text-align:center;}
+.tb-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:8px;}
+.tb-desc{font-size:14px;color:rgba(255,255,255,.7);}
+</style>
 </head>
 <body>
-<!-- MOBILE NAV -->
-<div class="mobile-nav" id="mobileNav">
-  <button class="mobile-nav-close" onclick="document.getElementById('mobileNav').classList.remove('open')">✕</button>
-  <a href="index.html">Home</a>
-  <a href="religion.html">Religion</a>
-  <a href="history.html">History</a>
-  <a href="muharram.html">Muharram</a>
-  <a href="series.html">Series</a>
-  <a href="news.html">News</a>
-  <a href="about.html">About</a>
-  <a href="islamic-app.html" style="color:#e8b84b!important;">📱 Islamic App</a>
-</div>
-<!-- TOPBAR -->
-<div class="topbar">
-  <div class="topbar-inner">
-    <div style="display:flex;gap:20px;align-items:center;">
-      <div class="topbar-bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ</div>
-      <span style="color:rgba(255,255,255,.4);font-size:11px;border-right:1px solid rgba(255,255,255,.15);padding-right:20px;">Tuesday, June 2, 2026</span>
-    </div>
-    <div class="topbar-social">
-      <span class="lbl">Follow</span>
-      <a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank" style="display:inline-flex;align-items:center;gap:6px;color:white;text-decoration:none;font-size:13px;font-weight:600;"><svg viewBox="0 0 24 24" width="22" height="22" fill="#ff0000"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>YouTube</a>
-      <a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
-    </div>
-  </div>
-</div>
-<!-- HEADER -->
-<header>
-  <div class="header-inner">
-    <a href="index.html" class="logo">
-      <div class="logo-emblem"><svg viewBox="0 0 52 52"><rect width="52" height="52" rx="13" fill="#0a4a2a"/><text x="26" y="36" font-family="Scheherazade New,serif" font-size="28" fill="#c8941c" text-anchor="middle">☪</text><rect x="6" y="6" width="40" height="40" rx="9" fill="none" stroke="rgba(200,148,28,0.3)" stroke-width="1"/></svg></div>
-      <div class="logo-text"><h1>Islamic Insights</h1><p>Quran & AhlulBayt</p></div>
-    </a>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="religion.html">Religion</a>
-      <a href="history.html">History</a>
-      <a href="muharram.html">Muharram</a>
-      <a href="series.html">Series</a>
-      <a href="news.html">News</a>
-      <a href="about.html">About</a>
-      <a href="islamic-app.html" style="background:linear-gradient(135deg,#0a4a2a,#0e6b3a);color:#e8b84b!important;padding:8px 14px;border-radius:8px;font-weight:600;margin-left:6px;">📱 App</a>
-    </nav>
-    <div style="display:flex;align-items:center;gap:10px;">
-      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank" class="btn-yt">▶ YouTube</a>
-      <div class="hamburger" onclick="document.getElementById('mobileNav').classList.add('open')"><span></span><span></span><span></span></div>
-    </div>
-  </div>
-</header>
-<!-- App Download Banner -->
-<div style="background:linear-gradient(135deg,#0a4a2a,#041f10);padding:20px 24px;text-align:center;">
-  <p style="color:rgba(255,255,255,.7);font-size:13px;margin:0 0 4px;">📱 Islamic Insights App</p>
-  <h2 style="font-family:'Playfair Display',serif;color:#e8b84b;font-size:22px;margin:0 0 12px;">App Download karein — Bilkul FREE</h2>
-  <a href="https://drive.google.com/file/d/1CNs0Lf5KNiC9zeSvzDX7SQFDlpaSSnQ0/view?usp=sharing" target="_blank" style="display:inline-block;background:linear-gradient(135deg,#c8941c,#e8b84b);color:#1a1612;padding:13px 32px;border-radius:50px;font-size:14px;font-weight:700;text-decoration:none;margin-bottom:8px;">⬇ Download App (Android)</a>
-  <p style="color:rgba(255,255,255,.5);font-size:11px;margin:8px 0 0;">Google Drive khulega → Download button dabain → Install karein</p>
-</div>
-<!-- TICKER -->
-<div class="gold-strip">
-  <div class="ticker-wrap">
-    <div class="ticker-label">✦ Trending</div>
-    <div class="ticker-content">
-      <div class="ticker-inner">
-        <span class="ticker-item">Abu Talib — The Believer of Quraysh</span>
-        <span class="ticker-item">Lady Khadija, Esteemed Wife of the Prophet ﷺ</span>
-        <span class="ticker-item">Jannat al-Baqi — From Cemetery to Holy Sanctuary</span>
-        <span class="ticker-item">Dangers of Desensitization to Sin</span>
-        <span class="ticker-item">The Eternal Stand of Imam Hussain (as) at Karbala</span>
-        <span class="ticker-item">Abu Talib — The Believer of Quraysh</span>
-        <span class="ticker-item">Lady Khadija, Esteemed Wife of the Prophet ﷺ</span>
-        <span class="ticker-item">Jannat al-Baqi — From Cemetery to Holy Sanctuary</span>
-        <span class="ticker-item">Dangers of Desensitization to Sin</span>
-        <span class="ticker-item">The Eternal Stand of Imam Hussain (as) at Karbala</span>
-      </div>
-    </div>
-  </div>
-</div>
+<div id="header-placeholder"></div>
+
 <div class="page-hero">
-  <div class="page-hero-tag">✦ Islamic History</div>
-  <h1>Islamic History</h1>
-  <p>Discover the rich and inspiring history of Islam — from the era of the Prophet ﷺ to the great figures who shaped our faith</p>
+  <div class="page-hero-tag">🏛️ History</div>
+  <h1>اسلامی تاریخ</h1>
+  <p>Seerat-un-Nabi • Khulafa • AhlulBayt • Karbala • Islamic Civilization</p>
 </div>
-<div class="breadcrumb"><div class="breadcrumb-inner"><a href="index.html">Home</a><span>›</span><span>History</span></div></div>
+<div class="breadcrumb"><div class="breadcrumb-inner"><a href="index.html">Home</a> <span>›</span> <span>Islamic History</span></div></div>
+
 <div class="main">
-  <div>
-    <div class="hadith-box">
-      <div class="hadith-label">✦ Hadith ✦</div>
-      <div class="hadith-ar">«خَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ»</div>
-      <div class="hadith-en">"The best of people are those who are most beneficial to people."</div>
-      <div class="hadith-src">— Prophet Muhammad ﷺ · Al-Mu'jam al-Awsat</div>
-    </div>
-    <div class="sec-head"><div class="sec-title">History Articles</div></div>
-    <div class="story-list">
-      <a href="javascript:void(0)" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="story-item"><div class="story-icon" style="background:linear-gradient(135deg,#0d3d21,#1a6b3a)">📜</div><div><div class="story-cat">History</div><div class="story-title">Lady Khadija al-Kubra — The Esteemed Wife of the Prophet ﷺ</div><div class="story-excerpt">Lady Khadija al-Kubra (as) was a woman of extraordinary character, wisdom, and unshakeable faith. She was the first person to embrace Islam and the greatest supporter of the Prophet ﷺ. Born into the noble clan of Banu Asad of the Quraysh tribe, she was already renowned for her intelligence and business acumen before her marriage to the Prophet ﷺ. Her wealth, sacrifice, and undying love formed the very foundation upon which the early Islamic mission was built. The Prophet ﷺ often described her as the best of women of her time.</div><div class="story-link">Read Full Article →</div></div></a>
-      <a href="javascript:void(0)" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="story-item"><div class="story-icon" style="background:linear-gradient(135deg,#1a3d7a,#2a66cc)">🌙</div><div><div class="story-cat">History</div><div class="story-title">The Night of Hijra — The Prophet's ﷺ Migration to Medina</div><div class="story-excerpt">On the night that would change history forever, the Prophet Muhammad ﷺ left his beloved city of Makkah accompanied by his closest companion Abu Bakr (ra). The Quraysh had plotted to assassinate the Prophet ﷺ, surrounding his house with swords. But Allah's protection prevailed, and the Prophet ﷺ walked past his would-be assassins unseen. This migration — the Hijra — marks Year 1 of the Islamic calendar and the beginning of the first Islamic state in Madinah al-Munawwarah.</div><div class="story-link">Read Full Article →</div></a>
-      <a href="javascript:void(0)" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="story-item"><div class="story-icon" style="background:linear-gradient(135deg,#1a3d1a,#2a7a2a)">🌿</div><div><div class="story-cat">History</div><div class="story-title">Jannat al-Baqi — From Cemetery to Holy Sanctuary</div><div class="story-excerpt">Jannat al-Baqi is the ancient cemetery of Madinah al-Munawwarah, located just beside Masjid an-Nabawi. It holds the graves of some of the most beloved figures in Islamic history — including four of the twelve Imams of the AhlulBayt, the wives and children of the Prophet ﷺ, and thousands of his companions. A piece of land not like any other, Jannat al-Baqi carries a spiritual weight that draws millions of pilgrims who come to offer salutations and prayers for its sacred inhabitants.</div><div class="story-link">Read Full Article →</div></div></a>
-      <a href="javascript:void(0)" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="story-item"><div class="story-icon" style="background:linear-gradient(135deg,#3d2a0d,#8a6020)">⚖️</div><div><div class="story-cat">History</div><div class="story-title">How Did Islam Spread: By Sword or By Sincere Conviction?</div><div class="story-excerpt">One of the most persistent misconceptions about Islam is that it spread primarily through forced conversion at the point of a sword. A careful study of history, however, reveals a far more nuanced and inspiring picture. The rapid spread of Islam across Arabia, Persia, Africa, and beyond was driven primarily by the compelling moral example of Muslims, the justice of Islamic governance, and the clarity and beauty of the Quranic message — a message that resonated deeply with peoples long oppressed by unjust systems.</div><div class="story-link">Read Full Article →</div></div></a>
-      <a href="javascript:void(0)" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="story-item"><div class="story-icon" style="background:linear-gradient(135deg,#1a0d3d,#4a2a8a)">✝️</div><div><div class="story-cat">History</div><div class="story-title">Jesus Christ (Prophet Isa) and His Fight Against Oppression</div><div class="story-excerpt">In the Islamic tradition, Prophet Isa ibn Maryam (Jesus, son of Mary) is one of the five greatest Prophets (Ulul Azm). He was born miraculously to the Virgin Mary, performed extraordinary miracles by the permission of Allah, and was raised to the heavens before his crucifixion. His message — like that of all the Prophets — was one of pure monotheism, justice, and compassion for the poor and oppressed. Muslims await his return as a sign of the Last Hour.</div><div class="story-link">Read Full Article →</div></div></a>
-      <a href="javascript:void(0)" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="story-item"><div class="story-icon" style="background:linear-gradient(135deg,#0d1a3d,#1a3a7a)">🌍</div><div><div class="story-cat">History</div><div class="story-title">The Golden Age of Islam — When Muslims Led the World</div><div class="story-excerpt">From the 8th to the 14th century, the Islamic civilization experienced an extraordinary Golden Age. Muslim scholars led the world in mathematics, astronomy, medicine, philosophy, architecture, and literature. Figures like Ibn Sina (Avicenna), Al-Khawarizmi, Ibn Rushd, and Al-Biruni laid the intellectual foundations that would later fuel the European Renaissance. This rich legacy reminds Muslims of the transformative power of combining faith with the pursuit of knowledge.</div><div class="story-link">Read Full Article →</div></div></a>
-    </div>
+  <div class="hist-cats">
+    <button class="hcat-btn active" onclick="filterHist('all',this)">Sab</button>
+    <button class="hcat-btn" onclick="filterHist('seerat',this)">🌙 Seerat un Nabi</button>
+    <button class="hcat-btn" onclick="filterHist('ahlulbayt',this)">☪ AhlulBayt</button>
+    <button class="hcat-btn" onclick="filterHist('karbala',this)">🌹 Karbala</button>
+    <button class="hcat-btn" onclick="filterHist('civilisation',this)">🏛️ Islamic Civilisation</button>
   </div>
-  <div class="sidebar">
-    <div class="widget"><div class="whead">📖 Verse of the Day</div><div class="wbody"><div class="verse-box"><div class="verse-ar">أَفَلَمْ يَسِيرُوا فِي الْأَرْضِ فَيَنظُرُوا كَيْفَ كَانَ عَاقِبَةُ الَّذِينَ مِن قَبْلِهِمْ</div><div class="verse-en">"Have they not traveled through the earth and observed how was the end of those before them?"</div><div class="verse-ref">— Surah Yusuf (12:109)</div></div><div class="verse-reflection"><strong>Reflection:</strong> The Quran repeatedly urges us to study history — not merely as an academic exercise, but as a source of lessons, warnings, and inspiration for our own lives and communities.</div></div></div>
-    <div class="widget"><div class="whead">🌐 Follow Us</div><div class="wbody"><div class="social-grid"><a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank" class="slink slink-fb"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>Facebook</a><a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank" class="slink slink-ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>Instagram</a><a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank" class="slink-yt-full">▶ @ismlamicinsights110 on YouTube</a></div></div></div>
-    <div class="nl-widget"><h3>Stay Connected</h3><p>Get Islamic insights every week.</p><form name="newsletter-history" method="POST" data-netlify="true" action="/history.html" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;">
-        <input type="hidden" name="form-name" value="newsletter-history">
-        <input type="email" name="email" class="nl-input" placeholder="Your email..." required style="flex:1;min-width:0;">
-        <button type="submit" class="nl-btn">Subscribe</button>
-      </form></div>
-    <div class="widget"><div class="whead">📂 Categories</div><div class="wbody"><div class="cat-list"><a href="religion.html" class="citem"><span>🕌 Religion</span><span class="ccount">48</span></a><a href="history.html" class="citem"><span>📜 History</span><span class="ccount">32</span></a><a href="muharram.html" class="citem"><span>🕋 Muharram</span><span class="ccount">11</span></a><a href="series.html" class="citem"><span>📚 Series</span><span class="ccount">19</span></a><a href="news.html" class="citem"><span>📰 News</span><span class="ccount">25</span></a></div></div></div>
-    <div class="widget"><div class="whead">🏷 Tags</div><div class="wbody"><div class="tags-cloud"><a href="javascript:void(0)" class="tag" style="cursor:default">#IslamicHistory</a><a href="javascript:void(0)" class="tag" style="cursor:default">#Prophet</a><a href="javascript:void(0)" class="tag" style="cursor:default">#Hijra</a><a href="javascript:void(0)" class="tag" style="cursor:default">#Khadija</a><a href="javascript:void(0)" class="tag" style="cursor:default">#GoldenAge</a><a href="javascript:void(0)" class="tag" style="cursor:default">#AhlulBayt</a><a href="javascript:void(0)" class="tag" style="cursor:default">#Madinah</a><a href="javascript:void(0)" class="tag" style="cursor:default">#Makkah</a></div></div></div>
-  </div>
+
+  <div id="histList"></div>
 </div>
-<footer>
-  <div class="footer-top">
-    <div class="footer-brand">
-      <div class="fl"><svg width="32" height="32" viewBox="0 0 52 52"><rect width="52" height="52" rx="11" fill="rgba(200,148,28,0.2)"/><text x="26" y="36" font-family="Scheherazade New,serif" font-size="26" fill="#e8b84b" text-anchor="middle">☪</text></svg> Islamic Insights</div>
-      <p>An online magazine delivering authentic Islamic knowledge, stories of the AhlulBayt, and Quranic guidance to Muslims worldwide since 2007.</p>
-      <div class="footer-socials">
-        <a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-        <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
-        <a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="rgba(255,255,255,0.75)"/></svg></a>
+
+<div id="footer-placeholder"></div>
+<script src="js/shared.js"></script>
+<script>
+document.getElementById('header-placeholder').innerHTML = buildHeader('history.html');
+document.getElementById('footer-placeholder').innerHTML = buildFooter();
+
+const HISTORY = [
+  {
+    cat:'seerat', icon:'🌟', era:'570–632 CE', color:'#c8941c',
+    title:'Seerat-un-Nabi ﷺ — Mukhtasar Zindagi',
+    subtitle:"Nabi Muhammad SAW ki puri zindagi ka khaka",
+    content:`<p>Hazrat Muhammad SAW 12 Rabi ul Awwal 570 CE ko Makkah mein paida hue. Aap ke walid Abdullah aur walida Amina the. Aap ka naam Muhammad (SAW) rakha gaya — jo "tamam se tarif kiya gaya" ka matlab hai.</p>
+    <h4>Pehle Wahi</h4>
+    <p>40 saal ki umr mein Ghaar-e-Hira mein pehli wahi naazel hoi. Jibra'eel (AS) ne "Iqra" — padh — ka hukm diya. Yeh 610 CE ka waqiya hai.</p>
+    <h4>Hijrat — Makkah se Madina</h4>
+    <p>622 CE mein Nabi SAW ne Makkah se Madina ki taraf hijrat ki. Yahi Islamic calendar ka aaghaz hai.</p>
+    <h4>Fatah Makkah</h4>
+    <p>630 CE mein bina jang ke Makkah fath hua. Nabi SAW ne sabko maafi di.</p>`,
+    timeline:[
+      {y:'570 CE',t:"Nabi SAW ki wilaadat, Makkah"},
+      {y:'595 CE',t:"Hazrat Khadija (SA) se nikah"},
+      {y:'610 CE',t:"Pehli wahi, Ghaar-e-Hira"},
+      {y:'622 CE',t:"Hijrat Madina — Islamic calendar shuru"},
+      {y:'624 CE',t:"Ghazwa Badr"},
+      {y:'630 CE',t:"Fatah Makkah"},
+      {y:'632 CE',t:"Nabi SAW ka wisaal, 63 saal"},
+    ]
+  },
+  {
+    cat:'ahlulbayt', icon:'☪', era:'600–874 CE', color:'#0a4a2a',
+    title:'Aimmah AhlulBayt — 12 Imaam',
+    subtitle:"Nabi SAW ke paakon ki silsila",
+    content:`<p>AhlulBayt — Nabi Muhammad SAW ki muqaddas aal — jinki mahabbat Quran mein farz ki gayi hai. Surah Ahzab 33:33 (Ayat e Tatheer) mein Allah ne unki paakigi ka elaan farmaya.</p>
+    <h4>Imam Ali ibn Abi Talib (AS)</h4>
+    <p>Nabi SAW ke chacha zaad bhai aur damaad. Pehle Imam. Unki fasihat Nahj al-Balagha mein mahfuz hai.</p>
+    <h4>Imam Hussain (AS) — Shaheed Karbala</h4>
+    <p>Nabi SAW ki hadith: "Hussain mujh se hai aur main Hussain se hoon." 10 Muharram 61 Hijri ko Karbala mein shaheed kiye gaye.</p>`,
+    timeline:[
+      {y:'600 CE',t:"Imam Ali (AS) ki wilaadat"},
+      {y:'605 CE',t:"Bibi Fatima (SA) ki wilaadat"},
+      {y:'624 CE',t:"Imam Hasan (AS) ki wilaadat"},
+      {y:'626 CE',t:"Imam Hussain (AS) ki wilaadat"},
+      {y:'661 CE',t:"Imam Ali (AS) ki shahadat"},
+      {y:'680 CE',t:"Imam Hussain (AS) — Karbala"},
+    ]
+  },
+  {
+    cat:'karbala', icon:'🌹', era:'680 CE / 61 Hijri', color:'#8b0000',
+    title:'Waqia-e-Karbala — Imam Hussain AS ki Shahadat',
+    subtitle:"10 Muharram 61 Hijri — Zaalimon ke khilaf haq ki awaz",
+    content:`<p>Yazid ibn Muawiyah ne jab Imam Hussain (AS) se Bay'at mangi, to Imam ne inkaar kiya aur farmaya: "Mujh jaise Yazid jaise ki bay'at nahi kar sakta."</p>
+    <h4>Safar-e-Karbala</h4>
+    <p>Imam Hussain (AS) apne 72 saathiyon ke saath Kufa ki taraf rawana hue. Lekin raste mein Hurr ki fauj ne raasta rok liya.</p>
+    <h4>Raat-e-Ashura</h4>
+    <p>9 Muharram ki raat Imam ne apne saathiyon ko ijaazat di ke jo jaana chahye jaye — lekin sab ne shahaadat ka intikhaab kiya.</p>
+    <h4>Yazid ki fauj</h4>
+    <p>30,000 se zyada afrad ne 72 logon ko ghera diya. 10 Muharram ko Asr ke waqt Imam Hussain (AS) ne shahaadat payi.</p>
+    <h4>Asr ka Payaam</h4>
+    <p>Karbala sirf ek jang nahi — yeh haq aur baatil ka muqabla hai. Har dour mein Hussain zinda hai.</p>`,
+    timeline:[
+      {y:'60 AH',t:"Yazid ne bay'at mangi — Imam ne inkaar kiya"},
+      {y:'Rajab 60',t:"Imam Makkah pahunche"},
+      {y:"Zil Hajj 60",t:"Imam Kufa ki taraf rawana"},
+      {y:"2 Muharram 61",t:"Karbala pahunche"},
+      {y:"7 Muharram",t:"Paani band"},
+      {y:"9 Muharram",t:"Raat-e-Ashura"},
+      {y:"10 Muharram",t:"Shahadat — Yom-e-Ashura"},
+    ]
+  },
+  {
+    cat:'civilisation', icon:'🏛️', era:'7th–13th Century CE', color:'#2c4a8a',
+    title:'Islamic Golden Age — Ilm ka Daur',
+    subtitle:"Jab Musalmaan duniya mein ilm ke sardar the",
+    content:`<p>8th se 13th century tak Islamic civilization dunya ka ilmi markaz thi. Baghdad ka Bayt al-Hikma (House of Wisdom) duniya ki sab se badi library thi.</p>
+    <h4>Science & Math</h4>
+    <p>Al-Khwarizmi ne algebra ijad ki. Ibn al-Haytham ne optics par kaam kiya. Al-Biruni ne geography aur astronomy par kitaabein likhin.</p>
+    <h4>Medicine</h4>
+    <p>Ibn Sina (Avicenna) ki "Al-Qanun fi'l-Tibb" (Canon of Medicine) saikadon saalon tak European universities mein parhi jaati rahi.</p>
+    <h4>Philosophy</h4>
+    <p>Al-Farabi, Ibn Rushd (Averroes), aur Ibn Khaldun — jinke kaam ne European Renaissance ko mutasir kiya.</p>`,
+    timeline:[
+      {y:'622 CE',t:"Islamic state ka aaghaz"},
+      {y:'750 CE',t:"Abbasid Caliphate — ilm ka daur shuru"},
+      {y:'830 CE',t:"Bayt al-Hikma Baghdad — House of Wisdom"},
+      {y:'980 CE',t:"Ibn Sina ki wilaadat"},
+      {y:'1258 CE',t:"Mongol hamla — Baghdad tabah"},
+    ]
+  },
+  {
+    cat:'seerat', icon:'🌙', era:'622–660 CE', color:'#5a3a8a',
+    title:'Khulafa-e-Rashideen — Char Khulfaa',
+    subtitle:"Nabi SAW ke baad islami hukumat",
+    content:`<p>Nabi Muhammad SAW ke wisaal ke baad 4 Khulafa ne islami hukumat ki. Unhein Khulafa-e-Rashideen (Sidhaa Rastay Waale) kaha jaata hai.</p>
+    <h4>Hazrat Abu Bakr (RA) — 632–634</h4>
+    <p>Pehle Khalifa. Qur'an ki tartib dene ka kaam unke dour mein shuru hua.</p>
+    <h4>Hazrat Umar ibn al-Khattab (RA) — 634–644</h4>
+    <p>Islam ki hukumat Persia, Iraq, Syria, Egypt tak pahunchi. Ek mutaadil system qaayam kiya.</p>
+    <h4>Hazrat Uthman ibn Affan (RA) — 644–656</h4>
+    <p>Quran ki copy tayyar karwai. Unke dour mein ittihad aur ikhtilaf dono aaye.</p>
+    <h4>Hazrat Ali ibn Abi Talib (AS) — 656–661</h4>
+    <p>Imam Ali (AS) ne adl-o-insaaf ka daur qaayam kiya. Nahj al-Balagha unki fasihat ka tazkira hai.</p>`,
+    timeline:[
+      {y:'632 CE',t:"Hazrat Abu Bakr (RA) — Pehle Khalifa"},
+      {y:'634 CE',t:"Hazrat Umar (RA) — Doosre Khalifa"},
+      {y:'644 CE',t:"Hazrat Uthman (RA) — Teesre Khalifa"},
+      {y:'656 CE',t:"Imam Ali (AS) — Chauthe Khalifa"},
+      {y:'661 CE',t:"Imam Ali (AS) ki shahadat — Kufa"},
+    ]
+  },
+];
+
+function makeHistCard(h) {
+  const tl = h.timeline ? `<div class="hc-timeline">${h.timeline.map(t=>`<div class="hc-tl-item"><span class="hc-tl-year">${t.y}</span><span class="hc-tl-text">${t.t}</span></div>`).join('')}</div>` : '';
+  const id = 'hc-' + Math.random().toString(36).slice(2);
+  return `<div class="hist-card" id="${id}" data-cat="${h.cat}">
+    <div class="hc-banner" style="background:${h.color};"></div>
+    <div class="hc-head" onclick="toggleHist('${id}')">
+      <div class="hc-icon">${h.icon}</div>
+      <div class="hc-meta">
+        <div class="hc-era">${h.era}</div>
+        <div class="hc-title">${h.title}</div>
+        <div class="hc-subtitle">${h.subtitle}</div>
       </div>
+      <div class="hc-chevron">▾</div>
     </div>
-    <div class="footer-col">
-      <h4>Categories</h4>
-      <a href="religion.html">Religion</a>
-      <a href="history.html">History</a>
-      <a href="news.html">News</a>
-      <a href="series.html">Series</a>
-      <a href="muharram.html">Muharram</a>
-      <a href="about.html">About</a>
+    <div class="hc-body">
+      <div class="hc-content">${h.content}</div>
+      ${tl}
     </div>
-    <div class="footer-col">
-      <h4>Series</h4>
-      <a href="series.html">Raising Faith</a>
-      <a href="series.html">Refinement of Soul</a>
-      <a href="series.html">An Ethical Life</a>
-      <a href="series.html">Youth: Life's Spring</a>
-      <a href="muharram.html">Karbala Series</a>
-    </div>
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <a href="about.html">About Us</a>
-      <a href="about.html">Write For Us</a>
-      <a href="about.html">Contact Us</a>
-      <a href="books.html">📚 Books & Downloads</a>
-      <a href="about.html">Donate</a>
-      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank">YouTube Channel</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div>© Islamic Insights 2007–2026 · All Rights Reserved · Inspired by The Holy Quran & The AhlulBayt</div>
-    <div class="footer-links">
-      <a href="https://www.youtube.com/@ismlamicinsights110-u6f" target="_blank">YouTube: @ismlamicinsights110</a>
-      <a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank">Facebook</a>
-      <a href="https://www.instagram.com/zeeshanahmed1100011/" target="_blank">Instagram: @zeeshanahmed1100011</a>
-    </div>
-  </div>
-</footer>
-</body></html>
+  </div>`;
+}
+
+function renderAll(cat) {
+  const list = cat === 'all' ? HISTORY : HISTORY.filter(h=>h.cat===cat);
+  document.getElementById('histList').innerHTML = list.map(makeHistCard).join('');
+}
+
+function filterHist(cat, btn) {
+  document.querySelectorAll('.hcat-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderAll(cat);
+}
+
+function toggleHist(id) {
+  document.getElementById(id).classList.toggle('open');
+}
+
+renderAll('all');
+</script>
+</body>
+</html>

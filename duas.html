@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#0a4a2a">
+<meta name="description" content="Islamic Duas — Dua Kumayl, Dua Tawassul, Dua Nudba, Dua Faraj complete Arabic, Urdu, English translation. Online padhen, download karein.">
+<meta name="keywords" content="Dua Kumayl, Dua Tawassul, Dua Nudba, Dua Faraj, Islamic duas Urdu, AhlulBayt duas, Shia duas online">
+<link rel="canonical" href="https://islamicinsights-net.netlify.app/duas.html">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VZJ1ETL0JQ"></script>
+<script src="js/ga.js"></script>
+<title>Duaen — Dua Kumayl, Tawassul, Nudba, Faraj | Islamic Insights</title>
+<link rel="stylesheet" href="css/main.css">
+<style>
+.dua-nav{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px;}
+.dua-tab{padding:10px 22px;border-radius:50px;border:2px solid var(--border);background:white;font-size:13px;cursor:pointer;transition:all .2s;font-family:'Outfit',sans-serif;color:var(--text);}
+.dua-tab.active{background:var(--emerald);color:white;border-color:var(--emerald);}
+.dua-tab:hover:not(.active){border-color:var(--emerald-bright);}
+
+.dua-panel{display:none;}
+.dua-panel.active{display:block;}
+
+.dua-header-card{background:linear-gradient(135deg,var(--emerald),var(--emerald-mid));border-radius:20px;padding:36px 40px;margin-bottom:32px;color:white;text-align:center;position:relative;overflow:hidden;}
+.dua-header-card::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23ffffff' fill-opacity='0.04' d='M30 0L40 10A14 14 0 0130 14 14 14 0 0120 10z'/%3E%3C/svg%3E");}
+.dua-name-ar{font-family:'Scheherazade New',serif;font-size:48px;color:var(--gold-light);direction:rtl;margin-bottom:10px;}
+.dua-name-en{font-family:'Playfair Display',serif;font-size:24px;color:white;font-weight:700;margin-bottom:8px;}
+.dua-desc{font-size:14px;color:rgba(255,255,255,.7);max-width:600px;margin:0 auto;}
+
+.dua-verse{padding:24px 28px;border-bottom:1px solid var(--border-light);background:white;}
+.dua-verse:first-child{border-radius:16px 16px 0 0;}
+.dua-verse:last-child{border-bottom:none;border-radius:0 0 16px 16px;}
+.dua-verse:nth-child(even){background:var(--cream-warm);}
+.dv-num{display:inline-flex;width:32px;height:32px;align-items:center;justify-content:center;background:var(--emerald);color:white;border-radius:50%;font-size:12px;font-weight:700;float:right;margin-left:14px;margin-bottom:6px;}
+.dv-arabic{font-family:'Scheherazade New',serif;font-size:28px;color:var(--ink);direction:rtl;text-align:right;line-height:2;clear:both;}
+.dv-urdu{font-family:'Scheherazade New',serif;font-size:18px;color:var(--emerald-mid);direction:rtl;text-align:right;line-height:1.9;margin-top:12px;padding-top:12px;border-top:1px dashed var(--border);}
+.dv-english{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--text);font-style:italic;line-height:1.8;margin-top:8px;padding-top:8px;border-top:1px dashed var(--border-light);}
+
+.dua-controls{display:flex;gap:12px;align-items:center;background:var(--cream-warm);padding:14px 20px;border-radius:12px;margin-bottom:20px;flex-wrap:wrap;}
+.ctrl-btn{padding:8px 18px;border-radius:20px;border:1.5px solid var(--border);background:white;font-size:12.5px;cursor:pointer;transition:all .2s;color:var(--text);}
+.ctrl-btn.active{background:var(--emerald);color:white;border-color:var(--emerald);}
+.ctrl-btn:hover:not(.active){border-color:var(--emerald);}
+@media(max-width:768px){.dua-header-card{padding:24px 20px;}.dua-name-ar{font-size:36px;}.dv-arabic{font-size:22px;}.dua-verse{padding:18px 20px;}}
+</style>
+</head>
+<body>
+<div id="header-placeholder"></div>
+
+<div class="page-hero">
+  <div class="page-hero-tag">🤲 Duaen</div>
+  <h1>اسلامی دعائیں</h1>
+  <p>Dua Kumayl • Tawassul • Nudba • Faraj • Mashlool — Arabic, Urdu, English</p>
+</div>
+<div class="breadcrumb"><div class="breadcrumb-inner"><a href="index.html">Home</a> <span>›</span> <span>Duaen</span></div></div>
+
+<div class="main">
+  <!-- DUA TABS -->
+  <div class="dua-nav" id="duaNav"></div>
+
+  <div id="duaPanels"></div>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="js/shared.js"></script>
+<script>
+document.getElementById('header-placeholder').innerHTML = buildHeader('duas.html');
+document.getElementById('footer-placeholder').innerHTML = buildFooter();
+
+const DUAS = [
+  {
+    id:'kumayl',
+    nameAr:'دُعَاءُ كُمَيل',
+    nameEn:'Dua Kumayl',
+    desc:'Imam Ali ibn Abi Talib (AS) ne Kumayl ibn Ziyad al-Nakhai ko sikhaya. Har Jumeraat ki raat padhna mustahab hai.',
+    verses:[
+      {ar:'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ',ur:'اللہ کے نام سے جو بڑا مہربان نہایت رحم والا ہے',en:'In the name of Allah, the Most Gracious, the Most Merciful'},
+      {ar:'اللَّهُمَّ إِنِّي أَسْأَلُكَ بِرَحْمَتِكَ الَّتِي وَسِعَتْ كُلَّ شَيْءٍ',ur:'اے اللہ! میں تجھ سے تیری اس رحمت کے وسیلے سے مانگتا ہوں جو ہر چیز کو محیط ہے',en:'O Allah, I beseech You with Your mercy which encompasses all things'},
+      {ar:'وَبِقُوَّتِكَ الَّتِي قَهَرْتَ بِهَا كُلَّ شَيْءٍ، وَخَضَعَ لَهَا كُلُّ شَيْءٍ',ur:'اور تیری اس قدرت کے ذریعے جس سے تو نے ہر چیز کو مغلوب کیا، اور ہر چیز نے اس کے سامنے سر تسلیم خم کیا',en:'And by Your power by which You dominate all things, and all things bow down to it'},
+      {ar:'وَبِعَظَمَتِكَ الَّتِي مَلَأَتْ كُلَّ شَيْءٍ، وَبِسُلْطَانِكَ الَّذِي عَلاَ كُلَّ شَيْءٍ',ur:'اور تیری عظمت کے ذریعے جو ہر چیز میں بھری ہوئی ہے، اور تیری حکومت کے ذریعے جو ہر چیز سے بلند ہے',en:'And by Your greatness which has filled all things, and by Your authority which towered over all things'},
+      {ar:'وَبِوَجْهِكَ الْبَاقِي بَعْدَ فَنَاءِ كُلِّ شَيْءٍ',ur:'اور تیری ذات کے وسیلے سے جو ہر چیز کے فنا ہو جانے کے بعد بھی باقی رہے گی',en:'And by Your face which endures after the annihilation of all things'},
+      {ar:'وَبِأَسْمَائِكَ الَّتِي مَلَأَتْ أَرْكَانَ كُلِّ شَيْءٍ',ur:'اور تیرے ناموں کے ذریعے جو ہر شے کے گوشوں میں بھرے ہوئے ہیں',en:'And by Your names which have filled the pillars of all things'},
+      {ar:'وَبِعِلْمِكَ الَّذِي أَحَاطَ بِكُلِّ شَيْءٍ',ur:'اور تیرے اس علم کے وسیلے سے جو ہر چیز کو محیط ہے',en:'And by Your knowledge which encompasses all things'},
+      {ar:'يَا نُورُ يَا قُدُّوسُ يَا أَوَّلَ الأَوَّلِينَ وَيَا آخِرَ الآخِرِينَ',ur:'اے نور! اے پاک! اے سب سے پہلوں سے پہلے! اور اے سب سے پچھلوں کے بعد!',en:'O Light, O All-Holy, O First of all those who come first, and O Last of all those who remain last'},
+      {ar:'اللَّهُمَّ اغْفِرْ لِيَ الذُّنُوبَ الَّتِي تَهْتِكُ الْعِصَمَ',ur:'اے اللہ! مجھے وہ گناہ بخش دے جو (گناہوں سے) محفوظ رکھنے والے پردوں کو پھاڑ دیتے ہیں',en:'O Allah, forgive me those sins which rend asunder the veil of protection'},
+      {ar:'اللَّهُمَّ اغْفِرْ لِيَ الذُّنُوبَ الَّتِي تُنْزِلُ النِّقَمَ',ur:'اے اللہ! مجھے وہ گناہ بخش دے جو عذاب نازل کراتے ہیں',en:'O Allah, forgive me those sins which bring down punishment'},
+      {ar:'اللَّهُمَّ اغْفِرْ لِيَ الذُّنُوبَ الَّتِي تَحْبِسُ الدُّعَاءَ',ur:'اے اللہ! مجھے وہ گناہ بخش دے جو دعا کو روکتے ہیں',en:'O Allah, forgive me those sins which obstruct prayers'},
+      {ar:'اللَّهُمَّ اغْفِرْ لِيَ الذُّنُوبَ الَّتِي تُورِثُ النَّدَمَ',ur:'اے اللہ! مجھے وہ گناہ بخش دے جو پچھتاوے کا سبب بنتے ہیں',en:'O Allah, forgive me those sins which bring regret'},
+      {ar:'فَبِعِزَّتِكَ يَا سَيِّدِي وَمَوْلاَيَ أُقْسِمُ صَادِقاً',ur:'پس اے میرے سردار اور میرے آقا! تیری عزت کی قسم، میں سچ کہتا ہوں',en:'Then by Your honor, O my Master and Lord, I swear sincerely'},
+      {ar:'لَئِنْ تَرَكْتَنِي نَاطِقاً لأَضِجَّنَّ إِلَيْكَ بَيْنَ أَهْلِهَا ضَجِيجَ الآمِلِينَ',ur:'اگر تو نے مجھے بولتا چھوڑ دیا تو میں ان (جہنم والوں) کے درمیان تیری طرف امیدواروں کی طرح فریاد کروں گا',en:'If You leave me speaking among its inhabitants, I will cry out to You among them with the cry of those who still hope'},
+      {ar:'وَلأَصْرُخَنَّ إِلَيْكَ صُرَاخَ الْمُسْتَصْرِخِينَ',ur:'اور میں تیری طرف فریاد کرنے والوں کی طرح چیخوں گا',en:'And I will cry out to You with the cry of those who call for help'},
+      {ar:'فَهَبْ لِي يَا إِلَهِي وَسَيِّدِي وَمَوْلاَيَ وَرَبِّي صَبْراً عَلَى بَلائِكَ',ur:'پس اے میرے معبود! اے میرے سردار! اے میرے آقا! اے میرے رب! مجھے اپنی آزمائش پر صبر عطا فرما',en:'So grant me, O my God, my Master, my Lord and my Sustainer, patience in Your trial'},
+      {ar:'وَاجْعَلْنِي مِمَّنْ تَنْتَقِمُ مِنْهُ بِبَلائِهِ وَلاَ تُعِدْ عَلَيْهِ بَعْدَ عَذَابِكَ',ur:'اور مجھے ان لوگوں میں شامل فرما جن سے تو آزمائش کے ذریعے بدلہ لیتا ہے نہ کہ اپنے عذاب کے بعد',en:'And make me of those from whom You take revenge through their trial, and do not repeat upon them Your punishment'},
+      {ar:'سَيِّدِي أَنَا الصَّغِيرُ الَّذِي رَبَّيْتَهُ',ur:'اے میرے سردار! میں وہ چھوٹا ہوں جسے تو نے پالا',en:'My Master, I am the small child that You raised'},
+      {ar:'وَأَنَا الْجَاهِلُ الَّذِي عَلَّمْتَهُ',ur:'اور میں وہ جاہل ہوں جسے تو نے علم سکھایا',en:'And I am the ignorant one that You taught'},
+      {ar:'بِرَحْمَتِكَ يَا أَرْحَمَ الرَّاحِمِينَ',ur:'تیری رحمت کے واسطے اے سب سے زیادہ رحم کرنے والے',en:'By Your mercy, O most Merciful of the merciful'},
+    ]
+  },
+  {
+    id:'tawassul',
+    nameAr:'دُعَاءُ التَّوَسُّل',
+    nameEn:'Dua Tawassul',
+    desc:'Nabi Pak SAW aur Aimmah Masoomeen AS ke wasile se Allah se mangne ki dua. Haaj Mohammad Ashtiyani se marwi.',
+    verses:[
+      {ar:'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ',ur:'اللہ کے نام سے جو بڑا مہربان نہایت رحم والا ہے',en:'In the name of Allah, the Most Gracious, the Most Merciful'},
+      {ar:'اللَّهُمَّ إِنِّي أَسْأَلُكَ وَأَتَوَجَّهُ إِلَيْكَ بِنَبِيِّكَ نَبِيِّ الرَّحْمَةِ',ur:'اے اللہ! میں تجھ سے مانگتا ہوں اور تیری طرف رجوع کرتا ہوں تیرے نبی، رحمت کے نبی کے وسیلے سے',en:'O Allah, I ask You and turn to You through Your Prophet, the Prophet of Mercy'},
+      {ar:'مُحَمَّدٍ صَلَّى اللَّهُ عَلَيْهِ وَآلِهِ',ur:'محمد صلی اللہ علیہ وآلہ وسلم',en:'Muhammad, may Allah bless him and his family'},
+      {ar:'يَا أَبَا الْقَاسِمِ يَا رَسُولَ اللَّهِ',ur:'اے ابوالقاسم! اے اللہ کے رسول!',en:'O Father of Qasim! O Messenger of Allah!'},
+      {ar:'يَا إِمَامَ الرَّحْمَةِ، يَا سَيِّدَنَا وَمَوْلاَنَا',ur:'اے رحمت کے امام! اے ہمارے سردار اور ہمارے آقا!',en:'O Imam of mercy! O our master and our lord!'},
+      {ar:'إِنَّا تَوَجَّهْنَا وَاسْتَشْفَعْنَا وَتَوَسَّلْنَا بِكَ إِلَى اللَّهِ',ur:'بے شک ہم نے تیرے ذریعے اللہ کی طرف رخ کیا، تجھے شفیع بنایا اور تیرا وسیلہ پکڑا',en:'Verily we have turned toward you, sought your intercession, and made you our means to Allah'},
+      {ar:'وَقَدَّمْنَاكَ بَيْنَ يَدَيْ حَاجَاتِنَا',ur:'اور ہم نے تمہیں اپنی حاجات کے آگے رکھا',en:'And we have placed you before our needs'},
+      {ar:'يَا وَجِيهاً عِنْدَ اللَّهِ اشْفَعْ لَنَا عِنْدَ اللَّهِ',ur:'اے اللہ کے ہاں باعزت! ہمارے لیے اللہ کے ہاں شفاعت فرمائیں',en:'O one who has dignity with Allah, intercede for us with Allah'},
+      {ar:'يَا أَمِيرَ الْمُؤْمِنِينَ عَلِيَّ بْنَ أَبِي طَالِبٍ أَدْرِكْنِي',ur:'اے امیرالمومنین علی ابن ابی طالب! میری مدد فرمائیں',en:'O Commander of the Faithful, Ali ibn Abi Talib, come to my aid'},
+      {ar:'يَا فَاطِمَةُ الزَّهْرَاءُ أَدْرِكِينِي',ur:'اے فاطمہ زہراء! میری مدد فرمائیں',en:'O Fatima al-Zahra, come to my aid'},
+      {ar:'يَا أَبَا مُحَمَّدٍ الْحَسَنَ بْنَ عَلِيٍّ الزَّكِيَّ أَدْرِكْنِي',ur:'اے ابا محمد حسن ابن علی زکی! میری مدد فرمائیں',en:'O Abu Muhammad, Hasan ibn Ali al-Zaki, come to my aid'},
+      {ar:'يَا أَبَا عَبْدِ اللَّهِ الْحُسَيْنَ بْنَ عَلِيٍّ أَدْرِكْنِي',ur:'اے ابا عبداللہ حسین ابن علی! میری مدد فرمائیں',en:'O Abu Abdullah, Husayn ibn Ali, come to my aid'},
+      {ar:'يَا وَلِيَّ اللَّهِ الْمَهْدِيَّ أَدْرِكْنِي',ur:'اے اللہ کے ولی مہدی! میری مدد فرمائیں',en:'O Wali of Allah, al-Mahdi, come to my aid'},
+    ]
+  },
+  {
+    id:'nudba',
+    nameAr:'دُعَاءُ النُّدبَة',
+    nameEn:'Dua Nudba',
+    desc:'Imam Mahdi (AJ) ke gham mein padhne ki dua. Juma, Eid aur Arfa ke din padhna mustahab hai.',
+    verses:[
+      {ar:'اَلْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ وَصَلَّى اللَّهُ عَلَى سَيِّدِنَا مُحَمَّدٍ نَبِيِّهِ وَآلِهِ',ur:'تمام تعریف اللہ کے لیے جو تمام جہانوں کا پالنے والا ہے اور اللہ رحمت فرمائے ہمارے سردار محمد نبی پر اور ان کی آل پر',en:'All praise is due to Allah, Lord of the worlds, and may Allah bless our master Muhammad His Prophet and his family'},
+      {ar:'اَللَّهُمَّ لَكَ الْحَمْدُ عَلَى مَا جَرَى بِهِ قَضَاؤُكَ فِي أَوْلِيَائِكَ',ur:'اے اللہ! تیرے لیے ہر اس چیز پر حمد ہے جو تیرے اولیاء کے بارے میں تیرے فیصلے سے جاری ہوئی',en:'O Allah, all praise belongs to You for whatever has been executed through Your decree concerning Your friends'},
+      {ar:'اَللَّهُمَّ فَاجْعَلْنَا مِمَّنْ انْتَهَجَ سَبِيلَهُمْ',ur:'اے اللہ! ہمیں ان لوگوں میں سے بنا جو ان کے راستے پر چلے',en:'O Allah, so make us of those who followed their way'},
+      {ar:'أَيْنَ الْحَسَنُ أَيْنَ الْحُسَيْنُ',ur:'کہاں ہیں حسن، کہاں ہیں حسین',en:'Where is Hasan, where is Husain'},
+      {ar:'أَيْنَ أَبْنَاءُ الْحُسَيْنِ',ur:'کہاں ہیں اولادِ حسین',en:'Where are the sons of Husain'},
+      {ar:'أَيْنَ الْمُرْتَقَبُ لإِزَالَةِ الظُّلْمِ وَالْعُدْوَانِ',ur:'کہاں ہے وہ جس کا ظلم و ستم کو مٹانے کے لیے انتظار ہے',en:'Where is the awaited one for the elimination of oppression and aggression'},
+      {ar:'بِأَبِي أَنْتَ وَأُمِّي وَنَفْسِي لَكَ الْوِقَاءُ وَالْحِمَايَةُ',ur:'میرے ماں باپ اور میری جان آپ پر قربان، آپ کے لیے حفاظت و پناہ ہو',en:'May my father, mother and soul be your ransom, may you have protection and shelter'},
+      {ar:'عَجِّلْ اللَّهُمَّ فَرَجَهُ وَسَهِّلْ مَخْرَجَهُ',ur:'اے اللہ! ان کے فرج کو جلدی فرما اور ان کے ظہور کو آسان بنا',en:'O Allah, hasten their reappearance and ease their emergence'},
+    ]
+  },
+  {
+    id:'faraj',
+    nameAr:'دُعَاءُ الْفَرَج',
+    nameEn:'Dua Faraj',
+    desc:'Imam Mahdi (AJ) ke zahoor ke liye dua. Mushkilaat mein bhi padhna mustahab hai.',
+    verses:[
+      {ar:'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ',ur:'اللہ کے نام سے جو بڑا مہربان نہایت رحم والا ہے',en:'In the name of Allah, the Most Gracious, the Most Merciful'},
+      {ar:'اللَّهُمَّ كُنْ لِوَلِيِّكَ الْحُجَّةِ بْنِ الْحَسَنِ',ur:'اے اللہ! اپنے ولی حجۃ بن الحسن کے لیے ہو جا',en:'O Allah, be for Your guardian, the Hujjah son of Hasan'},
+      {ar:'صَلَوَاتُكَ عَلَيْهِ وَعَلَى آبَائِهِ',ur:'تیری رحمتیں ہوں ان پر اور ان کے آباؤ اجداد پر',en:'May Your blessings be upon him and his forefathers'},
+      {ar:'فِي هَذِهِ السَّاعَةِ وَفِي كُلِّ سَاعَةٍ',ur:'اس گھڑی میں اور ہر گھڑی میں',en:'In this hour and every hour'},
+      {ar:'وَلِيّاً وَحَافِظاً وَقَائِداً وَنَاصِراً',ur:'ولی بن کر، حفاظت کرنے والے بن کر، رہنما بن کر، مدد گار بن کر',en:'A guardian, a protector, a guide and a supporter'},
+      {ar:'وَدَلِيلاً وَعَيْناً حَتَّى تُسْكِنَهُ أَرْضَكَ طَوْعاً',ur:'اور رہنما اور نگہبان بن جا، یہاں تک کہ تو انہیں اپنی زمین میں خوشی سے ٹھہرائے',en:'And a guide and an eye (watching over them), until You settle them in Your earth willingly'},
+      {ar:'وَتُمَتِّعَهُ فِيهَا طَوِيلاً',ur:'اور انہیں اس میں دیر تک آسودہ رکھے',en:'And grant them long enjoyment therein'},
+      {ar:'اللَّهُمَّ عَجِّلْ وَلِيَّكَ وَابْنَ نَبِيِّكَ',ur:'اے اللہ! اپنے ولی اور اپنے نبی کے فرزند کو جلد بھیج',en:'O Allah, hasten Your guardian and the son of Your Prophet'},
+      {ar:'وَاجْعَلْهُ الدَّاعِيَ إِلَيْكَ بِإِذْنِكَ',ur:'اور انہیں اپنے اذن سے تیری طرف دعوت دینے والا بنا',en:'And make him the one who calls to You by Your permission'},
+    ]
+  },
+];
+
+// Render tabs and panels
+const navEl = document.getElementById('duaNav');
+const panelsEl = document.getElementById('duaPanels');
+
+DUAS.forEach((dua, idx) => {
+  // Tab
+  const tab = document.createElement('button');
+  tab.className = 'dua-tab' + (idx===0?' active':'');
+  tab.textContent = dua.nameEn;
+  tab.onclick = () => {
+    document.querySelectorAll('.dua-tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.dua-panel').forEach(p=>p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('panel-'+dua.id).classList.add('active');
+  };
+  navEl.appendChild(tab);
+
+  // Panel
+  const panel = document.createElement('div');
+  panel.className = 'dua-panel' + (idx===0?' active':'');
+  panel.id = 'panel-'+dua.id;
+
+  let showUrdu = true, showEnglish = false;
+
+  panel.innerHTML = `
+    <div class="dua-header-card">
+      <div class="dua-name-ar">${dua.nameAr}</div>
+      <div class="dua-name-en">${dua.nameEn}</div>
+      <div class="dua-desc">${dua.desc}</div>
+    </div>
+    <div class="dua-controls">
+      <span style="font-size:12px;color:var(--muted);font-weight:600;">Tarjuma:</span>
+      <button class="ctrl-btn active" data-mode="urdu" onclick="toggleLang('${dua.id}','urdu',this)">اردو</button>
+      <button class="ctrl-btn" data-mode="english" onclick="toggleLang('${dua.id}','english',this)">English</button>
+      <button class="ctrl-btn" style="margin-left:auto;" onclick="shareDua('${dua.nameEn}')">📤 Share</button>
+    </div>
+    <div style="border-radius:16px;overflow:hidden;border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,.04);" id="verses-${dua.id}">
+      ${dua.verses.map((v,i) => `
+        <div class="dua-verse">
+          <div class="dv-num">${i+1}</div>
+          <div class="dv-arabic">${v.ar}</div>
+          <div class="dv-urdu" id="${dua.id}-ur-${i}" style="${showUrdu?'':'display:none'}">${v.ur}</div>
+          <div class="dv-english" id="${dua.id}-en-${i}" style="${showEnglish?'':'display:none'}">${v.en}</div>
+        </div>`).join('')}
+    </div>`;
+
+  panelsEl.appendChild(panel);
+});
+
+function toggleLang(duaId, mode, btn) {
+  const dua = DUAS.find(d=>d.id===duaId);
+  if (!dua) return;
+  btn.classList.toggle('active');
+  const show = btn.classList.contains('active');
+  dua.verses.forEach((v,i) => {
+    const el = document.getElementById(`${duaId}-${mode==='urdu'?'ur':'en'}-${i}`);
+    if (el) el.style.display = show ? '' : 'none';
+  });
+}
+
+function shareDua(name) {
+  const text = `${name} — Islamic Insights\n\nPadhen: https://islamicinsights-net.netlify.app/duas.html`;
+  if (navigator.share) navigator.share({ title: name, text });
+  else navigator.clipboard?.writeText(text).then(()=>alert('Link copy ho gaya!'));
+}
+
+// Hash navigation
+if (location.hash) {
+  const id = location.hash.slice(1);
+  const tab = [...document.querySelectorAll('.dua-tab')].find(t => t.textContent.toLowerCase().includes(id));
+  if (tab) tab.click();
+}
+</script>
+</body>
+</html>

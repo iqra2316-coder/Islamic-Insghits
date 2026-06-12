@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#0a4a2a">
+<meta name="description" content="Ahadith collection — Sahih Bukhari, Sahih Muslim, Tirmizi Arabic, Urdu, English mein. Roz ki hadith online.">
+<meta name="keywords" content="Hadith Urdu, Sahih Bukhari Urdu, Sahih Muslim, Tirmizi, Islamic hadith online, احادیث اردو">
+<link rel="canonical" href="https://islamicinsights-net.netlify.app/hadith.html">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VZJ1ETL0JQ"></script>
+<script src="js/ga.js"></script>
+<title>Ahadith — Bukhari, Muslim, Tirmizi | Islamic Insights</title>
+<link rel="stylesheet" href="css/main.css">
+<style>
+.hadith-daily{background:linear-gradient(135deg,var(--emerald),var(--emerald-mid));border-radius:24px;padding:40px;margin-bottom:36px;text-align:center;position:relative;overflow:hidden;}
+.hadith-daily::before{content:'❝';position:absolute;top:-20px;left:20px;font-size:160px;color:rgba(255,255,255,.04);font-family:Georgia,serif;line-height:1;}
+.hd-label{display:inline-flex;gap:8px;align-items:center;background:rgba(200,148,28,.15);border:1px solid rgba(200,148,28,.3);color:var(--gold-light);padding:5px 16px;border-radius:50px;font-size:10.5px;letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:18px;}
+.hd-arabic{font-family:'Scheherazade New',serif;font-size:30px;color:var(--gold-light);line-height:1.9;direction:rtl;margin-bottom:14px;}
+.hd-urdu{font-family:'Scheherazade New',serif;font-size:20px;color:rgba(255,255,255,.9);direction:rtl;line-height:1.8;margin-bottom:10px;}
+.hd-english{font-family:'Cormorant Garamond',serif;font-size:18px;color:rgba(255,255,255,.75);font-style:italic;line-height:1.65;max-width:680px;margin:0 auto 12px;}
+.hd-source{display:inline-block;background:rgba(200,148,28,.2);color:var(--gold-light);padding:5px 16px;border-radius:50px;font-size:12px;font-weight:700;}
+
+.filter-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px;}
+.filter-btn{padding:8px 20px;border-radius:50px;border:2px solid var(--border);background:white;font-size:12.5px;cursor:pointer;transition:all .2s;color:var(--text);font-family:'Outfit',sans-serif;}
+.filter-btn.active{background:var(--emerald);color:white;border-color:var(--emerald);}
+
+.hadith-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.hcard{background:white;border-radius:18px;padding:26px 24px;border:1px solid var(--border-light);box-shadow:0 2px 12px rgba(0,0,0,.04);transition:all .3s;}
+.hcard:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(10,74,42,.1);}
+.hc-source-badge{display:inline-block;background:var(--cream-warm);color:var(--emerald);padding:3px 12px;border-radius:50px;font-size:10.5px;font-weight:700;margin-bottom:12px;}
+.hc-arabic{font-family:'Scheherazade New',serif;font-size:22px;color:var(--ink);direction:rtl;text-align:right;line-height:1.9;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border-light);}
+.hc-urdu{font-family:'Scheherazade New',serif;font-size:16px;color:var(--emerald-mid);direction:rtl;text-align:right;line-height:1.8;margin-bottom:8px;}
+.hc-english{font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--text);font-style:italic;line-height:1.7;}
+.hc-ref{font-size:11px;color:var(--gold);font-weight:700;margin-top:10px;}
+
+@media(max-width:768px){.hadith-grid{grid-template-columns:1fr;}.hd-arabic{font-size:22px;}}
+</style>
+</head>
+<body>
+<div id="header-placeholder"></div>
+
+<div class="page-hero">
+  <div class="page-hero-tag">📚 Ahadith</div>
+  <h1>احادیثِ نبوی</h1>
+  <p>Sahih Bukhari • Sahih Muslim • Tirmizi — Arabic, Urdu, English</p>
+</div>
+<div class="breadcrumb"><div class="breadcrumb-inner"><a href="index.html">Home</a> <span>›</span> <span>Ahadith</span></div></div>
+
+<div class="main">
+  <!-- DAILY HADITH -->
+  <div class="hadith-daily" id="dailyHadith">
+    <div class="hd-label">✦ Aaj Ki Hadith</div>
+    <div class="hd-arabic" id="dh-ar">—</div>
+    <div class="hd-urdu" id="dh-ur">—</div>
+    <div class="hd-english" id="dh-en">—</div>
+    <div class="hd-source" id="dh-src">—</div>
+  </div>
+
+  <!-- FILTERS -->
+  <div class="sec-head">
+    <h2 class="sec-title">Hadith Collection</h2>
+  </div>
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterHadith('all',this)">Sab</button>
+    <button class="filter-btn" onclick="filterHadith('bukhari',this)">Sahih Bukhari</button>
+    <button class="filter-btn" onclick="filterHadith('muslim',this)">Sahih Muslim</button>
+    <button class="filter-btn" onclick="filterHadith('tirmizi',this)">Tirmizi</button>
+    <button class="filter-btn" onclick="filterHadith('ahlulbayt',this)">AhlulBayt</button>
+  </div>
+
+  <div class="hadith-grid" id="hadithGrid"></div>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="js/shared.js"></script>
+<script src="js/hadith.js"></script>
+<script>
+document.getElementById('header-placeholder').innerHTML = buildHeader('hadith.html');
+document.getElementById('footer-placeholder').innerHTML = buildFooter();
+
+// Extra ahadith
+const EXTRA = [
+  {arabic:'خَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ',urdu:'لوگوں میں سب سے بہتر وہ ہے جو لوگوں کو سب سے زیادہ فائدہ پہنچائے',english:'The best of people are those most beneficial to people.',source:'السلسلة الصحيحة',reference:'Al-Silsilah al-Sahihah',category:'ahlulbayt'},
+  {arabic:'تَعَلَّمُوا الْعِلْمَ فَإِنَّ تَعَلُّمَهُ حَسَنَةٌ وَمُذَاكَرَتَهُ تَسْبِيحٌ',urdu:'علم سیکھو کیونکہ اسے سیکھنا نیکی ہے اور اس کا مذاکرہ تسبیح ہے',english:'Learn knowledge, for learning it is a good deed and discussing it is glorification.',source:'صحیح الترمذي',reference:'Sahih Tirmizi',category:'tirmizi'},
+  {arabic:'إِنَّ اللَّهَ رَفِيقٌ يُحِبُّ الرِّفْقَ',urdu:'بے شک اللہ نرمی والا ہے اور نرمی کو پسند کرتا ہے',english:'Indeed Allah is gentle and loves gentleness.',source:'صحیح البخاری',reference:'Sahih al-Bukhari 6927',category:'bukhari'},
+  {arabic:'لَا تَغْضَبْ وَلَكَ الْجَنَّةُ',urdu:'غصہ نہ کر اور تمہارے لیے جنت ہے',english:'Do not get angry, and Paradise will be yours.',source:'صحیح الطبراني',reference:'Al-Tabarani',category:'ahlulbayt'},
+  {arabic:'مَنْ صَمَتَ نَجَا',urdu:'جو خاموش رہا وہ نجات پا گیا',english:'Whoever remains silent is saved.',source:'سنن الترمذي',reference:'Sunan Tirmizi 2501',category:'tirmizi'},
+  {arabic:'بُنِيَ الإِسْلَامُ عَلَى خَمْسٍ',urdu:'اسلام پانچ ستونوں پر بنا ہے',english:'Islam is built upon five pillars.',source:'صحیح البخاری ٨',reference:'Sahih al-Bukhari 8',category:'bukhari'},
+  {arabic:'أَحَبُّ النَّاسِ إِلَى اللَّهِ أَنْفَعُهُمْ لِلنَّاسِ',urdu:'اللہ کو لوگوں میں سب سے زیادہ محبوب وہ ہے جو انہیں سب سے زیادہ فائدہ پہنچائے',english:'The most beloved of people to Allah is the one who is most beneficial to people.',source:'صحیح مسلم',reference:'Sahih Muslim 2588',category:'muslim'},
+  {arabic:'اتَّقِ اللَّهَ حَيْثُمَا كُنْتَ',urdu:'جہاں بھی ہو اللہ سے ڈرتے رہو',english:'Fear Allah wherever you are.',source:'سنن الترمذي ١٩٨٧',reference:'Sunan Tirmizi 1987',category:'tirmizi'},
+];
+
+const allHadith = [...AHADITH.slice(0,20).map(h=>({...h,category:h.reference?.includes('Bukhari')?'bukhari':h.reference?.includes('Muslim')?'muslim':'tirmizi'})), ...EXTRA];
+
+// Daily hadith
+const dh = allHadith[new Date().getDate() % allHadith.length];
+document.getElementById('dh-ar').textContent = dh.arabic;
+document.getElementById('dh-ur').textContent = dh.urdu;
+document.getElementById('dh-en').textContent = dh.english;
+document.getElementById('dh-src').textContent = dh.reference;
+
+function renderHadith(list) {
+  document.getElementById('hadithGrid').innerHTML = list.map(h => `
+    <div class="hcard">
+      <div class="hc-source-badge">${h.reference || h.source}</div>
+      <div class="hc-arabic">${h.arabic}</div>
+      <div class="hc-urdu">${h.urdu}</div>
+      <div class="hc-english">${h.english}</div>
+    </div>`).join('');
+}
+
+function filterHadith(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const filtered = cat === 'all' ? allHadith : allHadith.filter(h=>h.category===cat);
+  renderHadith(filtered);
+}
+
+renderHadith(allHadith);
+</script>
+</body>
+</html>

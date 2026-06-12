@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#0a4a2a">
+<meta name="description" content="Namaz Timings online — Apne sheher ki Fajr, Dhuhr, Asr, Maghrib, Isha ki exact timings. GPS se automatic calculation.">
+<meta name="keywords" content="Namaz timings Pakistan, prayer times Karachi, Fajr time today, Isha time today, Islamic prayer times, salah times">
+<link rel="canonical" href="https://islamicinsights-net.netlify.app/namaz.html">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VZJ1ETL0JQ"></script>
+<script src="js/ga.js"></script>
+<title>Namaz Timings — Aaj ki Namaz Ke Awqat | Islamic Insights</title>
+<link rel="stylesheet" href="css/main.css">
+<style>
+.prayer-hero{background:linear-gradient(135deg,var(--emerald),#041f10);padding:50px 32px;color:white;text-align:center;position:relative;overflow:hidden;}
+.prayer-hero::before{content:'🕌';position:absolute;right:60px;top:50%;transform:translateY(-50%);font-size:120px;opacity:.08;}
+.prayer-time-big{font-family:'Playfair Display',serif;font-size:72px;font-weight:900;color:var(--gold-light);line-height:1;margin-top:10px;}
+.prayer-next-label{font-size:14px;color:rgba(255,255,255,.6);margin-top:8px;}
+.prayer-next-name{font-size:24px;color:white;font-weight:700;margin-top:4px;}
+.location-bar{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:10px 20px;margin-top:20px;display:inline-flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,.8);cursor:pointer;transition:all .2s;}
+.location-bar:hover{background:rgba(255,255,255,.15);}
+
+.prayers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px;}
+.prayer-card{background:white;border-radius:18px;padding:24px 20px;border:1px solid var(--border-light);text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.04);transition:all .3s;position:relative;overflow:hidden;}
+.prayer-card.current{border-color:var(--gold);box-shadow:0 8px 32px rgba(200,148,28,.2);}
+.prayer-card.current::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--gold),var(--gold-light));}
+.prayer-card.passed{opacity:.65;}
+.prayer-icon{font-size:36px;margin-bottom:10px;}
+.prayer-name-ar{font-family:'Scheherazade New',serif;font-size:22px;color:var(--emerald);direction:rtl;margin-bottom:4px;}
+.prayer-name-ur{font-size:12px;color:var(--muted);margin-bottom:12px;}
+.prayer-time{font-family:'Playfair Display',serif;font-size:32px;color:var(--ink);font-weight:900;line-height:1;}
+.prayer-remaining{font-size:11px;color:var(--gold);font-weight:600;margin-top:6px;}
+.current-badge{display:inline-block;background:var(--gold);color:var(--ink);padding:2px 10px;border-radius:50px;font-size:10px;font-weight:700;margin-top:6px;}
+
+.method-card{background:white;border-radius:16px;padding:20px;border:1px solid var(--border-light);margin-bottom:24px;}
+.method-card h3{font-family:'Playfair Display',serif;font-size:18px;color:var(--emerald);margin-bottom:14px;}
+.method-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.method-btn{padding:10px 14px;border-radius:10px;border:2px solid var(--border);background:var(--cream);font-size:12px;cursor:pointer;transition:all .2s;text-align:center;color:var(--text);}
+.method-btn.active{border-color:var(--emerald);background:var(--emerald);color:white;}
+.method-btn:hover:not(.active){border-color:var(--emerald-bright);}
+
+.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;}
+.cal-header{font-size:10px;color:var(--muted);text-align:center;font-weight:700;padding:4px;}
+.cal-row{display:contents;}
+.cal-cell{background:white;border-radius:8px;padding:8px 4px;border:1px solid var(--border-light);text-align:center;font-size:11px;}
+.cal-cell.today{background:var(--emerald);color:white;border-color:var(--emerald);}
+.cal-date{font-weight:700;font-size:13px;}
+.cal-fajr{color:var(--muted);font-size:9px;margin-top:2px;}
+
+@media(max-width:768px){.prayers-grid{grid-template-columns:repeat(2,1fr);}.method-grid{grid-template-columns:repeat(2,1fr);}.prayer-time-big{font-size:52px;}.calendar-grid{grid-template-columns:repeat(4,1fr);}}
+</style>
+</head>
+<body>
+<div id="header-placeholder"></div>
+
+<div class="page-hero">
+  <div class="page-hero-tag">🕌 Namaz</div>
+  <h1>نماز کے اوقات</h1>
+  <p>Apni location se automatic prayer times • GPS based • Accurate Calculation</p>
+</div>
+<div class="breadcrumb"><div class="breadcrumb-inner"><a href="index.html">Home</a> <span>›</span> <span>Namaz Timings</span></div></div>
+
+<!-- PRAYER HERO -->
+<div class="prayer-hero">
+  <div style="font-size:13px;color:rgba(255,255,255,.6);" id="todayDate">Aaj ka din...</div>
+  <div class="prayer-next-label">Agli Namaz</div>
+  <div class="prayer-next-name" id="nextPrayerName">—</div>
+  <div class="prayer-time-big" id="nextPrayerTime">--:--</div>
+  <div id="countdown" style="font-size:16px;color:var(--gold-light);margin-top:8px;">...</div>
+  <div class="location-bar" onclick="getLocation()">
+    <span>📍</span><span id="locationText">Location lo</span>
+  </div>
+</div>
+
+<div class="main">
+  <!-- METHOD SELECT -->
+  <div class="method-card">
+    <h3>Calculation Method</h3>
+    <div class="method-grid">
+      <button class="method-btn" data-method="Karachi" onclick="setMethod('Karachi')">University of Islamic Sciences, Karachi</button>
+      <button class="method-btn active" data-method="MWL" onclick="setMethod('MWL')">Muslim World League</button>
+      <button class="method-btn" data-method="ISNA" onclick="setMethod('ISNA')">ISNA (North America)</button>
+      <button class="method-btn" data-method="Egypt" onclick="setMethod('Egypt')">Egyptian General Authority</button>
+      <button class="method-btn" data-method="Makkah" onclick="setMethod('Makkah')">Umm Al-Qura (Makkah)</button>
+      <button class="method-btn" data-method="Jafari" onclick="setMethod('Jafari')">Jafari / Shia Ithna Ashari</button>
+    </div>
+  </div>
+
+  <!-- PRAYER TIMES GRID -->
+  <div class="sec-head">
+    <h2 class="sec-title">Aaj Ki Namaz</h2>
+    <span id="prayerDate" style="font-size:13px;color:var(--muted);">—</span>
+  </div>
+  <div class="prayers-grid" id="prayersGrid">
+    <div class="prayer-card"><div class="loading-spinner"><div class="spinner"></div></div></div>
+  </div>
+
+  <!-- WEEKLY -->
+  <div class="sec-head" style="margin-top:40px;">
+    <h2 class="sec-title">Hafte Bhar ki Namaz</h2>
+  </div>
+  <div style="background:white;border-radius:18px;border:1px solid var(--border-light);overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.04);">
+    <div style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;font-size:13px;" id="weekTable">
+        <thead><tr style="background:var(--emerald);color:white;">
+          <th style="padding:12px 16px;text-align:left;">Din</th>
+          <th style="padding:12px 16px;text-align:center;">Fajr</th>
+          <th style="padding:12px 16px;text-align:center;">Sunrise</th>
+          <th style="padding:12px 16px;text-align:center;">Dhuhr</th>
+          <th style="padding:12px 16px;text-align:center;">Asr</th>
+          <th style="padding:12px 16px;text-align:center;">Maghrib</th>
+          <th style="padding:12px 16px;text-align:center;">Isha</th>
+        </tr></thead>
+        <tbody id="weekBody"><tr><td colspan="7" style="padding:30px;text-align:center;color:var(--muted);">Location allow karein...</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ISLAMIC DATE -->
+  <div style="background:linear-gradient(135deg,var(--emerald),var(--emerald-mid));border-radius:18px;padding:28px;margin-top:32px;color:white;text-align:center;">
+    <div style="font-family:'Scheherazade New',serif;font-size:32px;color:var(--gold-light);" id="islamicDate">—</div>
+    <div style="font-size:14px;color:rgba(255,255,255,.6);margin-top:6px;">Aaj ki Hijri Tarikh</div>
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="js/shared.js"></script>
+<script src="js/prayer.js"></script>
+<script>
+document.getElementById('header-placeholder').innerHTML = buildHeader('namaz.html');
+document.getElementById('footer-placeholder').innerHTML = buildFooter();
+
+const PRAYERS = [
+  {key:'fajr',nameAr:'الفجر',nameUr:'فجر',icon:'🌙'},
+  {key:'sunrise',nameAr:'الشروق',nameUr:'طلوع آفتاب',icon:'🌅'},
+  {key:'dhuhr',nameAr:'الظهر',nameUr:'ظہر',icon:'☀️'},
+  {key:'asr',nameAr:'العصر',nameUr:'عصر',icon:'🌤️'},
+  {key:'maghrib',nameAr:'المغرب',nameUr:'مغرب',icon:'🌆'},
+  {key:'isha',nameAr:'العشاء',nameUr:'عشاء',icon:'🌃'},
+];
+
+let userLat = 24.8607; // Karachi default
+let userLng = 67.0011;
+let currentMethod = 'MWL';
+let times = {};
+
+function setMethod(m) {
+  currentMethod = m;
+  document.querySelectorAll('.method-btn').forEach(b => b.classList.toggle('active', b.dataset.method === m));
+  computeAndRender();
+}
+
+function getLocation() {
+  if (!navigator.geolocation) { alert('Geolocation supported nahi hai'); return; }
+  navigator.geolocation.getCurrentPosition(pos => {
+    userLat = pos.coords.latitude;
+    userLng = pos.coords.longitude;
+    // Reverse geocode
+    fetch(`https://nominatim.openstreetmap.org/reverse?lat=${userLat}&lon=${userLng}&format=json`)
+      .then(r=>r.json()).then(d => {
+        const city = d.address?.city || d.address?.town || d.address?.county || 'Aapka Sheher';
+        document.getElementById('locationText').textContent = city;
+      }).catch(() => document.getElementById('locationText').textContent = `${userLat.toFixed(2)}, ${userLng.toFixed(2)}`);
+    computeAndRender();
+  }, () => { alert('Location access deny kar di. Default: Karachi'); computeAndRender(); });
+}
+
+function fmtTime(h) {
+  if (isNaN(h)) return '--:--';
+  const total = Math.round(h * 60);
+  const hrs = Math.floor(total / 60) % 24;
+  const mins = total % 60;
+  const ampm = hrs >= 12 ? 'PM' : 'AM';
+  const h12 = hrs % 12 || 12;
+  return `${h12}:${String(mins).padStart(2,'0')} ${ampm}`;
+}
+
+function toMinutes(h) { return Math.round(h * 60) % (24*60); }
+
+function computeAndRender() {
+  const now = new Date();
+  times = PrayerCalc.compute(userLat, userLng, now, currentMethod);
+  renderPrayers(now);
+  renderWeek();
+  updateNextPrayer();
+  setInterval(updateNextPrayer, 1000);
+}
+
+function renderPrayers(now) {
+  const nowMin = now.getHours()*60 + now.getMinutes();
+  document.getElementById('prayerDate').textContent = now.toLocaleDateString('ur-PK', {weekday:'long',year:'numeric',month:'long',day:'numeric'});
+  document.getElementById('todayDate').textContent = now.toLocaleDateString('en-US', {weekday:'long',year:'numeric',month:'long',day:'numeric'});
+  
+  const prayerKeys = ['fajr','sunrise','dhuhr','asr','maghrib','isha'];
+  let nextIdx = prayerKeys.length - 1;
+  for (let i = 0; i < prayerKeys.length; i++) {
+    const t = times[prayerKeys[i]];
+    if (!isNaN(t) && toMinutes(t) > nowMin) { nextIdx = i; break; }
+  }
+  
+  const grid = document.getElementById('prayersGrid');
+  grid.innerHTML = PRAYERS.map((p,i) => {
+    const t = fmtTime(times[p.key]);
+    const isNext = i === nextIdx;
+    const isPassed = toMinutes(times[p.key]||0) < nowMin;
+    return `<div class="prayer-card ${isNext?'current':''} ${isPassed&&!isNext?'passed':''}">
+      <div class="prayer-icon">${p.icon}</div>
+      <div class="prayer-name-ar">${p.nameAr}</div>
+      <div class="prayer-name-ur">${p.nameUr}</div>
+      <div class="prayer-time">${t}</div>
+      ${isNext ? '<div class="current-badge">Agli Namaz</div>' : ''}
+    </div>`;
+  }).join('');
+}
+
+function updateNextPrayer() {
+  const now = new Date();
+  const nowMin = now.getHours()*60 + now.getMinutes();
+  const prayerKeys = ['fajr','sunrise','dhuhr','asr','maghrib','isha'];
+  const prayerNames = ['فجر','طلوع آفتاب','ظہر','عصر','مغرب','عشاء'];
+  
+  for (let i = 0; i < prayerKeys.length; i++) {
+    const t = times[prayerKeys[i]];
+    if (!isNaN(t) && toMinutes(t) > nowMin) {
+      document.getElementById('nextPrayerName').textContent = prayerNames[i];
+      document.getElementById('nextPrayerTime').textContent = fmtTime(t);
+      const diff = toMinutes(t) - nowMin;
+      const h = Math.floor(diff/60), m = diff%60;
+      document.getElementById('countdown').textContent = h > 0 ? `${h} ghante ${m} minute mein` : `${m} minute mein`;
+      return;
+    }
+  }
+  document.getElementById('nextPrayerName').textContent = 'Kal Fajr';
+  document.getElementById('nextPrayerTime').textContent = fmtTime(times.fajr);
+}
+
+function renderWeek() {
+  const tbody = document.getElementById('weekBody');
+  const days = ['Itwar','Peer','Mangal','Budh','Jumerat','Juma','Hafta'];
+  let html = '';
+  for (let i = 0; i < 7; i++) {
+    const d = new Date(); d.setDate(d.getDate() + i - d.getDay());
+    const t = PrayerCalc.compute(userLat, userLng, d, currentMethod);
+    const isToday = i === new Date().getDay();
+    html += `<tr style="${isToday ? 'background:var(--cream-warm);font-weight:600;' : ''}">
+      <td style="padding:10px 16px;font-weight:${isToday?'700':'400'};color:${isToday?'var(--emerald)':'inherit'};">${days[i]}${isToday?' <span style="background:var(--gold);color:white;padding:1px 8px;border-radius:50px;font-size:10px;margin-left:4px;">Aaj</span>':''}</td>
+      <td style="padding:10px 16px;text-align:center;">${fmtTime(t.fajr)}</td>
+      <td style="padding:10px 16px;text-align:center;color:var(--muted);">${fmtTime(t.sunrise)}</td>
+      <td style="padding:10px 16px;text-align:center;">${fmtTime(t.dhuhr)}</td>
+      <td style="padding:10px 16px;text-align:center;">${fmtTime(t.asr)}</td>
+      <td style="padding:10px 16px;text-align:center;">${fmtTime(t.maghrib)}</td>
+      <td style="padding:10px 16px;text-align:center;">${fmtTime(t.isha)}</td>
+    </tr>`;
+  }
+  tbody.innerHTML = html;
+}
+
+// Islamic date
+function getHijri(date) {
+  // Simple Hijri conversion
+  const jd = Math.floor((date.getTime()/86400000) + 2440587.5);
+  const l = jd - 1948440 + 10632;
+  const n = Math.floor((l-1)/10631);
+  const l2 = l - 10631*n + 354;
+  const j = Math.floor((10985-l2)/5316)*Math.floor(50*l2/17719) + Math.floor(l2/5670)*Math.floor(43*l2/15238);
+  const l3 = l2 - Math.floor((30-j)/15)*Math.floor(17719*j/50) - Math.floor(j/16)*Math.floor(15238*j/43) + 29;
+  const month = Math.floor(24*l3/709);
+  const day = l3 - Math.floor(709*month/24);
+  const year = 30*n + j - 30;
+  const monthNames = ['محرم','صفر','ربیع الاول','ربیع الثانی','جمادی الاول','جمادی الثانی','رجب','شعبان','رمضان','شوال','ذوالقعدہ','ذوالحجہ'];
+  return `${day} ${monthNames[month-1]} ${year} ہجری`;
+}
+document.getElementById('islamicDate').textContent = getHijri(new Date());
+
+// Init
+computeAndRender();
+getLocation();
+</script>
+</body>
+</html>

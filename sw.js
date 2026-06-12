@@ -1,54 +1,12 @@
-const CACHE = 'islamic-insights-v4';
-const ASSETS = [
-  '/',
-  '/index.html',
-  '/islamic-app.html',
-  '/about.html',
-  '/history.html',
-  '/muharram.html',
-  '/news.html',
-  '/poetry.html',
-  '/raising-faith.html',
-  '/religion.html',
-  '/series.html',
-  '/books.html',
-  '/manifest.json',
-  '/style.css',
-  '/css/app.css',
-  '/js/app.js',
-  '/js/quran.js',
-  '/js/nahj.js',
-  '/js/prayer.js',
-  '/js/qibla.js',
-  '/js/hadith.js',
-  '/icons/icon-192.png',
-  '/icons/icon-512.png'
-];
+const CACHE = 'islamic-insights-v3';
+const STATIC = ['/', '/index.html', '/quran.html', '/namaz.html', '/duas.html',
+  '/ziyarat.html', '/nahj.html', '/hadith.html', '/history.html', '/qibla.html',
+  '/donate.html', '/about.html', '/css/main.css', '/js/shared.js', '/js/ga.js',
+  '/js/prayer.js', '/js/hadith.js', '/js/nahj.js', '/js/qibla.js'];
 
-self.addEventListener('install', e => {
-  e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)).catch(err => console.log('Cache err:', err)));
-  self.skipWaiting();
-});
-
-self.addEventListener('activate', e => {
-  e.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))));
-  self.clients.claim();
-});
-
+self.addEventListener('install', e => e.waitUntil(caches.open(CACHE).then(c => c.addAll(STATIC)).then(() => self.skipWaiting())));
+self.addEventListener('activate', e => e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(() => self.clients.claim())));
 self.addEventListener('fetch', e => {
-  if (e.request.method !== 'GET') return;
-  e.respondWith(
-    caches.match(e.request).then(cached => {
-      if (cached) return cached;
-      return fetch(e.request).then(response => {
-        if (response.ok && e.request.url.startsWith(self.location.origin)) {
-          const clone = response.clone();
-          caches.open(CACHE).then(c => c.put(e.request, clone));
-        }
-        return response;
-      }).catch(() => {
-        if (e.request.destination === 'document') return caches.match('/index.html');
-      });
-    })
-  );
+  if (e.request.url.includes('api.alquran') || e.request.url.includes('cdn.islamic') || e.request.url.includes('googletagmanager')) return;
+  e.respondWith(caches.match(e.request).then(r => r || fetch(e.request).then(res => { const rc = res.clone(); caches.open(CACHE).then(c=>c.put(e.request,rc)); return res; })));
 });

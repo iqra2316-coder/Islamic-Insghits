@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#0a4a2a">
+<meta name="description" content="Islamic Insights ko support karein. EasyPaisa, JazzCash ya PayPal se donate karein aur Islamic website ko barqarar rakhein.">
+<link rel="canonical" href="https://islamicinsights-net.netlify.app/donate.html">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VZJ1ETL0JQ"></script>
+<script src="js/ga.js"></script>
+<title>Donate — Islamic Insights Ko Support Karein</title>
+<link rel="stylesheet" href="css/main.css">
+<style>
+.donate-hero{background:linear-gradient(135deg,var(--emerald),var(--emerald-mid));border-radius:24px;padding:48px 40px;margin-bottom:36px;text-align:center;position:relative;overflow:hidden;}
+.donate-hero::before{content:'💚';position:absolute;right:40px;top:50%;transform:translateY(-50%);font-size:120px;opacity:.1;}
+.dh-title{font-family:'Playfair Display',serif;font-size:38px;color:white;font-weight:900;margin-bottom:12px;}
+.dh-ar{font-family:'Scheherazade New',serif;font-size:28px;color:var(--gold-light);direction:rtl;margin-bottom:12px;}
+.dh-desc{font-size:15px;color:rgba(255,255,255,.75);max-width:560px;margin:0 auto;}
+
+.donate-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:36px;}
+.donate-method{background:white;border-radius:20px;padding:32px 28px;border:1px solid var(--border-light);box-shadow:0 4px 20px rgba(0,0,0,.06);text-align:center;transition:all .3s;}
+.donate-method:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(10,74,42,.12);}
+.dm-icon{font-size:56px;margin-bottom:16px;}
+.dm-name{font-family:'Playfair Display',serif;font-size:22px;color:var(--emerald);font-weight:700;margin-bottom:8px;}
+.dm-number{font-size:28px;font-weight:900;color:var(--ink);margin-bottom:8px;font-family:'Playfair Display',serif;}
+.dm-desc{font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.6;}
+.copy-btn{background:var(--cream-warm);border:1.5px solid var(--border);border-radius:10px;padding:9px 20px;font-size:13px;cursor:pointer;transition:all .2s;color:var(--text);font-family:'Outfit',sans-serif;}
+.copy-btn:hover{background:var(--emerald);color:white;border-color:var(--emerald);}
+.copy-btn.copied{background:#15934f;color:white;border-color:#15934f;}
+
+.amount-section{background:var(--cream-warm);border-radius:20px;padding:28px;border:1px solid var(--border-light);margin-bottom:36px;}
+.amount-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0;}
+.amt-btn{padding:12px;border-radius:12px;border:2px solid var(--border);background:white;font-size:14px;cursor:pointer;font-weight:600;transition:all .2s;font-family:'Outfit',sans-serif;}
+.amt-btn:hover,.amt-btn.selected{background:var(--emerald);color:white;border-color:var(--emerald);}
+.custom-amt{display:flex;gap:10px;margin-top:10px;}
+.custom-amt input{flex:1;padding:11px 16px;border-radius:10px;border:1.5px solid var(--border);font-size:14px;font-family:'Outfit',sans-serif;outline:none;}
+.custom-amt input:focus{border-color:var(--emerald);}
+
+.paypal-section{background:linear-gradient(135deg,#003087,#009cde);border-radius:20px;padding:32px;text-align:center;color:white;margin-bottom:36px;}
+.pp-icon{font-size:48px;margin-bottom:12px;}
+.pp-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:8px;}
+.pp-desc{font-size:13px;color:rgba(255,255,255,.75);margin-bottom:20px;}
+.pp-btn{background:#ffc439;color:#003087;padding:14px 36px;border-radius:50px;font-weight:700;font-size:15px;border:none;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;}
+.pp-btn:hover{background:white;transform:translateY(-2px);}
+
+.why-donate{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:36px;}
+.wd-item{background:white;border-radius:14px;padding:22px 18px;border:1px solid var(--border-light);text-align:center;}
+.wd-icon{font-size:36px;margin-bottom:10px;}
+.wd-title{font-size:14px;font-weight:700;color:var(--emerald);margin-bottom:6px;}
+.wd-text{font-size:12.5px;color:var(--muted);line-height:1.55;}
+
+@media(max-width:768px){.donate-grid{grid-template-columns:1fr;}.why-donate{grid-template-columns:1fr 1fr;}.amount-grid{grid-template-columns:repeat(3,1fr);}.dh-title{font-size:28px;}}
+@media(max-width:480px){.why-donate{grid-template-columns:1fr;}.amount-grid{grid-template-columns:repeat(2,1fr);}}
+</style>
+</head>
+<body>
+<div id="header-placeholder"></div>
+
+<div class="page-hero">
+  <div class="page-hero-tag">💚 Donate</div>
+  <h1>اسلامک انسائٹس کو سپورٹ کریں</h1>
+  <p>Apna sadqa jaaria dijiye — EasyPaisa, JazzCash ya PayPal se</p>
+</div>
+<div class="breadcrumb"><div class="breadcrumb-inner"><a href="index.html">Home</a> <span>›</span> <span>Donate</span></div></div>
+
+<div class="main">
+  <!-- HERO -->
+  <div class="donate-hero">
+    <div class="dh-ar">مَن ذَا الَّذِي يُقْرِضُ اللَّهَ قَرْضاً حَسَناً</div>
+    <div class="dh-title">Sadqa Jaaria Dijiye</div>
+    <div class="dh-desc">Islamic Insights ek free Islamic resource hai jo Quran, Duas, Ahadith, Namaz aur Islam ka ilm failaata hai. Aapki madad se hum yeh khidmat jaari rakh sakte hain.</div>
+  </div>
+
+  <!-- WHY DONATE -->
+  <div class="sec-head"><h2 class="sec-title">Kyun Donate Karein?</h2></div>
+  <div class="why-donate">
+    <div class="wd-item"><div class="wd-icon">📖</div><div class="wd-title">Quran ki khidmat</div><div class="wd-text">30 Para Quran with audio — free mein available rakhne ke liye</div></div>
+    <div class="wd-item"><div class="wd-icon">🌐</div><div class="wd-title">Server costs</div><div class="wd-text">Website 24/7 chalti rahe is ke liye hosting fees</div></div>
+    <div class="wd-item"><div class="wd-icon">📱</div><div class="wd-title">Naya content</div><div class="wd-text">Aur duaen, ahadith, Islamic history add karne ke liye</div></div>
+  </div>
+
+  <!-- AMOUNT SELECT -->
+  <div class="amount-section">
+    <h3 style="font-family:'Playfair Display',serif;font-size:20px;color:var(--emerald);margin-bottom:4px;">Raqam Chunein (PKR)</h3>
+    <p style="font-size:13px;color:var(--muted);">Apni marzi ki raqam select karein ya type karein</p>
+    <div class="amount-grid">
+      <button class="amt-btn" onclick="selectAmt(100,this)">PKR 100</button>
+      <button class="amt-btn selected" onclick="selectAmt(500,this)">PKR 500</button>
+      <button class="amt-btn" onclick="selectAmt(1000,this)">PKR 1,000</button>
+      <button class="amt-btn" onclick="selectAmt(2500,this)">PKR 2,500</button>
+    </div>
+    <div class="custom-amt">
+      <input type="number" id="customAmt" placeholder="Custom amount (PKR)" onchange="selectAmt(this.value)">
+    </div>
+    <div style="text-align:center;margin-top:14px;font-family:'Playfair Display',serif;font-size:22px;color:var(--emerald);font-weight:700;" id="selectedAmtDisplay">PKR 500 Selected</div>
+  </div>
+
+  <!-- PAYMENT METHODS -->
+  <div class="sec-head"><h2 class="sec-title">Payment Methods</h2></div>
+  <div class="donate-grid">
+    <div class="donate-method">
+      <div class="dm-icon">📱</div>
+      <div class="dm-name">EasyPaisa</div>
+      <div class="dm-number">0333-7546622</div>
+      <div class="dm-desc">EasyPaisa app se "Send Money" karein. Account name: Islamic Insights</div>
+      <button class="copy-btn" id="ep-btn" onclick="copyNum('0333-7546622','ep-btn')">📋 Number Copy Karein</button>
+    </div>
+    <div class="donate-method">
+      <div class="dm-icon">💚</div>
+      <div class="dm-name">JazzCash</div>
+      <div class="dm-number">0333-7546622</div>
+      <div class="dm-desc">JazzCash app se "Send Money" karein. Same number par.</div>
+      <button class="copy-btn" id="jc-btn" onclick="copyNum('0333-7546622','jc-btn')">📋 Number Copy Karein</button>
+    </div>
+  </div>
+
+  <!-- PAYPAL -->
+  <div class="paypal-section">
+    <div class="pp-icon">💙</div>
+    <div class="pp-title">Donate via PayPal</div>
+    <div class="pp-desc">International donors ke liye — PayPal se asaan aur secure payment</div>
+    <button class="pp-btn" onclick="donatePayPal()">
+      <span>💛</span> PayPal se Donate Karein
+    </button>
+  </div>
+
+  <!-- BANK TRANSFER (optional) -->
+  <div style="background:var(--cream-warm);border-radius:16px;padding:24px;border:1px solid var(--border-light);text-align:center;">
+    <div style="font-family:'Playfair Display',serif;font-size:18px;color:var(--emerald);margin-bottom:8px;">📩 Sawal ya Masla?</div>
+    <p style="font-size:14px;color:var(--muted);margin-bottom:14px;">Agar koi masla aaye to hum se Facebook par rabta karein</p>
+    <a href="https://www.facebook.com/profile.php?id=61589673759462" target="_blank" rel="noopener" class="btn-gold" style="display:inline-flex;">Facebook Par Message Karein</a>
+  </div>
+
+  <!-- JAZAKALLAH -->
+  <div style="text-align:center;margin-top:36px;padding:32px;background:linear-gradient(135deg,var(--emerald),var(--emerald-mid));border-radius:20px;color:white;">
+    <div style="font-family:'Scheherazade New',serif;font-size:36px;color:var(--gold-light);direction:rtl;margin-bottom:8px;">جَزَاكَ اللَّهُ خَيْرًا</div>
+    <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;margin-bottom:8px;">JazakAllah Khair!</div>
+    <p style="font-size:14px;color:rgba(255,255,255,.75);">Aapka sadqa jaaria qayamat tak jaari rahega — InshaAllah</p>
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="js/shared.js"></script>
+<script>
+document.getElementById('header-placeholder').innerHTML = buildHeader('donate.html');
+document.getElementById('footer-placeholder').innerHTML = buildFooter();
+
+let selectedAmt = 500;
+
+function selectAmt(amt, btn) {
+  selectedAmt = parseInt(amt) || 500;
+  document.querySelectorAll('.amt-btn').forEach(b=>b.classList.remove('selected'));
+  if (btn) btn.classList.add('selected');
+  document.getElementById('selectedAmtDisplay').textContent = `PKR ${selectedAmt.toLocaleString()} Selected`;
+}
+
+function copyNum(num, btnId) {
+  navigator.clipboard?.writeText(num).then(() => {
+    const btn = document.getElementById(btnId);
+    btn.textContent = '✅ Copy Ho Gaya!';
+    btn.classList.add('copied');
+    setTimeout(()=>{btn.textContent='📋 Number Copy Karein';btn.classList.remove('copied');}, 2500);
+  }).catch(()=>{
+    prompt('Number copy karein:', num);
+  });
+}
+
+function donatePayPal() {
+  window.open('https://www.paypal.com/donate?business=islamicinsights&currency_code=USD', '_blank');
+}
+</script>
+</body>
+</html>

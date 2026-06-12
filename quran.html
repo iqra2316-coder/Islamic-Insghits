@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#0a4a2a">
+<meta name="description" content="Quran 30 Para online parhen — Pori Surah ke sath, continuous audio, Arabic, Urdu aur English tarjuma. Download bhi karein.">
+<meta name="keywords" content="Quran 30 Para online, Quran audio Urdu, Quran with Urdu translation, Para wise Quran, Quran MP3 download, Quran online Pakistan">
+<link rel="canonical" href="https://islamicinsights-net.netlify.app/quran.html">
+<link rel="manifest" href="manifest.json">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VZJ1ETL0JQ"></script>
+<script src="js/ga.js"></script>
+<title>Quran 30 Para Online — Arabic, Urdu, English Audio | Islamic Insights</title>
+<link rel="stylesheet" href="css/main.css">
+<style>
+.para-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:40px;}
+.para-card{background:white;border-radius:14px;padding:18px 14px;border:1px solid var(--border-light);text-align:center;cursor:pointer;transition:all .3s;box-shadow:0 2px 8px rgba(0,0,0,.04);}
+.para-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(10,74,42,.1);border-color:var(--gold);}
+.para-num{font-family:'Playfair Display',serif;font-size:28px;color:var(--gold);font-weight:900;display:block;line-height:1;}
+.para-ar{font-family:'Scheherazade New',serif;font-size:18px;color:var(--emerald);display:block;margin:6px 0;}
+.para-name{font-size:11.5px;color:var(--muted);display:block;}
+.para-surah{font-size:10px;color:var(--muted);display:block;margin-top:4px;}
+
+/* READER */
+.reader-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:400;backdrop-filter:blur(4px);}
+.reader-overlay.open{display:flex;align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto;}
+.reader-panel{background:var(--cream);border-radius:24px;width:100%;max-width:860px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.3);}
+.reader-header{background:linear-gradient(135deg,var(--emerald),var(--emerald-mid));padding:24px 28px;color:white;display:flex;justify-content:space-between;align-items:center;}
+.reader-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;}
+.reader-close{background:rgba(255,255,255,.15);border:none;color:white;width:38px;height:38px;border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+
+/* AUDIO PLAYER */
+.audio-bar{background:var(--emerald);padding:16px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.audio-controls{display:flex;align-items:center;gap:10px;}
+.audio-btn{background:rgba(255,255,255,.15);border:none;color:white;width:40px;height:40px;border-radius:50%;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.audio-btn:hover{background:var(--gold);}
+.audio-btn.play-main{width:52px;height:52px;font-size:20px;background:var(--gold);}
+.audio-info{flex:1;min-width:200px;}
+.audio-ayah-text{font-family:'Scheherazade New',serif;font-size:15px;color:var(--gold-light);direction:rtl;text-align:right;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.audio-progress{height:4px;background:rgba(255,255,255,.2);border-radius:4px;overflow:hidden;cursor:pointer;margin-top:2px;}
+.audio-progress-fill{height:100%;background:var(--gold-light);border-radius:4px;transition:width .1s;}
+.reciter-select{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:white;padding:6px 12px;border-radius:8px;font-size:12px;cursor:pointer;}
+.download-btn{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:white;padding:8px 16px;border-radius:8px;font-size:12px;cursor:pointer;text-decoration:none;transition:all .2s;display:flex;align-items:center;gap:6px;}
+.download-btn:hover{background:var(--gold);border-color:var(--gold);}
+
+/* TRANSLATION CONTROLS */
+.trans-bar{background:var(--cream-warm);padding:12px 24px;display:flex;gap:10px;align-items:center;border-bottom:1px solid var(--border-light);flex-wrap:wrap;}
+.trans-btn{padding:6px 16px;border-radius:20px;border:1.5px solid var(--border);background:white;font-size:12.5px;cursor:pointer;transition:all .2s;color:var(--text);}
+.trans-btn.active{background:var(--emerald);color:white;border-color:var(--emerald);}
+.font-size-ctrl{display:flex;align-items:center;gap:8px;margin-left:auto;font-size:12px;color:var(--muted);}
+.fz-btn{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--border);background:white;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.fz-btn:hover{background:var(--emerald);color:white;border-color:var(--emerald);}
+
+/* VERSES */
+.verses-container{max-height:70vh;overflow-y:auto;padding:0;}
+.verse-item{padding:22px 28px;border-bottom:1px solid var(--border-light);display:grid;grid-template-columns:44px 1fr;gap:16px;transition:background .2s;cursor:pointer;}
+.verse-item:hover{background:var(--cream-warm);}
+.verse-item.active{background:linear-gradient(135deg,#e8f5ee,#f0f9f4);border-left:4px solid var(--emerald);}
+.verse-item.playing{background:linear-gradient(135deg,#fff8e8,#fef3cd);border-left:4px solid var(--gold);}
+.verse-num{width:44px;height:44px;background:linear-gradient(135deg,var(--emerald),var(--emerald-mid));color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:13px;font-weight:700;flex-shrink:0;margin-top:6px;}
+.verse-content{}
+.verse-arabic{font-family:'Scheherazade New',serif;font-size:26px;color:var(--ink);direction:rtl;text-align:right;line-height:2;margin-bottom:8px;}
+.verse-urdu{font-family:'Scheherazade New',serif;font-size:18px;color:var(--emerald);direction:rtl;text-align:right;line-height:1.9;margin-bottom:6px;display:none;border-top:1px solid var(--border-light);padding-top:8px;}
+.verse-english{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--text);font-style:italic;line-height:1.7;display:none;border-top:1px solid var(--border-light);padding-top:8px;}
+.verse-urdu.show,.verse-english.show{display:block;}
+.verse-actions{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;}
+.vaction-btn{padding:4px 12px;border-radius:20px;border:1.5px solid var(--border);background:white;font-size:11px;cursor:pointer;transition:all .2s;color:var(--muted);}
+.vaction-btn:hover{background:var(--emerald);color:white;border-color:var(--emerald);}
+.vaction-btn.active-play{background:var(--gold);color:var(--ink);border-color:var(--gold);}
+
+/* SEARCH */
+.quran-search-box{background:white;border-radius:14px;padding:16px 20px;margin-bottom:24px;border:1px solid var(--border-light);display:flex;gap:12px;align-items:center;}
+.quran-search-box input{flex:1;border:none;outline:none;font-size:15px;color:var(--text);font-family:'Outfit',sans-serif;background:transparent;}
+.quran-search-box input::placeholder{color:var(--muted);}
+
+@media(max-width:768px){.para-grid{grid-template-columns:repeat(3,1fr);}.verse-item{grid-template-columns:36px 1fr;gap:10px;padding:16px 16px;}.verse-arabic{font-size:22px;}.reader-panel{border-radius:16px;}.audio-bar{padding:12px 16px;}}
+@media(max-width:480px){.para-grid{grid-template-columns:repeat(2,1fr);}}
+</style>
+</head>
+<body>
+<div id="header-placeholder"></div>
+
+<div class="page-hero">
+  <div class="page-hero-tag">📖 Quran</div>
+  <h1>قرآن کریم — 30 پارے</h1>
+  <p>Pori Surah ke sath padhen • Continuous Audio • Arabic, Urdu, English • Download</p>
+</div>
+<div class="breadcrumb"><div class="breadcrumb-inner"><a href="index.html">Home</a> <span>›</span> <span>Quran 30 Para</span></div></div>
+
+<div class="main">
+  <div class="quran-search-box">
+    <span style="color:var(--muted);font-size:18px;">🔍</span>
+    <input type="text" id="paraSearch" placeholder="Para number ya naam search karein..." oninput="filterParas(this.value)">
+  </div>
+
+  <div class="sec-head">
+    <h2 class="sec-title">30 Qurani Paare</h2>
+    <span style="font-size:13px;color:var(--muted);">Para par click karein padhen ke liye</span>
+  </div>
+
+  <div class="para-grid" id="paraGrid"></div>
+</div>
+
+<!-- READER OVERLAY -->
+<div class="reader-overlay" id="readerOverlay">
+  <div class="reader-panel" id="readerPanel">
+    <div class="reader-header">
+      <div>
+        <div class="reader-title" id="readerTitle">Para 1 — Alif Lam Meem</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.6);margin-top:4px;" id="readerSubtitle">Al-Fatiha — Al-Baqarah 141</div>
+      </div>
+      <button class="reader-close" onclick="closeReader()">✕</button>
+    </div>
+
+    <!-- AUDIO BAR -->
+    <div class="audio-bar">
+      <div class="audio-controls">
+        <button class="audio-btn" onclick="prevAyah()" title="Pichli Ayat">⏮</button>
+        <button class="audio-btn play-main" id="playBtn" onclick="togglePlay()" title="Play/Pause">▶</button>
+        <button class="audio-btn" onclick="nextAyah()" title="Agli Ayat">⏭</button>
+        <button class="audio-btn" id="repeatBtn" onclick="toggleRepeat()" title="Repeat">🔁</button>
+      </div>
+      <div class="audio-info">
+        <div class="audio-ayah-text" id="audioAyahText">Audio load ho raha hai...</div>
+        <div class="audio-progress" id="audioProgress" onclick="seekAudio(event)">
+          <div class="audio-progress-fill" id="progressFill" style="width:0%"></div>
+        </div>
+        <div style="font-size:10px;color:rgba(255,255,255,.4);margin-top:3px;" id="audioTime">0:00 / 0:00</div>
+      </div>
+      <select class="reciter-select" id="reciterSelect" onchange="changeReciter(this.value)">
+        <option value="ar.alafasy">Mishary Alafasy</option>
+        <option value="ar.abdurrahmaansudais">Sudais</option>
+        <option value="ar.husary">Husary</option>
+        <option value="ar.minshawi">Minshawi</option>
+      </select>
+      <a class="download-btn" id="downloadBtn" href="#" download title="Download Audio">⬇ Download</a>
+    </div>
+
+    <!-- TRANSLATION CONTROLS -->
+    <div class="trans-bar">
+      <span style="font-size:12px;color:var(--muted);font-weight:600;">Tarjuma:</span>
+      <button class="trans-btn" data-trans="none" onclick="setTrans('none')">صرف عربی</button>
+      <button class="trans-btn active" data-trans="urdu" onclick="setTrans('urdu')">اردو</button>
+      <button class="trans-btn" data-trans="english" onclick="setTrans('english')">English</button>
+      <button class="trans-btn" data-trans="both" onclick="setTrans('both')">Urdu + English</button>
+      <div class="font-size-ctrl">
+        <span>Font:</span>
+        <button class="fz-btn" onclick="changeFontSize(-2)">A-</button>
+        <button class="fz-btn" onclick="changeFontSize(2)">A+</button>
+      </div>
+    </div>
+
+    <!-- VERSES -->
+    <div class="verses-container" id="versesContainer">
+      <div class="loading-spinner"><div class="spinner"></div><span>Quran load ho raha hai...</span></div>
+    </div>
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+
+<script src="js/shared.js"></script>
+<script>
+document.getElementById('header-placeholder').innerHTML = buildHeader('quran.html');
+document.getElementById('footer-placeholder').innerHTML = buildFooter();
+
+// Para data
+const PARAS = [
+  {n:1,ar:'الم',en:'Alif Lam Meem',surah:'Al-Fatiha – Al-Baqarah 141',juz:1},
+  {n:2,ar:'سَيَقُولُ',en:'Sayaqool',surah:'Al-Baqarah 142–252',juz:2},
+  {n:3,ar:'تِلْكَ الرُّسُلُ',en:"Tilka'r Rusul",surah:'Al-Baqarah 253 – Aal Imran 91',juz:3},
+  {n:4,ar:'لَن تَنَالُوا',en:'Lan Tanaloo',surah:'Aal Imran 92 – An-Nisa 23',juz:4},
+  {n:5,ar:'وَالْمُحْصَنَاتُ',en:'Wal Mohsanat',surah:'An-Nisa 24–147',juz:5},
+  {n:6,ar:'لَا يُحِبُّ اللَّهُ',en:'La Yuhibbu Allah',surah:'An-Nisa 148 – Al-Maidah 81',juz:6},
+  {n:7,ar:'وَإِذَا سَمِعُوا',en:'Wa Iza Samioo',surah:"Al-Maidah 82 – Al-An'am 110",juz:7},
+  {n:8,ar:'وَلَوْ أَنَّنَا',en:'Wa Lau Annana',surah:"Al-An'am 111 – Al-A'raf 87",juz:8},
+  {n:9,ar:'قَالَ الْمَلَأُ',en:'Qalal Malao',surah:"Al-A'raf 88 – Al-Anfal 40",juz:9},
+  {n:10,ar:'وَاعْلَمُوا',en:"Wa A'lamu",surah:'Al-Anfal 41 – At-Tawbah 92',juz:10},
+  {n:11,ar:'يَعْتَذِرُونَ',en:"Ya'tazeroon",surah:'At-Tawbah 93 – Hud 5',juz:11},
+  {n:12,ar:'وَمَا مِن دَابَّةٍ',en:'Wa Mamin Dabbah',surah:'Hud 6 – Yusuf 52',juz:12},
+  {n:13,ar:'وَمَا أُبَرِّئُ',en:'Wa Ma Ubarrio',surah:'Yusuf 53 – Ibrahim 52',juz:13},
+  {n:14,ar:'رُبَمَا',en:'Rubama',surah:'Al-Hijr – An-Nahl 128',juz:14},
+  {n:15,ar:'سُبْحَانَ الَّذِي',en:'Subhanallazi',surah:'Al-Isra – Al-Kahf 74',juz:15},
+  {n:16,ar:'قَالَ أَلَمْ',en:'Qala Alam',surah:'Al-Kahf 75 – Ta-Ha 135',juz:16},
+  {n:17,ar:'اقْتَرَبَ',en:'Iqtaraba',surah:'Al-Anbiya – Al-Hajj 78',juz:17},
+  {n:18,ar:'قَدْ أَفْلَحَ',en:'Qad Aflaha',surah:'Al-Muminoon – Al-Furqan 20',juz:18},
+  {n:19,ar:'وَقَالَ الَّذِينَ',en:'Wa Qalal Lazeena',surah:'Al-Furqan 21 – An-Naml 55',juz:19},
+  {n:20,ar:'أَمَّن خَلَقَ',en:'Aman Khalaq',surah:'An-Naml 56 – Al-Ankabut 45',juz:20},
+  {n:21,ar:'اتْلُ مَا أُوحِيَ',en:'Otlu Ma Oohiya',surah:'Al-Ankabut 46 – Al-Ahzab 30',juz:21},
+  {n:22,ar:'وَمَن يَقْنُتْ',en:'Wa Manyaqnut',surah:'Al-Ahzab 31 – Ya-Seen 27',juz:22},
+  {n:23,ar:'وَمَا لِيَ',en:'Wa Mali',surah:'Ya-Seen 28 – Az-Zumar 31',juz:23},
+  {n:24,ar:'فَمَنْ أَظْلَمُ',en:'Faman Azlam',surah:'Az-Zumar 32 – Fussilat 46',juz:24},
+  {n:25,ar:'إِلَيْهِ يُرَدُّ',en:'Elahe Yuraddo',surah:'Fussilat 47 – Al-Jathiya 37',juz:25},
+  {n:26,ar:'حم',en:'Ha Meem',surah:'Al-Ahqaf – Az-Zariyat 30',juz:26},
+  {n:27,ar:'قَالَ فَمَا خَطْبُكُمْ',en:'Qala Fama Khatbukum',surah:'Az-Zariyat 31 – Al-Hadid 29',juz:27},
+  {n:28,ar:'قَدْ سَمِعَ اللَّهُ',en:'Qad Sameallah',surah:'Al-Mujadila – At-Tahrim',juz:28},
+  {n:29,ar:'تَبَارَكَ الَّذِي',en:'Tabarakallazi',surah:'Al-Mulk – Al-Mursalat',juz:29},
+  {n:30,ar:'عَمَّ',en:'Amma',surah:'An-Naba – An-Nas',juz:30},
+];
+
+// Render para grid
+const grid = document.getElementById('paraGrid');
+PARAS.forEach(p => {
+  const d = document.createElement('div');
+  d.className = 'para-card';
+  d.dataset.en = p.en.toLowerCase();
+  d.dataset.num = p.n;
+  d.innerHTML = `<span class="para-num">${p.n}</span><span class="para-ar">${p.ar}</span><span class="para-name">${p.en}</span><span class="para-surah">${p.surah}</span>`;
+  d.onclick = () => openPara(p);
+  grid.appendChild(d);
+});
+
+function filterParas(q) {
+  q = q.toLowerCase();
+  document.querySelectorAll('.para-card').forEach(c => {
+    const match = c.dataset.en.includes(q) || c.dataset.num.includes(q);
+    c.style.display = match ? '' : 'none';
+  });
+}
+
+// === READER STATE ===
+let currentPara = null;
+let verses = [];
+let currentIdx = 0;
+let audio = null;
+let isPlaying = false;
+let repeatMode = false;
+let transMode = 'urdu';
+let arabicFontSize = 26;
+let reciter = 'ar.alafasy';
+let audioReady = false;
+
+function openPara(para) {
+  currentPara = para;
+  document.getElementById('readerTitle').textContent = `Para ${para.n} — ${para.en}`;
+  document.getElementById('readerSubtitle').textContent = para.surah;
+  document.getElementById('versesContainer').innerHTML = '<div class="loading-spinner"><div class="spinner"></div><span>Ayaat load ho rahi hain...</span></div>';
+  document.getElementById('readerOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  loadParaVerses(para.n);
+}
+
+function closeReader() {
+  stopAudio();
+  document.getElementById('readerOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+  verses = [];
+  currentIdx = 0;
+}
+
+document.getElementById('readerOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeReader();
+});
+
+// JUZ/PARA to surah mapping
+const PARA_SURAHS = {
+  1:[{s:1,from:1,to:7},{s:2,from:1,to:141}],
+  2:[{s:2,from:142,to:252}],
+  3:[{s:2,from:253,to:286},{s:3,from:1,to:91}],
+  4:[{s:3,from:92,to:200},{s:4,from:1,to:23}],
+  5:[{s:4,from:24,to:147}],
+  6:[{s:4,from:148,to:176},{s:5,from:1,to:81}],
+  7:[{s:5,from:82,to:120},{s:6,from:1,to:110}],
+  8:[{s:6,from:111,to:165},{s:7,from:1,to:87}],
+  9:[{s:7,from:88,to:206},{s:8,from:1,to:40}],
+  10:[{s:8,from:41,to:75},{s:9,from:1,to:92}],
+  29:[{s:67,from:1,to:30},{s:68,from:1,to:52},{s:69,from:1,to:52},{s:70,from:1,to:44},{s:71,from:1,to:28},{s:72,from:1,to:28},{s:73,from:1,to:20},{s:74,from:1,to:56},{s:75,from:1,to:40},{s:76,from:1,to:31},{s:77,from:1,to:50}],
+  30:[{s:78,from:1,to:40},{s:79,from:1,to:46},{s:80,from:1,to:42},{s:81,from:1,to:29},{s:82,from:1,to:19},{s:83,from:1,to:36},{s:84,from:1,to:25},{s:85,from:1,to:22},{s:86,from:1,to:17},{s:87,from:1,to:19},{s:88,from:1,to:26},{s:89,from:1,to:30},{s:90,from:1,to:20},{s:91,from:1,to:15},{s:92,from:1,to:21},{s:93,from:1,to:11},{s:94,from:1,to:8},{s:95,from:1,to:8},{s:96,from:1,to:19},{s:97,from:1,to:5},{s:98,from:1,to:8},{s:99,from:1,to:8},{s:100,from:1,to:11},{s:101,from:1,to:11},{s:102,from:1,to:8},{s:103,from:1,to:3},{s:104,from:1,to:9},{s:105,from:1,to:5},{s:106,from:1,to:4},{s:107,from:1,to:7},{s:108,from:1,to:3},{s:109,from:1,to:6},{s:110,from:1,to:3},{s:111,from:1,to:5},{s:112,from:1,to:4},{s:113,from:1,to:5},{s:114,from:1,to:6}]
+};
+
+async function loadParaVerses(paraNum) {
+  try {
+    // Use alquran.cloud API - juz endpoint
+    const url = `https://api.alquran.cloud/v1/juz/${paraNum}/editions/quran-uthmani,ur.maududi,en.sahih`;
+    const r = await fetch(url);
+    const d = await r.json();
+    if (d.status !== 'OK') throw new Error('API error');
+    
+    const ar = d.data[0].ayahs;
+    const ur = d.data[1].ayahs;
+    const en = d.data[2].ayahs;
+    
+    verses = ar.map((a,i) => ({
+      num: a.numberInSurah,
+      surahNum: a.surah.number,
+      surahName: a.surah.englishName,
+      surahNameAr: a.surah.name,
+      globalNum: a.number,
+      arabic: a.text,
+      urdu: ur[i]?.text || '',
+      english: en[i]?.text || '',
+    }));
+    
+    renderVerses();
+  } catch(e) {
+    // Fallback: show message
+    document.getElementById('versesContainer').innerHTML = `
+      <div style="padding:40px;text-align:center;color:var(--muted);">
+        <div style="font-size:48px;margin-bottom:16px;">📡</div>
+        <div style="font-family:'Playfair Display',serif;font-size:18px;color:var(--emerald);margin-bottom:10px;">Internet connection required</div>
+        <p style="font-size:14px;">Quran text API se load hota hai. Please internet connect karein.</p>
+        <button onclick="loadParaVerses(${paraNum})" class="btn-gold" style="margin-top:16px;border:none;cursor:pointer;">Dobara Try Karein</button>
+      </div>`;
+  }
+}
+
+function renderVerses() {
+  const container = document.getElementById('versesContainer');
+  if (!verses.length) { container.innerHTML = '<div class="loading-spinner"><span>Koi ayat nahi mili</span></div>'; return; }
+  
+  let html = '';
+  let lastSurah = 0;
+  verses.forEach((v,i) => {
+    if (v.surahNum !== lastSurah) {
+      lastSurah = v.surahNum;
+      html += `<div style="background:linear-gradient(135deg,var(--emerald),var(--emerald-mid));color:white;padding:14px 28px;text-align:center;">
+        <div style="font-family:'Scheherazade New',serif;font-size:22px;color:var(--gold-light);">${v.surahNameAr}</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.7);margin-top:2px;">Surah ${v.surahNum}: ${v.surahName}</div>
+        ${v.surahNum !== 9 ? '<div style="font-family:\'Scheherazade New\',serif;font-size:20px;color:var(--gold-light);margin-top:8px;direction:rtl;">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>' : ''}
+      </div>`;
+    }
+    html += `<div class="verse-item" id="vi${i}" onclick="playVerse(${i})">
+      <div class="verse-num">${v.num}</div>
+      <div class="verse-content">
+        <div class="verse-arabic" style="font-size:${arabicFontSize}px;">${v.arabic} ﴿${v.num}﴾</div>
+        <div class="verse-urdu ${transMode==='urdu'||transMode==='both'?'show':''}">${v.urdu}</div>
+        <div class="verse-english ${transMode==='english'||transMode==='both'?'show':''}">${v.english}</div>
+        <div class="verse-actions">
+          <button class="vaction-btn" onclick="event.stopPropagation();playVerse(${i})">▶ Listen</button>
+          <button class="vaction-btn" onclick="event.stopPropagation();copyVerse(${i})">📋 Copy</button>
+          <button class="vaction-btn" onclick="event.stopPropagation();shareVerse(${i})">📤 Share</button>
+        </div>
+      </div>
+    </div>`;
+  });
+  container.innerHTML = html;
+  updateTransDisplay();
+}
+
+// AUDIO
+function getAudioUrl(globalNum) {
+  const n = String(globalNum).padStart(6, '0');
+  return `https://cdn.islamic.network/quran/audio/128/${reciter}/${globalNum}.mp3`;
+}
+
+function playVerse(idx) {
+  stopAudio(false);
+  currentIdx = idx;
+  highlightVerse(idx);
+  const v = verses[idx];
+  if (!v) return;
+  
+  document.getElementById('audioAyahText').textContent = v.arabic;
+  const url = getAudioUrl(v.globalNum);
+  document.getElementById('downloadBtn').href = url;
+  document.getElementById('downloadBtn').download = `quran_${v.surahNum}_${v.num}.mp3`;
+  
+  audio = new Audio(url);
+  audio.addEventListener('timeupdate', updateProgress);
+  audio.addEventListener('ended', onEnded);
+  audio.addEventListener('loadedmetadata', () => { audioReady = true; updateTime(); });
+  audio.play().catch(() => {});
+  isPlaying = true;
+  document.getElementById('playBtn').textContent = '⏸';
+}
+
+function togglePlay() {
+  if (!audio && verses.length) { playVerse(currentIdx); return; }
+  if (!audio) return;
+  if (isPlaying) { audio.pause(); isPlaying = false; document.getElementById('playBtn').textContent = '▶'; }
+  else { audio.play(); isPlaying = true; document.getElementById('playBtn').textContent = '⏸'; }
+}
+
+function stopAudio(reset=true) {
+  if (audio) { audio.pause(); audio.src=''; audio=null; }
+  isPlaying = false;
+  if (reset) { document.getElementById('playBtn').textContent = '▶'; document.getElementById('progressFill').style.width='0%'; }
+}
+
+function onEnded() {
+  if (repeatMode) { playVerse(currentIdx); return; }
+  // Continuous play — next verse
+  if (currentIdx + 1 < verses.length) { playVerse(currentIdx + 1); scrollToVerse(currentIdx + 1); }
+  else { stopAudio(); }
+}
+
+function nextAyah() { if (currentIdx + 1 < verses.length) playVerse(currentIdx + 1); }
+function prevAyah() { if (currentIdx > 0) playVerse(currentIdx - 1); }
+
+function toggleRepeat() {
+  repeatMode = !repeatMode;
+  document.getElementById('repeatBtn').style.background = repeatMode ? 'var(--gold)' : '';
+}
+
+function changeReciter(v) { reciter = v; if (audio) { stopAudio(); playVerse(currentIdx); } }
+
+function updateProgress() {
+  if (!audio || !audio.duration) return;
+  const pct = (audio.currentTime / audio.duration) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+  updateTime();
+}
+
+function updateTime() {
+  if (!audio) return;
+  const fmt = s => `${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}`;
+  document.getElementById('audioTime').textContent = `${fmt(audio.currentTime||0)} / ${fmt(audio.duration||0)}`;
+}
+
+function seekAudio(e) {
+  if (!audio || !audio.duration) return;
+  const rect = e.currentTarget.getBoundingClientRect();
+  audio.currentTime = ((e.clientX - rect.left) / rect.width) * audio.duration;
+}
+
+function highlightVerse(idx) {
+  document.querySelectorAll('.verse-item').forEach(v => { v.classList.remove('active','playing'); });
+  const el = document.getElementById(`vi${idx}`);
+  if (el) el.classList.add('playing');
+}
+
+function scrollToVerse(idx) {
+  const el = document.getElementById(`vi${idx}`);
+  if (el) el.scrollIntoView({ behavior:'smooth', block:'center' });
+}
+
+function setTrans(mode) {
+  transMode = mode;
+  document.querySelectorAll('.trans-btn').forEach(b => b.classList.toggle('active', b.dataset.trans === mode));
+  updateTransDisplay();
+}
+
+function updateTransDisplay() {
+  document.querySelectorAll('.verse-urdu').forEach(el => el.classList.toggle('show', transMode==='urdu'||transMode==='both'));
+  document.querySelectorAll('.verse-english').forEach(el => el.classList.toggle('show', transMode==='english'||transMode==='both'));
+}
+
+function changeFontSize(delta) {
+  arabicFontSize = Math.max(18, Math.min(40, arabicFontSize + delta));
+  document.querySelectorAll('.verse-arabic').forEach(el => el.style.fontSize = arabicFontSize + 'px');
+}
+
+function copyVerse(idx) {
+  const v = verses[idx];
+  const text = `${v.arabic}\n${v.urdu}\n${v.english}\n— Surah ${v.surahName} ${v.surahNum}:${v.num}`;
+  navigator.clipboard?.writeText(text).then(() => alert('Ayat copy ho gayi!'));
+}
+
+function shareVerse(idx) {
+  const v = verses[idx];
+  const text = `${v.arabic}\n${v.urdu}\n— Surah ${v.surahName} ${v.surahNum}:${v.num}\n\nIslamicInsights-net.netlify.app`;
+  if (navigator.share) navigator.share({ text });
+  else copyVerse(idx);
+}
+
+// Set translation buttons data-trans
+document.querySelectorAll('.trans-btn').forEach(b => {
+  if (!b.dataset.trans) b.dataset.trans = b.textContent.trim().toLowerCase().includes('urdu') ? 'urdu' : b.textContent.trim().toLowerCase().includes('english') ? 'english' : b.textContent.trim().toLowerCase().includes('+') ? 'both' : 'none';
+});
+</script>
+</body>
+</html>
